@@ -1,16 +1,12 @@
 @import url("./tailwind.css");
 
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-/*poppins*/
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap");
-
 @font-face {
-  font-family: "HuboSans";
-  src: url("@/assets/fonts/Hubot-Sans.ttf");
+  font-family: "Mazzard";
+  src: url("@/assets/fonts/MazzardM-Light.ttf");
 }
 
 html {
-  font-family: "Inter", sans-serif;
+  font-family: "Mazzard", sans-serif;
   min-height: 100vh;
   font-size: 16px;
 }

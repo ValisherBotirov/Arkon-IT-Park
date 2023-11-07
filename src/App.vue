@@ -2,7 +2,7 @@
   <div>
     <div
       v-if="width < 500"
-      class="dark:bg-[#010108] bg-gray-500 h-full overflow-hidden min-h-[100vh] flex flex-col justify-between"
+      class="dark:bg-[#010108] bg-white h-full overflow-hidden min-h-[100vh] flex flex-col justify-between"
     >
    <div>
 <!--        <SHeader />-->
