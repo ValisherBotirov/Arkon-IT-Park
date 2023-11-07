@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="relative h-[500px] before:content-[''] before:w-full before:h-[500px] before:bg-[#333333] before:absolute before:z-[1] before:opacity-[0.2]"
+      class="relative h-[500px] before:content-[''] before:w-full before:h-[500px] before:bg-[#333333] before:absolute before:z-[1] before:opacity-[0.2] bg-no-repeat bg-cover"
       v-bind:style="{ 'background-image': 'url(' + image + ')' }"
     >
               <SHeader is-black/>
@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="container">
-      <RouterCard class="translate-y-[-40px]"/>
+      <RouterCard class="translate-y-[-40px] relative z-20"/>
       <div class="bg-[#1A1A1A] p-5 text-white rounded-[25px] translate-y-[-10px]">
         <p class="leading-[18.91px] ">Керамические плиты Laminam — это идеальное решение для вашего фасада и интерьера комнат. Широкоформатные слэбы отличаются исключительными свойствами:
           устойчивы к перепадам температур;
@@ -21,7 +21,7 @@
           Удобный формат и большой спектр положительных качеств позволят использовать керамические плиты и для изготовления мебели: столешниц, кухонь, раковин и др.</p>
       </div>
       <div class="flex flex-col gap-[30px] mt-5">
-        <CategoryCard v-for="item in 15" :key="item"/>
+        <CategoryCard v-for="item in 15" :key="item" :link="`/product?id=${item}`" text="test" img=""/>
       </div>
     </div>
   </div>

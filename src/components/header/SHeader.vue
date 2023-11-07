@@ -22,12 +22,12 @@
 
         <div class="flex items-center gap-4">
           <DarkSwitcher />
-<!--          <div-->
-<!--            class="block lg:hidden flex-shrink-0 text-white cursor-pointer"-->
-<!--            @click="openSidebar = true"-->
-<!--          >-->
-<!--            <i class="fa-solid fa-bars text-[20px] ms:text-[25px]"></i>-->
-<!--          </div>-->
+          <div v-if="isIcon"
+            class="block lg:hidden flex-shrink-0 text-white cursor-pointer"
+            @click="closePage(`${iconPath}`)"
+          >
+            <i class="fa-solid fa-xmark text-[20px] text-2xl"></i>
+          </div>
         </div>
       </div>
     </div>
@@ -38,20 +38,30 @@
 import { ref } from "vue";
 import SideBar from "@/components/SideBar.vue";
 import DarkSwitcher from "@/components/header/DarkSwitcher.vue";
+import {useRouter} from "vue-router";
 
 interface Props{
-  isBlack:boolean
+  isBlack?:boolean
+  isIcon?:boolean
+  iconPath?:string
 }
 
 withDefaults(defineProps<Props>(),{
-  isBlack:false
+  isBlack:false,
+  isIcon:false
 })
 
 const openSidebar = ref(false);
+const router = useRouter()
 
 function getImageUrl(name: string) {
   return new URL(`../assets/icon/${name}.svg`, import.meta.url).href;
 }
+
+function closePage(link:string){
+  router.push(link)
+}
+
 </script>
 <style scoped>
 .navItem::after {
