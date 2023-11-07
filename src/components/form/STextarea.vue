@@ -6,7 +6,7 @@
       class="flex sm:items-end items-start justify-between mb-1 sm:mb-2 flex-col gap-2 sm:flex-row"
     >
       <span class="text-sm sm:text-base leading-130 text-white font-normal">
-        {{ (label) }}
+        {{ label }}
       </span>
       <transition name="fade">
         <slot name="error">

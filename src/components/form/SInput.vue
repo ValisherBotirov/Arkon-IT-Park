@@ -6,7 +6,7 @@
       class="flex items-center justify-between mb-1 sm:mb-2"
     >
       <span class="text-sm sm:text-base leading-130 text-white font-normal">
-        {{ (label) }}
+        {{ label }}
       </span>
       <transition name="fade">
         <span

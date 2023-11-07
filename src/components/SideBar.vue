@@ -8,9 +8,7 @@
         @click="emit('closeSidebar', false)"
         class="fa-sharp fa-solid fa-xmark text-white text-2xl top-10 right-10 absolute"
       ></i>
-      <div>
-        sidebar section
-      </div>
+      <div>sidebar section</div>
     </div>
   </Teleport>
 </template>
