@@ -13,6 +13,11 @@
       <div>
         <AnimationCard/>
       </div>
+      <div>
+        <STable/>
+        <STable class="mt-[30px]" one-head/>
+        <STable class="mt-[30px]" is-head/>
+      </div>
     </div>
   </div>
 </template>
@@ -21,6 +26,7 @@
 import SHeader from "@/components/header/SHeader.vue";
 import {useRoute} from "vue-router";
 import AnimationCard from "@/components/card/AnimationCard.vue";
+import STable from "@/components/table/STable.vue";
 const route = useRoute()
 
 const image = `/src/assets/fake-images/banner-single.png`;
