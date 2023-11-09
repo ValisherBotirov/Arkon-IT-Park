@@ -11,11 +11,11 @@
     </div>
     <div class="container">
       <div>
-        <AnimationCard/>
+        <AnimationCard class="translate-y-[-40px] h-[100px]"/>
       </div>
       <div>
-        <STable/>
-        <STable class="mt-[30px]" one-head/>
+        <STable class="-translate-y-5"/>
+        <STable class="mt-[10px]" one-head/>
         <STable class="mt-[30px]" is-head/>
       </div>
     </div>
