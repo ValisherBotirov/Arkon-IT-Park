@@ -25,7 +25,17 @@ const routes = [
     path: "/brand/:id",
     name: "brand-single",
     component: () => import("@/pages/brand/BrandSingle.vue"),
-  }
+  },
+  {
+    path: "/union",
+    name: "union",
+    component: () => import("@/pages/union/UnionPage.vue"),
+  },
+  {
+    path: "/primer",
+    name: "primer",
+    component: () => import("@/pages/primer/PrimerPage.vue"),
+  },
 ];
 
 const router = createRouter({

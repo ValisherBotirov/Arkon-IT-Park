@@ -12,7 +12,23 @@
       <SLoading v-if="isLoading" />
     </div>
     <div v-else class="w-screen h-screen flex justify-center items-center">
-      <p class="text-3xl font-medium">QR kode uchun placeaas</p>
+      <div class="px-[100px] mt-[100px] text-center">
+        <div class="flex justify-center">
+          <img src="./assets/icon/logo_black.svg" alt="" />
+        </div>
+
+        <p class="text-4xl mt-5">
+          Отсканируйте QR код чтобы открыть <br />
+          сайт на мобильном устройстве.
+        </p>
+        <div class="flex justify-center">
+          <img
+            src="./assets/svg/qr-code.png"
+            class="w-[210px] h-[210px] mt-8"
+            alt=""
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
