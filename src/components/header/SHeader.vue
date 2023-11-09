@@ -1,10 +1,6 @@
 <template>
   <div>
     <div class="container relative z-[20]">
-      <SideBar
-        :is-open="openSidebar"
-        @closeSidebar="(e) => (openSidebar = e)"
-      />
 
       <div class="flex justify-between items-center py-3 pt-8">
         <router-link to="/" class="flex flex-shrink-0">
@@ -51,7 +47,6 @@ withDefaults(defineProps<Props>(),{
   isIcon:false
 })
 
-const openSidebar = ref(false);
 const router = useRouter()
 
 function getImageUrl(name: string) {
