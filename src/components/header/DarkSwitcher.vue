@@ -2,7 +2,7 @@
 import {onMounted, ref} from "vue"
 const storageKey = 'theme-preference'
 
-const theme = ref('light')
+const theme = ref('dark')
 
 
 function addDarkClass(){
@@ -12,15 +12,6 @@ function addDarkClass(){
   else{
     document.documentElement.classList.remove('dark')
   }
-}
-
-const getColorPreference = () => {
-  if (localStorage.getItem(storageKey))
-    return localStorage.getItem(storageKey)
-  else
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light'
 }
 
 const setPreference = () => {
@@ -40,7 +31,6 @@ const reflectPreference = () => {
 
 
 function changeThem(){
-  console.log("click")
   theme.value = theme.value === 'light'
       ? 'dark'
       : 'light'
@@ -48,11 +38,9 @@ function changeThem(){
 }
 
 onMounted(()=>{
-  changeThem()
+  theme.value = localStorage.getItem(storageKey) || 'dark'
+  setPreference()
   reflectPreference()
-
-  theme.value = getColorPreference()
-
 })
 
 </script>

@@ -16,10 +16,10 @@
       <div class="translate-y-[-10px]">
         <p class="text-black dark:text-white leading-[28.37px] font-medium text-2xl">Пуфы ROUND</p>
         <div class="grid grid-cols-2 gap-5 mt-5">
-          <router-link to="/brand/1" class="bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center">
+          <router-link to="/brand/1" class="dark:bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center">
             <img src="@/assets/fake-images/safe2.png" alt="sofa images">
           </router-link>
-          <router-link to="/brand/1" class="bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center">
+          <router-link to="/brand/1" class="dark:bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center">
             <img src="@/assets/fake-images/safe1.png" alt="sofa images">
           </router-link>
         </div>
@@ -27,13 +27,13 @@
       <div class="mt-[30px]">
         <p class="text-black dark:text-white leading-[28.37px] font-medium text-2xl">Диваны BASIC</p>
         <div class="grid grid-cols-1 gap-[30px] mt-5">
-          <router-link to="/brand/1" class="bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center max-h-[250px]">
+          <router-link to="/brand/1" class="dark:bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center max-h-[250px]">
             <img src="@/assets/fake-images/safe3.png" alt="sofa images">
           </router-link>
-          <router-link to="/brand/1" class="bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center max-h-[250px]">
+          <router-link to="/brand/1" class="dark:bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center max-h-[250px]">
             <img src="@/assets/fake-images/safe4.png" alt="sofa images">
           </router-link>
-          <router-link to="/brand/1" class="bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center max-h-[250px]">
+          <router-link to="/brand/1" class="dark:bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center max-h-[250px]">
             <img src="@/assets/fake-images/safe4.png" alt="sofa images">
           </router-link>
         </div>
@@ -41,13 +41,13 @@
       <div class="mt-[30px]">
         <p class="text-black dark:text-white leading-[28.37px] font-medium text-2xl">Диваны CLOUD</p>
         <div class="grid grid-cols-1 gap-[30px] mt-5">
-          <router-link to="/brand/2" class="bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center max-h-[250px]">
+          <router-link to="/brand/2" class="dark:bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center max-h-[250px]">
             <img src="@/assets/fake-images/safe3.png" alt="sofa images">
           </router-link>
-          <router-link to="/brand/2" class="bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center max-h-[250px]">
+          <router-link to="/brand/2" class="dark:bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center max-h-[250px]">
             <img src="@/assets/fake-images/safe4.png" alt="sofa images">
           </router-link>
-          <router-link to="/brand/2" class="bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center max-h-[250px]">
+          <router-link to="/brand/2" class="dark:bg-[#1A1A1A] rounded-[25px] p-5 flex justify-center items-center max-h-[250px]">
           <img src="@/assets/fake-images/safe4.png" alt="sofa images">
         </router-link>
         </div>
