@@ -12,7 +12,7 @@
       <SLoading v-if="isLoading" />
     </div>
     <div v-else class="w-screen h-screen flex justify-center items-center">
-      <p class="text-3xl font-medium">QR kode uchun places</p>
+      <p class="text-3xl font-medium">QR kode uchun placeaas</p>
     </div>
   </div>
 </template>
