@@ -4,7 +4,7 @@
         class="relative h-[500px] before:content-[''] before:w-full before:h-[500px] before:bg-[#333333] before:absolute before:z-[1] before:opacity-[0.2] bg-no-repeat bg-cover"
         v-bind:style="{ 'background-image': 'url(' + image + ')' }"
     >
-      <SHeader is-icon icon-path="/"/>
+      <SHeader/>
       <div class="container relative z-20 ">
         <h2 class="text-[32px] leading-[37.82px] font-semibold text-white max-w-[310px] pt-[233px] uppercase">PREDMET Делаем
           мебель с душой</h2>
