@@ -2,7 +2,7 @@
   <Teleport to="body">
     <div
       :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
-      class="fixed w-full h-[100vh] inset-y-0 z-[99999] duration-300 right-0 bg-black z-[9999]"
+      class="fixed w-full h-[100vh] inset-y-0 duration-300 right-0 bg-black z-[9999]"
     >
       <i
         @click="emit('closeSidebar', false)"
