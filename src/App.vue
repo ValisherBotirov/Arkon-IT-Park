@@ -40,6 +40,7 @@ import SLoading from "@/components/SLoading.vue";
 import SHeader from "@/components/header/SHeader.vue";
 import NavBar from "@/components/NavBar.vue";
 
+
 const isLoading = ref(true);
 
 const width = ref(window.innerWidth);
