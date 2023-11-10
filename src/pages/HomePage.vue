@@ -30,5 +30,20 @@
 import SHeader from "@/components/header/SHeader.vue";
 import RouterCard from "@/components/card/RouterCard.vue";
 import CategoryCard from "@/components/card/CategoryCard.vue";
+import axios from "@/plugins/axios.ts";
+import {onMounted} from "vue";
 const image = `src/assets/static/homebanner.png`;
+
+
+function fetchTest(){
+  axios.get('stones/brand-list/').then((res:any)=>{
+    console.log(res)
+  }).catch((err:any)=>{
+    console.log(err)
+  })
+}
+
+onMounted(()=>{
+  fetchTest()
+})
 </script>
