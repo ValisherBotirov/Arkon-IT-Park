@@ -2,15 +2,21 @@
   <Teleport to="body">
     <div
       :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
-      class="fixed w-full h-[100vh] inset-y-0 z-[99999] duration-300 right-0 bg-[#FAFAFA] dark:bg-[#000000] z-[9999]"
+      class="fixed w-full h-[100vh] inset-y-0 z-[99999] duration-300 right-0 bg-white dark:bg-[#000000] z-[9999]"
     >
       <div class="flex justify-between px-10 pt-10">
         <div class="">
           <img
-            src="../assets/icon/logo_black.svg"
-            class="w-[127px] h-[43px]"
+            src="../assets/icon/logo.svg"
+            class="w-[127px] h-[43px] hidden dark:flex"
             alt=""
           />
+          <img
+            src="../assets/icon/logo_black.svg "
+            class="w-[127px] h-[43px] dark:hidden"
+            alt=""
+          />
+
         </div>
         <i
           @click="emit('closeSidebar', false)"
@@ -20,28 +26,29 @@
       <div class="text-black dark:text-white p-10">
         <input
           type="text"
-          class="bg-[#0000] text-black border-none dark:text-white text-xl border-2 w-full border-[black] border-b-white"
+          class="bg-[#0000] dark:text-white text-xl border-2 border-none w-full "
           placeholder="Поиск"
           name=""
           id=""
         />
+        <hr>
         <div>
           <div class="flex justify-between mt-5">
             <p class="text-2xl">Фильтры</p>
             <i
               @click="opens()"
               :class="isOpenSelects ? '' : 'rotate-[180deg]'"
-              class="text-2xl text-white fa-solid fa-chevron-down transition duration-300"
+              class="text-2xl dark:text-white text-black fa-solid fa-chevron-down transition duration-300"
             ></i>
           </div>
-          <div :class="isOpenSelects ? 'hidden' : ''" class="w-full text-xl">
-            <div class="bg-[#1A1A1A] mt-3 p-4 rounded-2xl">
+          <div :class="isOpenSelects ? 'hidden' : ''" class="w-full text-xl dark:text-white text-black ">
+            <div class="dark:bg-[#1A1A1A] bg-[#FAFAFA]  mt-3 p-4 rounded-2xl">
               <p class="text-xl">Laminam</p>
             </div>
-            <div class="bg-[#1A1A1A] mt-3 p-4 rounded-2xl">
+            <div class="dark:bg-[#1A1A1A] bg-[#FAFAFA] mt-3 p-4 rounded-2xl">
               <p class="text-xl">Predmet</p>
             </div>
-            <div class="bg-[#1A1A1A] mt-3 p-4 rounded-2xl">
+            <div class="dark:bg-[#1A1A1A] bg-[#FAFAFA] mt-3 p-4 rounded-2xl">
               <p class="text-xl">Golden House</p>
             </div>
           </div>
@@ -52,17 +59,17 @@
             <i
               @click="open()"
               :class="isOpenSelect ? '' : 'rotate-[180deg]'"
-              class="text-2xl text-white fa-solid fa-chevron-down transition duration-300"
+              class="text-2xl dark:text-white text-black fa-solid fa-chevron-down transition duration-300"
             ></i>
           </div>
           <div :class="isOpenSelect ? 'hidden' : ''" class="w-full text-xl">
-            <div class="bg-[#1A1A1A] mt-3 p-4 rounded-2xl">
+            <div class="dark:bg-[#1A1A1A] bg-[#FAFAFA] mt-3 p-4 rounded-2xl">
               <p class="text-xl">Laminam</p>
             </div>
-            <div class="bg-[#1A1A1A] mt-3 p-4 rounded-2xl">
+            <div class="dark:bg-[#1A1A1A] bg-[#FAFAFA] mt-3 p-4 rounded-2xl">
               <p class="text-xl">Predmet</p>
             </div>
-            <div class="bg-[#1A1A1A] mt-3 p-4 rounded-2xl">
+            <div class="dark:bg-[#1A1A1A] bg-[#FAFAFA] mt-3 p-4 rounded-2xl">
               <p class="text-xl">Golden House</p>
             </div>
           </div>
