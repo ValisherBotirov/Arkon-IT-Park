@@ -11,8 +11,8 @@
     </div>
     <div class="container">
       <RouterCard class="translate-y-[-40px] relative z-20"/>
-      <div class="bg-[#1A1A1A] p-5 text-white rounded-[25px] translate-y-[-10px]">
-        <p class="leading-[18.91px] ">Керамические плиты Laminam — это идеальное решение для вашего фасада и интерьера комнат. Широкоформатные слэбы отличаются исключительными свойствами:
+      <div class=" dark:bg-[#1A1A1A] bg-[#FAFAFA] p-5 dark:text-white text-black rounded-[25px] translate-y-[-10px]">
+        <p class="leading-[18.91px]">Керамические плиты Laminam — это идеальное решение для вашего фасада и интерьера комнат. Широкоформатные слэбы отличаются исключительными свойствами:
           устойчивы к перепадам температур;
           обладают влагоотталкивающим свойством;
           препятствуют проникновению УФ-лучей;

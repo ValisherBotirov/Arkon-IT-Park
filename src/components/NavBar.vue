@@ -2,7 +2,7 @@
 import SideBar from "@/components/SideBar.vue";
 import {ref} from "vue";
 
-const openSidebar = ref(false);
+const openSidebar = ref(true);
 </script>
 
 <template>

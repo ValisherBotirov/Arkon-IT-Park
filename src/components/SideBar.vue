@@ -7,7 +7,7 @@
       <div class="flex justify-between px-10 pt-10">
         <div class="">
           <img
-            src="../assets/icon/logo.svg"
+            src="../assets/icon/logo_black.svg"
             class="w-[127px] h-[43px]"
             alt=""
           />
@@ -20,7 +20,7 @@
       <div class="text-black dark:text-white p-10">
         <input
           type="text"
-          class="bg-[#0000] text-black dark:text-white text-xl border-2 w-full border-[black] border-b-white"
+          class="bg-[#0000] text-black border-none dark:text-white text-xl border-2 w-full border-[black] border-b-white"
           placeholder="Поиск"
           name=""
           id=""
