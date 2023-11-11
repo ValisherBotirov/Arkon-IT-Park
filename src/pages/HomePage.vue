@@ -14,7 +14,11 @@
       </div>
     </div>
     <div class="container">
-      <RouterCard class="translate-y-[-40px] relative z-20"  :data="stoneList.slice(0,3)" link="/home"/>
+      <RouterCard
+        class="translate-y-[-40px] relative z-20"
+        :data="stoneList.slice(0, 3)"
+        link="/home"
+      />
       <div
         class="dark:bg-[#1A1A1A] bg-[#FAFAFA] p-5 dark:text-white text-black rounded-[25px] translate-y-[-10px]"
       >
@@ -40,7 +44,7 @@ import SHeader from "@/components/header/SHeader.vue";
 import RouterCard from "@/components/card/RouterCard.vue";
 import CategoryCard from "@/components/card/CategoryCard.vue";
 import axios from "@/plugins/axios.ts";
-import {onMounted, ref, watch} from "vue";
+import { onMounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 const image = `src/assets/static/homebanner.png`;
 const route = useRoute();
@@ -70,11 +74,12 @@ function fetchStoneList() {
     });
 }
 
-watch(()=> route.query.id,
-    ()=>{
-      fetchTest()
-    }
-)
+watch(
+  () => route.query.id,
+  () => {
+    fetchTest();
+  }
+);
 
 onMounted(() => {
   fetchTest();

@@ -6,7 +6,7 @@ interface Props {
   text: string;
   link: string;
   isAlbom: boolean;
-  backId?:number|string
+  backId?: number | string;
 }
 
 defineProps<Props>();

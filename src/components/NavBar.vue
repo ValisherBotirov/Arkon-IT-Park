@@ -24,9 +24,9 @@ const openSidebar = ref(false);
           class="flex-shrink-0 cursor-pointer hidden dark:flex"
         />
         <img
-          src="@/assets/icon/navbar/Vector.png"
+          src="@/assets/icon/navbar/Vector.svg"
           alt="navbar icon"
-          class="flex-shrink-0 cursor-pointer dark:hidden"
+          class="flex-shrink-0 w-[25px] cursor-pointer dark:hidden"
         />
       </div>
       <div @click="routerPush('Мебели')" class="flex-shrink-0 cursor-pointer">
@@ -36,9 +36,9 @@ const openSidebar = ref(false);
           class="flex-shrink-0 hidden dark:flex cursor-pointer"
         />
         <img
-          src="@/assets/icon/navbar/ic_sofa.png"
+          src="@/assets/icon/navbar/ic_sofa.svg"
           alt="navbar icon"
-          class="flex-shrink-0 w-[25px] cursor-pointer dark:hidden"
+          class="flex-shrink-0  cursor-pointer dark:hidden"
         />
       </div>
       <div @click="routerPush('Жилые')" class="flex-shrink-0 cursor-pointer">
@@ -48,9 +48,9 @@ const openSidebar = ref(false);
           class="flex-shrink-0 cursor-pointer hidden dark:flex"
         />
         <img
-          src="@/assets/icon/navbar/ic_architects.png"
+          src="@/assets/icon/navbar/ic_architects.svg"
           alt="navbar icon"
-          class="flex-shrink-0 w-[25px] cursor-pointer dark:hidden"
+          class="flex-shrink-0  cursor-pointer dark:hidden"
         />
       </div>
       <img
@@ -60,7 +60,7 @@ const openSidebar = ref(false);
         @click="openSidebar = true"
       />
       <img
-        src="@/assets/icon/navbar/Magnifer.png"
+        src="@/assets/icon/navbar/Magnifer.svg"
         alt="navbar icon"
         class="flex-shrink-0 cursor-pointer dark:hidden"
         @click="openSidebar = true"

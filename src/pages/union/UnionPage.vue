@@ -15,8 +15,12 @@
           v-html="brandData?.name"
         ></p>
       </div>
-      <RouterCard class="translate-y-[-10px] relative z-20" :data="houseList.slice(0,3)" link="/union" />
-<!--      <pre class="text-white">{{brandData}}</pre>-->
+      <RouterCard
+        class="translate-y-[-10px] relative z-20"
+        :data="houseList.slice(0, 3)"
+        link="/union"
+      />
+      <!--      <pre class="text-white">{{brandData}}</pre>-->
       <div class="flex flex-col gap-[30px] mt-5">
         <div
           class="bg-[#FAFAFA] dark:bg-[#1A1A1A] p-5 text-black dark:text-white rounded-[25px] text-center"
@@ -29,12 +33,12 @@
           <AnimationCard class="h-[80px]" />
         </div>
       </div>
-      <div class="flex flex-col gap-[30px] mt-5" >
-       
-        <div class="text-white htmlTest" v-html="brandData?.content">
-        </div>
+      <div class="flex flex-col gap-[30px] mt-5">
+        <div class="text-white htmlTest" v-html="brandData?.content"></div>
         <div class="text-center pb-10">
-          <p class="text-white text-3xl font-semibold">{{ brandData?.phone }}</p>
+          <p class="text-white text-3xl font-semibold">
+            {{ brandData?.phone }}
+          </p>
         </div>
       </div>
     </div>
@@ -42,17 +46,16 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted, ref, watch} from "vue";
+import { onMounted, ref, watch } from "vue";
 import axios from "@/plugins/axios.ts";
 import AnimationCard from "@/components/card/AnimationCard.vue";
 import SHeader from "@/components/header/SHeader.vue";
 import RouterCard from "@/components/card/RouterCard.vue";
 import { useRoute } from "vue-router";
 
-const houseList = ref([])
+const houseList = ref([]);
 const brandData = ref([]);
 const route = useRoute();
-
 
 function fetchTest() {
   axios
@@ -68,23 +71,24 @@ function fetchTest() {
 
 function fetchHouseList() {
   axios
-      .get("houses/brand-list/")
-      .then((res:any) => {
-        houseList.value = res.data;
-      })
-      .catch((err:any) => {
-        console.log(err);
-      });
+    .get("houses/brand-list/")
+    .then((res: any) => {
+      houseList.value = res.data;
+    })
+    .catch((err: any) => {
+      console.log(err);
+    });
 }
 
-watch(()=> route.query.id,
-    ()=>{
-      fetchTest()
-    }
-)
+watch(
+  () => route.query.id,
+  () => {
+    fetchTest();
+  }
+);
 
 onMounted(() => {
   fetchTest();
-  fetchHouseList()
+  fetchHouseList();
 });
 </script>

@@ -4,16 +4,16 @@
       <div class="flex justify-between items-center py-3 pt-8">
         <router-link to="/" class="flex flex-shrink-0">
           <img
-            v-if="isBlack"
-            src="../../assets/icon/logo_black.svg"
-            alt="Logo svg"
-            class="w-[127px] h-[43px]"
-          />
-          <img
-            v-else
+           
             src="../../assets/icon/logo.svg"
             alt="Logo svg"
-            class="w-[127px] h-[43px]"
+            class="w-[127px] h-[43px] hidden dark:flex"
+          />
+          <img
+            
+            src="../../assets/icon/logo_black.svg"
+            alt="Logo svg"
+            class="w-[127px] h-[43px] flex dark:hidden"
           />
         </router-link>
 

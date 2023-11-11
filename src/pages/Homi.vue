@@ -2,7 +2,8 @@
   <div>
     <div
       class="relative h-[430px] before:content-[''] before:w-full before:h-[430px] before:bg-[#333333] before:absolute before:z-[1] before:opacity-[0.2] bg-no-repeat bg-cover"
-      v-bind:style="{ 'background-image': 'url(src/assets/static/brandPhoto.png)' }"
+  v-bind:style="{ 'background-image': `url(${image})` }"
+
     >
       <SHeader is-black />
     </div>
@@ -38,8 +39,7 @@ import SHeader from "@/components/header/SHeader.vue";
 import BrandCard from "@/components/card/branCard.vue";
 import axios from "@/plugins/axios";
 import { onMounted, ref } from "vue";
-const image = `src/assets/static/brandPhoto.png`;
-
+import image from '@/assets/static/brandPhoto.png';
 const stoneList = ref([]);
 const mabelList = ref([]);
 const houseList = ref([]);
