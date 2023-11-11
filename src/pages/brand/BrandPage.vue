@@ -13,8 +13,7 @@
       </div>
     </div>
     <div class="container">
-      <RouterCard class="translate-y-[-40px] relative z-20" />
-      <!-- <pre class="text-white">{{ brandData?.products[0].is_album}}</pre> -->
+      <RouterCard class="translate-y-[-40px] relative z-20"  :data="mabelList.slice(0,3)" link="/brand"/>
       <MebelCard
         v-for="item in brandData?.products"
         :key="item"
@@ -31,13 +30,14 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import {onMounted, ref, watch} from "vue";
 import axios from "@/plugins/axios.ts";
 import SHeader from "@/components/header/SHeader.vue";
 import RouterCard from "@/components/card/RouterCard.vue";
 import MebelCard from "@/components/card/MebelCard.vue";
 import { useRoute } from "vue-router";
 
+const mabelList = ref([])
 const brandData = ref([]);
 const route = useRoute();
 const backId = ref(route.query.id);
@@ -53,8 +53,25 @@ function fetchTest() {
       console.log(err);
     });
 }
+function fetchMabelList() {
+  axios
+      .get("mebels/brand-list/")
+      .then((res:any) => {
+        mabelList.value = res.data;
+      })
+      .catch((err:any) => {
+        console.log(err);
+      });
+}
+
+watch(()=> route.query.id,
+    ()=>{
+      fetchTest()
+    }
+)
 
 onMounted(() => {
   fetchTest();
+  fetchMabelList()
 });
 </script>
