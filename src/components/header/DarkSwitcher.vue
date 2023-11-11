@@ -42,7 +42,6 @@ onMounted(()=>{
   setPreference()
   reflectPreference()
 })
-
 </script>
 
 <template>

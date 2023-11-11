@@ -16,7 +16,6 @@
             class="w-[127px] h-[43px] dark:hidden"
             alt=""
           />
-
         </div>
         <i
           @click="emit('closeSidebar', false)"
@@ -26,12 +25,12 @@
       <div class="text-black dark:text-white p-10">
         <input
           type="text"
-          class="bg-[#0000] dark:text-white text-xl border-2 border-none w-full "
+          class="bg-[#0000] dark:text-white text-xl border-2 border-none w-full"
           placeholder="Поиск"
           name=""
           id=""
         />
-        <hr>
+        <hr />
         <div>
           <div class="flex justify-between mt-5">
             <p class="text-2xl">Фильтры</p>
@@ -41,8 +40,11 @@
               class="text-2xl dark:text-white text-black fa-solid fa-chevron-down transition duration-300"
             ></i>
           </div>
-          <div :class="isOpenSelects ? 'hidden' : ''" class="w-full text-xl dark:text-white text-black ">
-            <div class="dark:bg-[#1A1A1A] bg-[#FAFAFA]  mt-3 p-4 rounded-2xl">
+          <div
+            :class="isOpenSelects ? 'hidden' : ''"
+            class="w-full text-xl dark:text-white text-black"
+          >
+            <div class="dark:bg-[#1A1A1A] bg-[#FAFAFA] mt-3 p-4 rounded-2xl">
               <p class="text-xl">Laminam</p>
             </div>
             <div class="dark:bg-[#1A1A1A] bg-[#FAFAFA] mt-3 p-4 rounded-2xl">
@@ -75,7 +77,7 @@
           </div>
         </div>
         <div
-          class="bg-[#FAFAFA] dark:bg-[#1A1A1A] text-center p-10 rounded-2xl mt-[250px] w-[100%] "
+          class="bg-[#FAFAFA] dark:bg-[#1A1A1A] text-center p-10 rounded-2xl mt-[250px] w-[100%]"
         >
           <p class="text-xl">Баннер</p>
         </div>

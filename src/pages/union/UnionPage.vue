@@ -2,7 +2,7 @@
   <div>
     <div
       class="relative h-[500px] before:content-[''] before:w-full before:h-[500px] before:bg-[#333333] before:absolute before:z-[1] before:opacity-[0.2] bg-no-repeat bg-cover"
-      v-bind:style="{ 'background-image': 'url(' + image + ')' }"
+      v-bind:style="{ 'background-image': 'url(' + brandData[0]?.image + ')' }"
     >
       <SHeader is-black />
     </div>
@@ -10,12 +10,17 @@
       <div
         class="bg-[#FAFAFA] dark:bg-[#1A1A1A] p-5 text-black dark:text-white rounded-[25px] text-center translate-y-[-30px]"
       >
-        <p class="leading-[18.91px] text-black dark:text-white text-2xl">UNION ON ANHOR</p>
+        <p class="leading-[18.91px] text-black dark:text-white text-2xl"
+        v-html="brandData[0]?.name"
+        >
+        </p>
       </div>
       <RouterCard class="translate-y-[-10px] relative z-20" />
       <div class="flex flex-col gap-[30px] mt-5">
-        <div class=" bg-[#FAFAFA] dark:bg-[#1A1A1A] p-5 text-black dark:text-white rounded-[25px] text-center">
-          <p  class="leading-[18.91px] text-xs">
+        <div
+          class="bg-[#FAFAFA] dark:bg-[#1A1A1A] p-5 text-black dark:text-white rounded-[25px] text-center"
+        >
+          <p class="leading-[18.91px] text-xs">
             Новый проект от компании Golden House.
           </p>
         </div>
@@ -25,7 +30,7 @@
       </div>
       <div class="flex flex-col gap-[30px] mt-5">
         <BrantCard
-          v-for="item in 4"
+          v-for="item in brandData[0]?.id"
           :key="item"
           :link="`/product?id=${item}`"
           text="test"
@@ -39,10 +44,32 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts">  
+import { onMounted, ref } from "vue";
+import axios from "@/plugins/axios.ts";
 import AnimationCard from "@/components/card/AnimationCard.vue";
 import SHeader from "@/components/header/SHeader.vue";
 import RouterCard from "@/components/card/RouterCard.vue";
 import BrantCard from "@/components/card/BrantCard.vue";
 const image = `src/assets/static/brandPhoto.png`;
+const brandData = ref([]);
+
+console.log(brandData);
+
+function fetchTest() {
+  axios
+    .get("https://arkonapi.itlink.uz/api/houses/brand-list/")
+    .then((res: any) => {
+      console.log(res.data);
+      brandData.value = res.data;
+    })
+    .catch((err: any) => {
+      console.log(err);
+    });
+}
+
+onMounted(() => {
+  fetchTest();
+});
+
 </script>

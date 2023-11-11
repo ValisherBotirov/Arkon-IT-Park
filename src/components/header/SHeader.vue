@@ -1,15 +1,16 @@
 <template>
   <div>
     <div class="container relative z-[20]">
-
       <div class="flex justify-between items-center py-3 pt-8">
         <router-link to="/" class="flex flex-shrink-0">
-          <img v-if="isBlack"
-              src="../../assets/icon/logo_black.svg"
-              alt="Logo svg"
-              class="w-[127px] h-[43px]"
+          <img
+            v-if="isBlack"
+            src="../../assets/icon/logo_black.svg"
+            alt="Logo svg"
+            class="w-[127px] h-[43px]"
           />
-          <img v-else
+          <img
+            v-else
             src="../../assets/icon/logo.svg"
             alt="Logo svg"
             class="w-[127px] h-[43px]"
@@ -18,7 +19,8 @@
 
         <div class="flex items-center gap-4">
           <DarkSwitcher />
-          <div v-if="isIcon"
+          <div
+            v-if="isIcon"
             class="block lg:hidden flex-shrink-0 text-white cursor-pointer"
             @click="closePage(`${iconPath}`)"
           >
@@ -34,29 +36,28 @@
 import { ref } from "vue";
 import SideBar from "@/components/SideBar.vue";
 import DarkSwitcher from "@/components/header/DarkSwitcher.vue";
-import {useRouter} from "vue-router";
+import { useRouter } from "vue-router";
 
-interface Props{
-  isBlack?:boolean
-  isIcon?:boolean
-  iconPath?:string
+interface Props {
+  isBlack?: boolean;
+  isIcon?: boolean;
+  iconPath?: string;
 }
 
-withDefaults(defineProps<Props>(),{
-  isBlack:false,
-  isIcon:false
-})
+withDefaults(defineProps<Props>(), {
+  isBlack: false,
+  isIcon: false,
+});
 
-const router = useRouter()
+const router = useRouter();
 
 function getImageUrl(name: string) {
   return new URL(`../assets/icon/${name}.svg`, import.meta.url).href;
 }
 
-function closePage(link:string){
-  router.push(link)
+function closePage(link: string) {
+  router.push(link);
 }
-
 </script>
 <style scoped>
 .navItem::after {

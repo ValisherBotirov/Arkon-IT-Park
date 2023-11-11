@@ -5,26 +5,26 @@
             <SHeader is-black />
         </div>
         <div class="container">
-            <div class="">
-                <!-- <div class="flex justify-around">
+            <div class="translate-y-[-40px] relative z-20">
+                <div class="flex justify-around">
                     <div
                         class="py-[15px] px-[25px] dark:bg-[#1A1A1A] rounded-[25px] flex items-center justify-center gap-4 xs:gap-[0px] bg-[#FAFAFA]">
                         <router-link to="/homePage" class="flex-shrink-0 ">
                             <img src="@/assets/icon/btnLogo1.svg" alt="logo"
-                                class="flex-shrink-0 w-[94px] cursor-pointer hidden dark:flex">
-                            <img src="@/assets/icon/btnLogo1_black.svg" alt="logo"
-                                class="flex-shrink-0 cursor-pointer dark:hidden w-[94px]">
-                        </router-link>
+                            class="flex-shrink-0 w-[94px] cursor-pointer hidden dark:flex">
+                        <img src="@/assets/icon/btnLogo1_black.svg" alt="logo"
+                            class="flex-shrink-0 cursor-pointer dark:hidden w-[94px]">
+                        </router-link>  
                     </div>
                     <div
                         class="py-[22px] px-[30px] dark:bg-[#1A1A1A] rounded-[25px] flex  items-center justify-center gap-4 xs:gap-[30px] bg-[#FAFAFA]">
                         <router-link to="/product" class="flex-shrink-0 ">
                             <img src="@/assets/icon/btnLogo2.svg" alt="logo"
-                                class="flex-shrink-0 cursor-pointer w-[94px] hidden dark:flex">
-                            <img src="@/assets/icon/btnLogo2_black.svg" alt="logo"
-                                class="flex-shrink-0 cursor-pointer w-[94px] dark:hidden">
+                            class="flex-shrink-0 cursor-pointer w-[94px] hidden dark:flex">
+                        <img src="@/assets/icon/btnLogo2_black.svg" alt="logo"
+                            class="flex-shrink-0 cursor-pointer w-[94px] dark:hidden">
                         </router-link>
-
+                        
                     </div>
                 </div>
                 <div class=" mt-5">
@@ -32,14 +32,11 @@
                         class="py-[22px] px-[25px] dark:bg-[#1A1A1A] rounded-[25px] flex items-center justify-center gap-4 xs:gap-[0px] bg-[#FAFAFA]">
                         <router-link to="/union" class="flex-shrink-0 ">
                             <img src="@/assets/icon/Logo GH.png" alt="logo"
-                                class="flex-shrink-0 w-[142px] cursor-pointer hidden dark:flex">
-                            <img src="@/assets/icon/Logo GH (1).png" alt="logo"
-                                class="flex-shrink-0 cursor-pointer w-[142px]  dark:hidden">
+                            class="flex-shrink-0 w-[142px] cursor-pointer hidden dark:flex">
+                        <img src="@/assets/icon/Logo GH (1).png" alt="logo"
+                            class="flex-shrink-0 cursor-pointer w-[142px]  dark:hidden">
                         </router-link>
                     </div>
-                </div> -->
-                <div class="flex flex-col gap-[30px] mt-5">
-                    <BrandCard v-for="item in 3" :key="item" :link="`/product?id=${item}`" text="test" img="" />
                 </div>
             </div>
 
