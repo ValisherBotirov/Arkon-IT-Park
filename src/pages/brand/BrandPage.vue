@@ -16,7 +16,7 @@
       <MebelCard 
         v-for="item in brandData?.products" 
         :key="item" 
-        link="" 
+        :link="item.id" 
         :text="item.name" 
         :img="item.image"
         :img2="item.image2" 

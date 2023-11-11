@@ -28,14 +28,14 @@
           <AnimationCard class="h-[80px]" />
         </div>
       </div>
-      <div class="flex flex-col gap-[30px] mt-5">
-        <BrantCard
+      <div class="flex flex-col gap-[30px] mt-5" >
+        <!-- <BrantCard
           v-for="item in brandData[0]?.id"
           :key="item"
           :link="`/product?id=${item}`"
           text="test"
           img=""
-        />
+        /> -->
         <div class="text-center pb-10">
           <p class="text-white text-3xl font-semibold">+998 78 150-11-11</p>
         </div>
