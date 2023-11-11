@@ -15,11 +15,11 @@
     <div class="container">
       <RouterCard class="translate-y-[-40px] relative z-20" />
       <!-- <pre class="text-white">{{ brandData?.products[0].is_album}}</pre> -->
-      <MebelCard
-        v-for="item in brandData?.products"
-        :key="item"
-        link=""
-        :text="item.name"
+      <MebelCard 
+        v-for="item in brandData?.products" 
+        :key="item" 
+        :link="item.id" 
+        :text="item.name" 
         :img="item.image"
         :img2="item.image2"
         :isAlbom="item.is_album"
