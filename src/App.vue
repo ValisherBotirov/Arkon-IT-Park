@@ -7,7 +7,7 @@
       <div>
         <NavBar class="fixed z-50 mx-auto" />
         <router-view />
-   </div>
+      </div>
       <Footer class="mt-5" />
       <SLoading v-if="isLoading" />
     </div>

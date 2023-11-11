@@ -7,10 +7,20 @@ const openSidebar = ref(false);
 
 <template>
   <div class="bottom-6 left-1/2 -translate-x-1/2">
-    <div class="flex items-center justify-center gap-5 bg-[#F5F5F5] dark:bg-[#1A1A1A] rounded-[25px] px-[30px] py-7">
-      <router-link to="/homePage" class="flex-shrink-0 ">
-        <img src="@/assets/icon/navbar/category.svg" alt="navbar icon" class="flex-shrink-0 cursor-pointer hidden dark:flex">
-        <img src="@/assets/icon/navbar/Vector.png" alt="navbar icon" class="flex-shrink-0 cursor-pointer dark:hidden">
+    <div
+      class="flex items-center justify-center gap-5 bg-[#F5F5F5] dark:bg-[#1A1A1A] rounded-[25px] px-[30px] py-7"
+    >
+      <router-link to="/home" class="flex-shrink-0">
+        <img
+          src="@/assets/icon/navbar/category.svg"
+          alt="navbar icon"
+          class="flex-shrink-0 cursor-pointer hidden dark:flex"
+        />
+        <img
+          src="@/assets/icon/navbar/Vector.png"
+          alt="navbar icon"
+          class="flex-shrink-0 cursor-pointer dark:hidden"
+        />
       </router-link>
       <router-link to="/brand" class="flex-shrink-0">
         <img

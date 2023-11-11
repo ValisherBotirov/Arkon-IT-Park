@@ -2,7 +2,11 @@
   <div>
     <div
       class="relative h-[500px] before:content-[''] before:w-full before:h-[500px] before:bg-[#333333] before:absolute before:z-[1] before:opacity-[0.2] bg-no-repeat bg-cover"
-      v-bind:style="{ 'background-image': 'url(' + image + ')','background-size':'cover','background-position':'center' }"
+      v-bind:style="{
+        'background-image': 'url(' + image + ')',
+        'background-size': 'cover',
+        'background-position': 'center',
+      }"
     >
       <SHeader is-icon icon-path="/" />
       <div class="container relative z-20">
@@ -15,7 +19,7 @@
     </div>
     <div class="container">
       <div class="flex flex-col gap-5 translate-y-[-40px] relative z-20">
-<!--        <pre class="text-white">{{ data }}</pre>-->
+        <!--        <pre class="text-white">{{ data }}</pre>-->
         <CategoryCard
           v-for="item in data?.products"
           :key="item"
@@ -38,7 +42,7 @@ import { computed, onMounted, ref } from "vue";
 const route = useRoute();
 
 const data = ref([]);
-const image = computed(()=> data.value?.image)
+const image = computed(() => data.value?.image);
 function fetchProduct() {
   axios
     .get(`stones/category/${route.query.id}/`)

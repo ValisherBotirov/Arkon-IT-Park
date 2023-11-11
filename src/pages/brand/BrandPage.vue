@@ -2,27 +2,29 @@
   <div>
     <div
       class="relative h-[500px] before:content-[''] before:w-full before:h-[500px] before:bg-[#333333] before:absolute before:z-[1] before:opacity-[0.2] bg-no-repeat bg-cover"
-      v-bind:style="{ 'background-image': 'url(' + brandData?.image + ')' }">
+      v-bind:style="{ 'background-image': 'url(' + brandData?.image + ')' }"
+    >
       <SHeader />
       <div class="container relative z-20">
-        <h2 class="text-[32px] leading-[37.82px] font-semibold text-white max-w-[310px] pt-[233px] uppercase"
-          v-html="brandData?.slogan">
-        </h2>
+        <h2
+          class="text-[32px] leading-[37.82px] font-semibold text-white max-w-[310px] pt-[233px] uppercase"
+          v-html="brandData?.slogan"
+        ></h2>
       </div>
     </div>
     <div class="container">
       <RouterCard class="translate-y-[-40px] relative z-20" />
       <!-- <pre class="text-white">{{ brandData?.products[0].is_album}}</pre> -->
-      <MebelCard 
-        v-for="item in brandData?.products" 
-        :key="item" 
-        :link="item.id" 
-        :text="item.name" 
+      <MebelCard
+        v-for="item in brandData?.products"
+        :key="item"
+        link=""
+        :text="item.name"
         :img="item.image"
-        :img2="item.image2" 
-        :isAlbom="item.is_album" 
-        :img3="item.image3" />
-
+        :img2="item.image2"
+        :isAlbom="item.is_album"
+        :img3="item.image3"
+      />
     </div>
   </div>
 </template>
