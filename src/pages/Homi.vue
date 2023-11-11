@@ -20,7 +20,7 @@
             id="Мебели"
             :data="mabelList"
             title="Мебели"
-            link="/product"
+            link="/brand"
           />
           <BrandCard
             id="Жилые"
