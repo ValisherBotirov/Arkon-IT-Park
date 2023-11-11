@@ -1,11 +1,11 @@
 <script setup lang="ts">
 interface Props {
-  img: string;
-  img2: string;
-  img3: string;
-  text: string;
-  link: string;
-  isAlbom: boolean;
+    img: string;
+    img2: string;
+    img3: string;
+    text: string;
+    link: string;
+    isAlbom: boolean;
 }
 
 defineProps<Props>();
@@ -48,5 +48,4 @@ defineProps<Props>();
             </div>
         </div>
     </div>
-  </div>
 </template>
