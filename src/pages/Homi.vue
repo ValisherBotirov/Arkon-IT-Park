@@ -10,9 +10,24 @@
       <div class="">
         <!--              <pre class="text-white">{{stoneList}}</pre>-->
         <div class="flex flex-col gap-[30px] mt-5">
-          <BrandCard id="Гранитные" :data="stoneList" title="Гранитные камни" link="/home" />
-          <BrandCard id="Мебели" :data="mabelList" title="Мебели" link="/product" />
-          <BrandCard id="Жилые" :data="houseList" title="Жилые комплексы" link="/union" />
+          <BrandCard
+            id="Гранитные"
+            :data="stoneList"
+            title="Гранитные камни"
+            link="/home"
+          />
+          <BrandCard
+            id="Мебели"
+            :data="mabelList"
+            title="Мебели"
+            link="/product"
+          />
+          <BrandCard
+            id="Жилые"
+            :data="houseList"
+            title="Жилые комплексы"
+            link="/union"
+          />
         </div>
       </div>
     </div>

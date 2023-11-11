@@ -2,7 +2,7 @@
   <div>
     <div
       class="relative h-[500px] before:content-[''] before:w-full before:h-[500px] before:bg-[#333333] before:absolute before:z-[1] before:opacity-[0.2] bg-no-repeat bg-cover"
-      v-bind:style="{ 'background-image': 'url(' + brandData[0]?.image + ')' }"
+      v-bind:style="{ 'background-image': 'url(' + brandData?.image + ')' }"
     >
       <SHeader is-black />
     </div>
@@ -12,7 +12,7 @@
       >
         <p
           class="leading-[18.91px] text-black dark:text-white text-2xl"
-          v-html="brandData[0]?.name"
+          v-html="brandData?.name"
         ></p>
       </div>
       <RouterCard class="translate-y-[-10px] relative z-20" />
@@ -29,15 +29,10 @@
         </div>
       </div>
       <div class="flex flex-col gap-[30px] mt-5" >
-        <!-- <BrantCard
-          v-for="item in brandData[0]?.id"
-          :key="item"
-          :link="`/product?id=${item}`"
-          text="test"
-          img=""
-        /> -->
+       
+        <p v-html="brandData?.content"  class="text-white htmlTest"></p>
         <div class="text-center pb-10">
-          <p class="text-white text-3xl font-semibold">+998 78 150-11-11</p>
+          <p class="text-white text-3xl font-semibold">{{ brandData?.phone }}</p>
         </div>
       </div>
     </div>
@@ -50,15 +45,15 @@ import axios from "@/plugins/axios.ts";
 import AnimationCard from "@/components/card/AnimationCard.vue";
 import SHeader from "@/components/header/SHeader.vue";
 import RouterCard from "@/components/card/RouterCard.vue";
-import BrantCard from "@/components/card/BrantCard.vue";
-const image = `src/assets/static/brandPhoto.png`;
+import { useRoute } from "vue-router";
 const brandData = ref([]);
+const route = useRoute();
 
-console.log(brandData);
+console.log();
 
 function fetchTest() {
   axios
-    .get("https://arkonapi.itlink.uz/api/houses/brand-list/")
+    .get(`/houses/brand/${route.query.id}/`)
     .then((res: any) => {
       console.log(res.data);
       brandData.value = res.data;

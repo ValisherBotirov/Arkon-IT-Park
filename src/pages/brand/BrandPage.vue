@@ -15,15 +15,16 @@
     <div class="container">
       <RouterCard class="translate-y-[-40px] relative z-20" />
       <!-- <pre class="text-white">{{ brandData?.products[0].is_album}}</pre> -->
-      <MebelCard 
-        v-for="item in brandData?.products" 
-        :key="item" 
-        :link="item.id" 
-        :text="item.name" 
+      <MebelCard
+        v-for="item in brandData?.products"
+        :key="item"
+        :link="item.id"
+        :text="item.name"
         :img="item.image"
         :img2="item.image2"
         :isAlbom="item.is_album"
         :img3="item.image3"
+        :back-id="backId"
       />
     </div>
   </div>
@@ -35,15 +36,15 @@ import axios from "@/plugins/axios.ts";
 import SHeader from "@/components/header/SHeader.vue";
 import RouterCard from "@/components/card/RouterCard.vue";
 import MebelCard from "@/components/card/MebelCard.vue";
+import { useRoute } from "vue-router";
 
-const image = `src/assets/static/homebrand.png`;
 const brandData = ref([]);
-
-console.log(brandData);
+const route = useRoute();
+const backId = ref(route.query.id);
 
 function fetchTest() {
   axios
-    .get("https://arkonapi.itlink.uz/api/mebels/brand/1/")
+    .get(`mebels/brand/${route.query.id}/`)
     .then((res: any) => {
       console.log(res.data);
       brandData.value = res.data;

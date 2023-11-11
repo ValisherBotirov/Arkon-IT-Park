@@ -12,7 +12,7 @@ interface Props {
 defineProps<Props>();
 </script>
 <template>
-  <div >
+  <div>
     <p class="text-3xl text-dark dark:text-white">{{ title }}</p>
     <div class="grid grid-cols-2 gap-4 mt-5">
       <div
