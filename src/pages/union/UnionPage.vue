@@ -15,13 +15,14 @@
           v-html="brandData?.name"
         ></p>
       </div>
-      <RouterCard class="translate-y-[-10px] relative z-20" />
+      <RouterCard class="translate-y-[-10px] relative z-20" :data="houseList.slice(0,3)" link="/union" />
+<!--      <pre class="text-white">{{brandData}}</pre>-->
       <div class="flex flex-col gap-[30px] mt-5">
         <div
           class="bg-[#FAFAFA] dark:bg-[#1A1A1A] p-5 text-black dark:text-white rounded-[25px] text-center"
         >
           <p class="leading-[18.91px] text-xs">
-            Новый проект от компании Golden House.
+            {{ brandData?.name }}
           </p>
         </div>
         <div class="">
@@ -30,7 +31,8 @@
       </div>
       <div class="flex flex-col gap-[30px] mt-5" >
        
-        <p v-html="brandData?.content"  class="text-white htmlTest"></p>
+        <div class="text-white htmlTest" v-html="brandData?.content">
+        </div>
         <div class="text-center pb-10">
           <p class="text-white text-3xl font-semibold">{{ brandData?.phone }}</p>
         </div>
@@ -40,16 +42,17 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import {onMounted, ref, watch} from "vue";
 import axios from "@/plugins/axios.ts";
 import AnimationCard from "@/components/card/AnimationCard.vue";
 import SHeader from "@/components/header/SHeader.vue";
 import RouterCard from "@/components/card/RouterCard.vue";
 import { useRoute } from "vue-router";
+
+const houseList = ref([])
 const brandData = ref([]);
 const route = useRoute();
 
-console.log();
 
 function fetchTest() {
   axios
@@ -63,7 +66,25 @@ function fetchTest() {
     });
 }
 
+function fetchHouseList() {
+  axios
+      .get("houses/brand-list/")
+      .then((res:any) => {
+        houseList.value = res.data;
+      })
+      .catch((err:any) => {
+        console.log(err);
+      });
+}
+
+watch(()=> route.query.id,
+    ()=>{
+      fetchTest()
+    }
+)
+
 onMounted(() => {
   fetchTest();
+  fetchHouseList()
 });
 </script>

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 interface Props {
-  data: {
+  data?: {
     id:number;
     logo: string;
     logo_light: string
   }[]
-  link: string
+  link?: string
 }
 
 defineProps<Props>()
