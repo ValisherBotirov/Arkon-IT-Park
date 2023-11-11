@@ -10,12 +10,16 @@
       <div
         class="bg-[#FAFAFA] dark:bg-[#1A1A1A] p-5 text-black dark:text-white rounded-[25px] text-center translate-y-[-30px]"
       >
-        <p class="leading-[18.91px] text-black dark:text-white text-2xl">UNION ON ANHOR</p>
+        <p class="leading-[18.91px] text-black dark:text-white text-2xl">
+          UNION ON ANHOR
+        </p>
       </div>
       <RouterCard class="translate-y-[-10px] relative z-20" />
       <div class="flex flex-col gap-[30px] mt-5">
-        <div class=" bg-[#FAFAFA] dark:bg-[#1A1A1A] p-5 text-black dark:text-white rounded-[25px] text-center">
-          <p  class="leading-[18.91px] text-xs">
+        <div
+          class="bg-[#FAFAFA] dark:bg-[#1A1A1A] p-5 text-black dark:text-white rounded-[25px] text-center"
+        >
+          <p class="leading-[18.91px] text-xs">
             Новый проект от компании Golden House.
           </p>
         </div>
