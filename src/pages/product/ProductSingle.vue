@@ -53,7 +53,6 @@ import axios from "@/plugins/axios";
 const route = useRoute();
 
 const data = ref([]);
-const image = `/src/assets/fake-images/banner-single.png`;
 
 function fetchProductSingle() {
   axios

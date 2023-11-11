@@ -36,11 +36,6 @@ const routes = [
     name: "union",
     component: () => import("@/pages/union/UnionPage.vue"),
   },
-  {
-    path: "/primer",
-    name: "primer",
-    component: () => import("@/pages/primer/PrimerPage.vue"),
-  },
 ];
 
 const router = createRouter({
