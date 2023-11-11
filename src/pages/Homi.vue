@@ -11,7 +11,7 @@
         <!--              <pre class="text-white">{{stoneList}}</pre>-->
         <div class="flex flex-col gap-[30px] mt-5">
           <BrandCard :data="stoneList" title="Гранитные камни" link="/home" />
-          <BrandCard :data="mabelList" title="Мебели" link="/product" />
+          <BrandCard :data="mabelList" title="Мебели" link="/brand" />
           <BrandCard :data="houseList" title="Жилые комплексы" link="/union" />
         </div>
       </div>
