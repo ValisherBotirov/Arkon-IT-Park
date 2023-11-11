@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import SideBar from "@/components/SideBar.vue";
 import { ref } from "vue";
-
+import { useRouter } from "vue-router";
+const router = useRouter()
+ function routerPush(arg:string) {
+    router.push(`/#${arg}`)
+ }
 const openSidebar = ref(false);
 </script>
 
@@ -10,7 +14,7 @@ const openSidebar = ref(false);
     <div
       class="flex items-center justify-center gap-5 bg-[#F5F5F5] dark:bg-[#1A1A1A] rounded-[25px] px-[30px] py-7"
     >
-      <router-link to="/home" class="flex-shrink-0">
+      <div @click="routerPush('Гранитные')" class="flex-shrink-0 cursor-pointer">
         <img
           src="@/assets/icon/navbar/category.svg"
           alt="navbar icon"
@@ -21,8 +25,8 @@ const openSidebar = ref(false);
           alt="navbar icon"
           class="flex-shrink-0 cursor-pointer dark:hidden"
         />
-      </router-link>
-      <router-link to="/brand" class="flex-shrink-0">
+      </div>
+      <div @click="routerPush('Мебели')"  class="flex-shrink-0 cursor-pointer">
         <img
           src="@/assets/icon/navbar/sofa.svg"
           alt="navbar icon"
@@ -33,8 +37,8 @@ const openSidebar = ref(false);
           alt="navbar icon"
           class="flex-shrink-0 w-[25px] cursor-pointer dark:hidden"
         />
-      </router-link>
-      <router-link to="/union" class="flex-shrink-0">
+      </div>
+      <div  @click="routerPush('Жилые')"    class="flex-shrink-0 cursor-pointer">
         <img
           src="@/assets/icon/navbar/architects.svg"
           alt="navbar icon"
@@ -45,7 +49,7 @@ const openSidebar = ref(false);
           alt="navbar icon"
           class="flex-shrink-0 w-[25px] cursor-pointer dark:hidden"
         />
-      </router-link>
+      </div>
       <img
         src="@/assets/icon/navbar/search.svg"
         alt="navbar icon"
