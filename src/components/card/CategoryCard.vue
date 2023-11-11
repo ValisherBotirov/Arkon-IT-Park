@@ -11,14 +11,14 @@ defineProps<Props>();
 <template>
   <router-link :to="`${link}`" class="h-[100px] relative">
     <img
-      src="@/assets/fake-images/img.png"
+      :src="img"
       alt="images"
       class="w-full h-full"
     />
     <p
       class="absolute left-[50px] z-20 text-white top-[38px] font-medium text-xl leading-[23.64px]"
     >
-      Ossido
+     {{text}}
     </p>
   </router-link>
 </template>

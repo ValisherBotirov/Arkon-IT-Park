@@ -32,22 +32,6 @@ defineProps<Props>()
         />
       </router-link>
     </div>
-    <!--    <img-->
-    <!--      src="@/assets/icon/btnLogo2.svg"-->
-    <!--      alt="logo"-->
-    <!--      class="flex-shrink-0 cursor-pointer hidden dark:flex"-->
-    <!--    />-->
-    <!--    <img-->
-    <!--      src="@/assets/icon/btnLogo2_black.svg"-->
-    <!--      alt="logo"-->
-    <!--      class="flex-shrink-0 cursor-pointer dark:hidden"-->
-    <!--    />-->
-    <!--    <img-->
-    <!--      src="@/assets/icon/btnLogo3.svg"-->
-    <!--      alt="logo"-->
-    <!--      class="flex-shrink-0 cursor-pointer"-->
-    <!--    />-->
-    <!--    <pre class="text-white">{{data}}</pre>-->
   </div>
 </template>
 
