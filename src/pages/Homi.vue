@@ -2,13 +2,13 @@
   <div>
     <div
       class="relative h-[430px] before:content-[''] before:w-full before:h-[430px] before:bg-[#333333] before:absolute before:z-[1] before:opacity-[0.2] bg-no-repeat bg-cover"
-      v-bind:style="{ 'background-image': 'url(' + image + ')' }"
+      v-bind:style="{ 'background-image': 'url(src/assets/static/brandPhoto.png)' }"
     >
       <SHeader is-black />
     </div>
     <div class="container">
       <div class="">
-        <!--              <pre class="text-white">{{stoneList}}</pre>-->
+        <!-- <pre class="text-white">{{stoneList}}</pre>-->
         <div class="flex flex-col gap-[30px] mt-5">
           <BrandCard
             id="Гранитные"
