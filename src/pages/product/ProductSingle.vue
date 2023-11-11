@@ -2,7 +2,11 @@
   <div>
     <div
       class="relative h-[500px] before:content-[''] before:w-full before:h-[500px] before:bg-[#333333] before:absolute before:z-[1] before:opacity-[0.2] bg-no-repeat bg-cover"
-      v-bind:style="{ 'background-image': 'url(' + data?.image + ')','background-size':'cover','background-position':'center' }"
+      v-bind:style="{
+        'background-image': 'url(' + data?.image + ')',
+        'background-size': 'cover',
+        'background-position': 'center',
+      }"
     >
       <SHeader is-icon icon-path="/" />
       <div class="container relative z-20">
@@ -17,11 +21,23 @@
       <div>
         <AnimationCard class="translate-y-[-40px] h-[100px]" />
       </div>
-<!--      <pre class="text-white">{{data}}</pre>-->
+      <!--      <pre class="text-white">{{data}}</pre>-->
       <div>
-        <STable class="-translate-y-5" :body-item="data?.characteristics?.main" :head-item="data?.characteristics?.main[0]"/>
-        <STable class="mt-[10px]" one-head :body-item="data?.characteristics?.standart" />
-        <STable class="mt-[30px] mb-[30px]" is-head :body-item="data?.characteristics?.test"/>
+        <STable
+          class="-translate-y-5"
+          :body-item="data?.characteristics?.main"
+          :head-item="data?.characteristics?.main[0]"
+        />
+        <STable
+          class="mt-[10px]"
+          one-head
+          :body-item="data?.characteristics?.standart"
+        />
+        <STable
+          class="mt-[30px] mb-[30px]"
+          is-head
+          :body-item="data?.characteristics?.test"
+        />
       </div>
     </div>
   </div>
@@ -32,22 +48,25 @@ import SHeader from "@/components/header/SHeader.vue";
 import { useRoute } from "vue-router";
 import AnimationCard from "@/components/card/AnimationCard.vue";
 import STable from "@/components/table/STable.vue";
-import {onMounted, ref} from "vue";
+import { onMounted, ref } from "vue";
 import axios from "@/plugins/axios";
 const route = useRoute();
 
-const data = ref([])
+const data = ref([]);
 const image = `/src/assets/fake-images/banner-single.png`;
 
-function fetchProductSingle(){
-  axios.get(`stones/product/${route.params.id}/`).then((res)=>{
-    data.value = res.data
-  }).catch((err)=>{
-    console.log(err)
-  })
+function fetchProductSingle() {
+  axios
+    .get(`stones/product/${route.params.id}/`)
+    .then((res) => {
+      data.value = res.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
-onMounted(()=>{
-  fetchProductSingle()
-})
+onMounted(() => {
+  fetchProductSingle();
+});
 </script>

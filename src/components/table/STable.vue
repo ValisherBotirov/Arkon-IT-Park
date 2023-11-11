@@ -8,7 +8,9 @@
         v-if="!isHead"
       >
         <tr class="border-b dark:border-[#808080]" v-if="!oneHead">
-          <th class="px-5 py-5 w-1/2 border-r dark:border-[#808080]">{{ headItem?.name }}</th>
+          <th class="px-5 py-5 w-1/2 border-r dark:border-[#808080]">
+            {{ headItem?.name }}
+          </th>
           <th class="px-5 py-5">{{ headItem?.value }}</th>
         </tr>
         <tr class="border-b dark:border-[#808080]" v-else>
@@ -22,7 +24,9 @@
           v-for="item in bodyItem"
           :key="item"
         >
-          <th class="px-6 py-4 border-r dark:border-[#808080]">{{ item?.name }}</th>
+          <th class="px-6 py-4 border-r dark:border-[#808080]">
+            {{ item?.name }}
+          </th>
           <td class="px-5 py-4 w-1/2">{{ item?.value }}</td>
         </tr>
       </tbody>
@@ -34,9 +38,9 @@
 interface Props {
   isHead: boolean;
   oneHead: boolean;
-  headItem?:{
-    name:string;
-    value:string
+  headItem?: {
+    name: string;
+    value: string;
   };
   bodyItem?: {
     name: string;

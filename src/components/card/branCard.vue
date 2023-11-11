@@ -1,47 +1,39 @@
 <script setup lang="ts">
 interface Props {
-    img: string,
-    text: string,
-    link: string
+  data?: {
+    id: number;
+    logo: string;
+    logo_light: string;
+  }[];
+  link: string;
+  title: string;
 }
 
-defineProps<Props>()
+defineProps<Props>();
 </script>
 <template>
-    <div>
-        <p class="text-3xl text-dark dark:text-white">Гранитные камни</p>
-        <div class="flex justify-around mt-5">
-            <div
-                class="py-[15px] px-[25px] dark:bg-[#1A1A1A] rounded-[25px] flex items-center justify-center gap-4 xs:gap-[0px] bg-[#FAFAFA]">
-                <router-link to="/homePage" class="flex-shrink-0 ">
-                    <img src="@/assets/icon/btnLogo1.svg" alt="logo"
-                        class="flex-shrink-0 w-[94px] cursor-pointer hidden dark:flex">
-                    <img src="@/assets/icon/btnLogo1_black.svg" alt="logo"
-                        class="flex-shrink-0 cursor-pointer dark:hidden w-[94px]">
-                </router-link>
-            </div>
-            <div
-                class="py-[22px] px-[30px] dark:bg-[#1A1A1A] rounded-[25px] flex  items-center justify-center gap-4 xs:gap-[30px] bg-[#FAFAFA]">
-                <router-link to="/product" class="flex-shrink-0 ">
-                    <img src="@/assets/icon/btnLogo2.svg" alt="logo"
-                        class="flex-shrink-0 cursor-pointer w-[94px] hidden dark:flex">
-                    <img src="@/assets/icon/btnLogo2_black.svg" alt="logo"
-                        class="flex-shrink-0 cursor-pointer w-[94px] dark:hidden">
-                </router-link>
-
-            </div>
-        </div>
-        <div class=" mt-5">
-            <div
-                class="py-[22px] px-[25px] dark:bg-[#1A1A1A] rounded-[25px] flex items-center justify-center gap-4 xs:gap-[0px] bg-[#FAFAFA]">
-                <router-link to="/union" class="flex-shrink-0 ">
-                    <img src="@/assets/icon/Logo GH.png" alt="logo"
-                        class="flex-shrink-0 w-[142px] cursor-pointer hidden dark:flex">
-                    <img src="@/assets/icon/Logo GH (1).png" alt="logo"
-                        class="flex-shrink-0 cursor-pointer w-[142px]  dark:hidden">
-                </router-link>
-            </div>
-        </div>
+  <div>
+    <p class="text-3xl text-dark dark:text-white">{{ title }}</p>
+    <div class="grid grid-cols-2 gap-4 mt-5">
+      <div
+        v-for="(item, index) in data"
+        :key="item"
+        :class="(index + 1) % 3 == 0 ? 'col-span-2' : 'col-span-1'"
+        class="py-[22px] px-[25px] dark:bg-[#1A1A1A] h-[80px] rounded-[25px] flex items-center justify-center gap-4 xs:gap-[0px] bg-[#FAFAFA]"
+      >
+        <router-link :to="`${link}?id=${item?.id}`" class="flex-shrink-0">
+          <img
+            :src="item?.logo"
+            alt="logo"
+            class="flex-shrink-0 max-h-[38px] h-full cursor-pointer hidden dark:flex"
+          />
+          <img
+            :src="item?.logo_light"
+            alt="logo"
+            class="flex-shrink-0 max-h-[38px] h-full cursor-pointer dark:hidden"
+          />
+        </router-link>
+      </div>
     </div>
+  </div>
 </template>
-

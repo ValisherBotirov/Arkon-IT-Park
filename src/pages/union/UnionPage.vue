@@ -10,10 +10,10 @@
       <div
         class="bg-[#FAFAFA] dark:bg-[#1A1A1A] p-5 text-black dark:text-white rounded-[25px] text-center translate-y-[-30px]"
       >
-        <p class="leading-[18.91px] text-black dark:text-white text-2xl"
-        v-html="brandData[0]?.name"
-        >
-        </p>
+        <p
+          class="leading-[18.91px] text-black dark:text-white text-2xl"
+          v-html="brandData[0]?.name"
+        ></p>
       </div>
       <RouterCard class="translate-y-[-10px] relative z-20" />
       <div class="flex flex-col gap-[30px] mt-5">
@@ -44,7 +44,7 @@
   </div>
 </template>
 
-<script setup lang="ts">  
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
 import axios from "@/plugins/axios.ts";
 import AnimationCard from "@/components/card/AnimationCard.vue";
@@ -71,5 +71,4 @@ function fetchTest() {
 onMounted(() => {
   fetchTest();
 });
-
 </script>
