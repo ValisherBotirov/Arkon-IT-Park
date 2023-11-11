@@ -28,7 +28,7 @@
           <AnimationCard class="h-[80px]" />
         </div>
       </div>
-      <div class="flex flex-col gap-[30px] mt-5" >
+      <div class="flex flex-col gap-[30px] mt-5">
         <!-- <BrantCard
           v-for="item in brandData[0]?.id"
           :key="item"

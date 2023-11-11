@@ -16,7 +16,7 @@
     <div class="container">
       <RouterCard class="translate-y-[-40px] relative z-20" />
       <pre class="text-white">
-        {{stoneList}}
+        {{ stoneList }}
       </pre>
       <div
         class="dark:bg-[#1A1A1A] bg-[#FAFAFA] p-5 dark:text-white text-black rounded-[25px] translate-y-[-10px]"
@@ -44,11 +44,11 @@ import RouterCard from "@/components/card/RouterCard.vue";
 import CategoryCard from "@/components/card/CategoryCard.vue";
 import axios from "@/plugins/axios.ts";
 import { onMounted, ref } from "vue";
-import {useRoute} from "vue-router";
+import { useRoute } from "vue-router";
 const image = `src/assets/static/homebanner.png`;
-const route = useRoute()
+const route = useRoute();
 
-const stoneList = ref([])
+const stoneList = ref([]);
 const brandData = ref([]);
 
 function fetchTest() {
@@ -64,18 +64,18 @@ function fetchTest() {
 }
 function fetchStoneList() {
   axios
-      .get("stones/brand-list/")
-      .then((res:any) => {
-        stoneList.value = res.data;
-      })
-      .catch((err:any) => {
-        console.log(err);
-      });
+    .get("stones/brand-list/")
+    .then((res: any) => {
+      stoneList.value = res.data;
+    })
+    .catch((err: any) => {
+      console.log(err);
+    });
 }
 
 onMounted(() => {
   fetchTest();
-  fetchStoneList()
+  fetchStoneList();
 });
 </script>
 

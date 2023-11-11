@@ -24,6 +24,7 @@
         :img2="item.image2"
         :isAlbom="item.is_album"
         :img3="item.image3"
+        :back-id="backId"
       />
     </div>
   </div>
@@ -35,10 +36,11 @@ import axios from "@/plugins/axios.ts";
 import SHeader from "@/components/header/SHeader.vue";
 import RouterCard from "@/components/card/RouterCard.vue";
 import MebelCard from "@/components/card/MebelCard.vue";
-import {useRoute} from "vue-router";
+import { useRoute } from "vue-router";
 
 const brandData = ref([]);
-const route = useRoute()
+const route = useRoute();
+const backId = ref(route.query.id)
 
 function fetchTest() {
   axios
