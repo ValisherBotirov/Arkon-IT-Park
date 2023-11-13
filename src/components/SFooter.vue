@@ -3,9 +3,9 @@
     class="p-[30px] text-white gap-5 bg-[#1A1A1A] w-[430px] text-sm font-normal h-[156px] flex"
   >
     <div class="">
-      <p>+998712020020</p>
-      <p class="mt-2.5">
-        NFO@LAMINAM.UZ <br />
+      <a href="tel:+998712020020">+998712020020</a>
+        <p class="mt-2.5">
+        INFO@LAMINAM.UZ <br />
         SUPPORT@LAMINAM.UZ
       </p>
       <p class="mt-2.5">6A Лабзак, Ташкент</p>

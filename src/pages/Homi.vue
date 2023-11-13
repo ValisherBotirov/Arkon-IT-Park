@@ -12,21 +12,24 @@
         <!-- <pre class="text-white">{{stoneList}}</pre>-->
         <div class="flex flex-col gap-[30px] mt-5">
           <BrandCard
+          v-if="houseList.length"
             id="Гранитные"
             :data="stoneList"
-            title="Гранитные камни"
+            title="Декор"
             link="/home"
           />
           <BrandCard
+          v-if="houseList.length"
             id="Мебели"
             :data="mabelList"
-            title="Мебели"
+            title="Мебель"
             link="/brand"
           />
           <BrandCard
+          v-if="houseList.length"
             id="Жилые"
             :data="houseList"
-            title="Жилые комплексы"
+            title="Архитектура"
             link="/union"
           />
         </div>
