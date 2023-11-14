@@ -4,14 +4,12 @@
       <div class="flex justify-between items-center py-3 pt-8">
         <router-link to="/" class="flex flex-shrink-0">
           <img
-           
-            src="../../assets/icon/logo.svg"
+            src="/images/logo.svg"
             alt="Logo svg"
             class="w-[127px] h-[43px] hidden dark:flex"
           />
           <img
-            
-            src="../../assets/icon/logo_black.svg"
+            src="/images/logo_black.svg"
             alt="Logo svg"
             class="w-[127px] h-[43px] flex dark:hidden"
           />
@@ -33,8 +31,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import SideBar from "@/components/SideBar.vue";
 import DarkSwitcher from "@/components/header/DarkSwitcher.vue";
 import { useRouter } from "vue-router";
 
@@ -51,13 +47,20 @@ withDefaults(defineProps<Props>(), {
 
 const router = useRouter();
 
+
 function getImageUrl(name: string) {
-  return new URL(`../assets/icon/${name}.svg`, import.meta.url).href;
+  return new URL(`/public/images/${name}.svg`, import.meta.url).href;
 }
+
+
 
 function closePage(link: string) {
   router.push(link);
 }
+
+
+
+
 </script>
 <style scoped>
 .navItem::after {

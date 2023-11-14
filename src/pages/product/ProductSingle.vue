@@ -65,7 +65,10 @@ function fetchProductSingle() {
     });
 }
 
+
+
 onMounted(() => {
   fetchProductSingle();
+  console.log(import.meta.url)
 });
 </script>

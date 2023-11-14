@@ -1,8 +1,8 @@
-@import url("./tailwind.css");
+@import url("tailwind.css");
 
 @font-face {
   font-family: "Mazzard";
-  src: url("@/assets/fonts/MazzardM-Light.ttf");
+  src: url("../fonts/MazzardM-Light.ttf");
 }
 
 html {
