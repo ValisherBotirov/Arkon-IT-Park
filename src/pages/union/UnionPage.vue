@@ -30,7 +30,7 @@
           </p>
         </div>
         <div class="">
-          <AnimationCard class="h-[80px]" />
+          <AnimationCard :link=brandData2.arkon_url class="h-[80px]" />
         </div>
       </div>
       <div class="flex flex-col gap-[30px] mt-5">
