@@ -10,9 +10,9 @@ const openSidebar = ref(false);
 </script>
 
 <template>
-  <div class="bottom-6 left-1/2 -translate-x-1/2">
+  <div class="bottom-0 w-[100%] left-1/2 -translate-x-1/2">
     <div
-      class="flex items-center justify-center gap-5 bg-[#F5F5F5] dark:bg-[#1A1A1A] rounded-[25px] px-[30px] py-7"
+      class="flex items-center justify-between gap-5 bg-[#F5F5F5] dark:bg-[#1A1A1A] px-[30px] py-7"
     >
       <div
         @click="routerPush('Гранитные')"

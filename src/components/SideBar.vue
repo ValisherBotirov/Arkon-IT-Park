@@ -76,11 +76,6 @@
             </div>
           </div>
         </div>
-        <div
-          class="bg-[#FAFAFA] dark:bg-[#1A1A1A] text-center p-10 rounded-2xl mt-[250px] w-[100%]"
-        >
-          <p class="text-xl">Баннер</p>
-        </div>
       </div>
     </div>
   </Teleport>

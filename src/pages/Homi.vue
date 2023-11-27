@@ -1,9 +1,7 @@
 <template>
   <div>
     <div
-      class="relative h-[430px] before:content-[''] before:w-full before:h-[430px] before:bg-[#333333] before:absolute before:z-[1] before:opacity-[0.2] bg-no-repeat bg-cover"
-  v-bind:style="{ 'background-image': `url(${image})` }"
-
+      class=""
     >
       <SHeader is-black />
     </div>
@@ -14,11 +12,13 @@
           <BrandCard
           v-if="houseList.length"
             id="Гранитные"
-            :data="stoneList"
+            :dataS="stoneList"
+            :dataM="mabelList"
+            :dataH="houseList"
             title="Декор"
             link="/home"
           />
-          <BrandCard
+          <!-- <BrandCard
           v-if="houseList.length"
             id="Мебели"
             :data="mabelList"
@@ -31,7 +31,7 @@
             :data="houseList"
             title="Архитектура"
             link="/union"
-          />
+          /> -->
         </div>
       </div>
     </div>
