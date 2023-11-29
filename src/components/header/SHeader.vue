@@ -47,20 +47,13 @@ withDefaults(defineProps<Props>(), {
 
 const router = useRouter();
 
-
 function getImageUrl(name: string) {
   return new URL(`/public/images/${name}.svg`, import.meta.url).href;
 }
 
-
-
 function closePage(link: string) {
   router.push(link);
 }
-
-
-
-
 </script>
 <style scoped>
 .navItem::after {

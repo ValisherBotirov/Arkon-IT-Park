@@ -4,7 +4,7 @@
   >
     <div class="">
       <a href="tel:+998712020020">+998712020020</a>
-        <p class="mt-2.5">
+      <p class="mt-2.5">
         INFO@LAMINAM.UZ <br />
         SUPPORT@LAMINAM.UZ
       </p>

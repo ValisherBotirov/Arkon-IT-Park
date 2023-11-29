@@ -14,10 +14,11 @@
       </div>
     </div>
     <div class="container">
-      
       <div>
-       
-        <AnimationCard :link=brandData.arkon_url  class="translate-y-[-40px] h-[254px]" />
+        <AnimationCard
+          :link="brandData.arkon_url"
+          class="translate-y-[-40px] h-[254px]"
+        />
         <div class="translate-y-[-10px] grid grid-cols-2 gap-5">
           <img
             v-for="(item, index) in brandData?.shots"
@@ -28,7 +29,6 @@
             class="object-cover w-full max-h-[250px] h-full rounded-[25px]"
           />
         </div>
-        
       </div>
     </div>
   </div>
@@ -48,8 +48,8 @@ function fetchTest() {
   axios
     .get(`mebels/product/${route.params.id}/`)
     .then((res: any) => {
-      console.log(res.data)
-      
+      console.log(res.data);
+
       brandData.value = res.data;
     })
     .catch((err: any) => {

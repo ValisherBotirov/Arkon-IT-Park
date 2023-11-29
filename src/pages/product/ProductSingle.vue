@@ -19,7 +19,10 @@
     </div>
     <div class="container">
       <div>
-        <AnimationCard :link=data.arkon_url  class="translate-y-[-40px] h-[100px]" />
+        <AnimationCard
+          :link="data.arkon_url"
+          class="translate-y-[-40px] h-[100px]"
+        />
       </div>
       <!--      <pre class="text-white">{{data}}</pre>-->
       <div>
@@ -59,7 +62,7 @@ function fetchProductSingle() {
     .get(`stones/product/${route.params.id}/`)
     .then((res) => {
       console.log(res.data);
-      
+
       data.value = res.data;
     })
     .catch((err) => {
@@ -67,10 +70,8 @@ function fetchProductSingle() {
     });
 }
 
-
-
 onMounted(() => {
   fetchProductSingle();
-  console.log(import.meta.url)
+  console.log(import.meta.url);
 });
 </script>

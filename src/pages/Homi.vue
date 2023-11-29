@@ -1,37 +1,19 @@
 <template>
   <div>
-    <div
-      class=""
-    >
+    <div class="">
       <SHeader is-black />
     </div>
     <div class="container">
       <div class="">
-        <!-- <pre class="text-white">{{stoneList}}</pre>-->
+        <!--         <pre class="text-white">{{categoryList}}</pre>-->
         <div class="flex flex-col gap-[30px] mt-5">
           <BrandCard
-          v-if="houseList.length"
+            v-if="categoryList.length"
             id="Гранитные"
-            :dataS="stoneList"
-            :dataM="mabelList"
-            :dataH="houseList"
+            :data="categoryList"
             title="Декор"
             link="/home"
           />
-          <!-- <BrandCard
-          v-if="houseList.length"
-            id="Мебели"
-            :data="mabelList"
-            title="Мебель"
-            link="/brand"
-          />
-          <BrandCard
-          v-if="houseList.length"
-            id="Жилые"
-            :data="houseList"
-            title="Архитектура"
-            link="/union"
-          /> -->
         </div>
       </div>
     </div>
@@ -42,36 +24,15 @@ import SHeader from "@/components/header/SHeader.vue";
 import BrandCard from "@/components/card/branCard.vue";
 import axios from "@/plugins/axios";
 import { onMounted, ref } from "vue";
-import image from '@/assets/static/brandPhoto.png';
-const stoneList = ref([]);
-const mabelList = ref([]);
-const houseList = ref([]);
-function fetchStoneList() {
-  axios
-    .get("stones/brand-list/")
-    .then((res) => {
-      stoneList.value = res.data;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
-function fetchMabelList() {
-  axios
-    .get("mebels/brand-list/")
-    .then((res) => {
-      mabelList.value = res.data;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
+import image from "@/assets/static/brandPhoto.png";
+const categoryList = ref([]);
 
-function fetchHouseList() {
+function fetchAllCategory() {
   axios
-    .get("houses/brand-list/")
+    .get("categories")
     .then((res) => {
-      houseList.value = res.data;
+      categoryList.value = res.data;
+      console.log(res);
     })
     .catch((err) => {
       console.log(err);
@@ -79,8 +40,6 @@ function fetchHouseList() {
 }
 
 onMounted(() => {
-  fetchStoneList();
-  fetchMabelList();
-  fetchHouseList();
+  fetchAllCategory();
 });
 </script>

@@ -1,84 +1,46 @@
 <script setup lang="ts">
 interface Props {
-  dataS?: {
+  data?: {
     id: number;
-    logo: string;
-    logo_light: string;
+    type: string;
+    name: string;
+    image: string;
   }[];
-  dataM?: {
-    id: number;
-    logo: string;
-    logo_light: string;
-  }[];
-   dataH?: {
-    id: number;
-    logo: string;
-    logo_light: string;
-  }[];
-  link: string;
-  title: string;
 }
 
 defineProps<Props>();
 </script>
 <template>
   <div>
-    <p class="text-3xl text-dark dark:text-white">Category</p>
+    <p class="text-2xl text-dark dark:text-white">Category</p>
     <div class="grid grid-cols-2 gap-4 mt-5">
       <div
-        v-for="(item) in dataS"
+        v-for="item in data"
         :key="item"
-        class="py-[22px] px-[25px] dark:bg-[#1A1A1A] h-[80px] rounded-[25px] flex items-center justify-center gap-4 xs:gap-[0px] bg-[#FAFAFA]"
+        class="h-[112px] w-full rounded-[16px] flex items-center justify-center gap-[13px] xs:gap-[0px]"
       >
-        <router-link :to="`${link}?id=${item?.id}`" class="flex-shrink-0">
+        <router-link
+          :to="item?.type ? `/category?type=${item?.type}&id=${item?.id}` : '#'"
+          class="flex-shrink-0 h-full w-full relative"
+        >
           <img
-            :src="item?.logo"
+            :src="item?.image"
             alt="logo"
-            class="flex-shrink-0 max-h-[38px] h-full cursor-pointer hidden dark:flex"
+            class="flex-shrink-0 w-full h-full cursor-pointer hidden dark:flex"
           />
-          <img
-            :src="item?.logo_light"
-            alt="logo"
-            class="flex-shrink-0 max-h-[38px] h-full cursor-pointer dark:hidden"
-          />
-        </router-link>
-      </div>
-      <div
-        v-for="(item  ) in dataM"
-        :key="item"
-        class="py-[22px] px-[25px] dark:bg-[#1A1A1A] h-[80px] rounded-[25px] flex items-center justify-center gap-4 xs:gap-[0px] bg-[#FAFAFA]"
-      >
-        <router-link :to="`${link}?id=${item?.id}`" class="flex-shrink-0">
-          <img
-            :src="item?.logo"
-            alt="logo"
-            class="flex-shrink-0 max-h-[38px] h-full cursor-pointer hidden dark:flex"
-          />
-          <img
-            :src="item?.logo_light"
-            alt="logo"
-            class="flex-shrink-0 max-h-[38px] h-full cursor-pointer dark:hidden"
-          />
-        </router-link>
-      </div>
-      <div
-        v-for="(item) in dataH"
-        :key="item"
-        class="py-[22px] px-[25px] dark:bg-[#1A1A1A] h-[80px] rounded-[25px] flex items-center justify-center gap-4 xs:gap-[0px] bg-[#FAFAFA]"
-      >
-        <router-link :to="`${link}?id=${item?.id}`" class="flex-shrink-0">
-          <img
-            :src="item?.logo"
-            alt="logo"
-            class="flex-shrink-0 max-h-[38px] h-full cursor-pointer hidden dark:flex"
-          />
-          <img
-            :src="item?.logo_light"
-            alt="logo"
-            class="flex-shrink-0 max-h-[38px] h-full cursor-pointer dark:hidden"
-          />
+          <p
+            class="font-medium leading-[30px] text-2xl bottom-[8px] absolute text-white left-[21px] text-shadow"
+          >
+            {{ item?.name }}
+          </p>
         </router-link>
       </div>
     </div>
   </div>
 </template>
+
+<style>
+.text-shadow {
+  //box-shadow: 0px 4px 4px 0px #00000040;
+}
+</style>

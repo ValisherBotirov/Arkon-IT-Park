@@ -38,7 +38,7 @@ const openSidebar = ref(false);
         <img
           src="@/assets/icon/navbar/ic_sofa.svg"
           alt="navbar icon"
-          class="flex-shrink-0  cursor-pointer dark:hidden"
+          class="flex-shrink-0 cursor-pointer dark:hidden"
         />
       </div>
       <div @click="routerPush('Жилые')" class="flex-shrink-0 cursor-pointer">
@@ -50,7 +50,7 @@ const openSidebar = ref(false);
         <img
           src="@/assets/icon/navbar/ic_architects.svg"
           alt="navbar icon"
-          class="flex-shrink-0  cursor-pointer dark:hidden"
+          class="flex-shrink-0 cursor-pointer dark:hidden"
         />
       </div>
       <img
