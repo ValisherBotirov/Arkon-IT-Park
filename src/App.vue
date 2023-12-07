@@ -8,7 +8,7 @@
         <NavBar class="fixed z-50 mx-auto" />
         <router-view />
       </div>
-      <Footer class="mt-5 mb-16" />
+
       <SLoading v-if="isLoading" />
     </div>
     <div v-else class="w-screen h-screen flex justify-center items-center">

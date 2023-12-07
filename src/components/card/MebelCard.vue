@@ -13,7 +13,7 @@ defineProps<Props>();
 </script>
 
 <template>
-  <div v-if="isAlbom == false" class="translate-y-[-10px]">
+  <div v-if="isAlbom == false" class="mt-2">
     <p
       class="text-black dark:text-white leading-[28.37px] font-medium text-2xl"
     >
