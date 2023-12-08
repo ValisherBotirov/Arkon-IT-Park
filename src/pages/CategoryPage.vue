@@ -53,7 +53,7 @@ function getRoute(item: itemType) {
   if (item.type === "mebels") {
     router.push(`/brand?id=${item.id}`);
   } else if (item.type === "houses") {
-    router.push(`/home?id=${item.id}`);
+    router.push(`/union?id=${item.id}`);
   } else if (item.type === "stones") {
     router.push(`/product?id=${item.id}`);
   }
