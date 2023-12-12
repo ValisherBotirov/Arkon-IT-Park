@@ -16,7 +16,6 @@
         </router-link>
 
         <div class="flex items-center gap-4">
-          <DarkSwitcher />
           <div
             v-if="isIcon"
             class="block lg:hidden flex-shrink-0 text-white cursor-pointer"
@@ -31,7 +30,6 @@
 </template>
 
 <script setup lang="ts">
-import DarkSwitcher from "@/components/header/DarkSwitcher.vue";
 import { useRouter } from "vue-router";
 
 interface Props {
