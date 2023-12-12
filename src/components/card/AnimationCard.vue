@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import AnimationCardSVG from "@/assets/svg/AnimationCardSVG.vue";
+
 interface Props {
   link: string;
 }
@@ -6,18 +8,10 @@ interface Props {
 defineProps<Props>();
 </script>
 <template>
-  <div class="relative z-20 border border-[#363620] rounded-[25px]">
-    <a rel="ar" :href="link">
-      <img
-        src="/images/animation_giff.gif"
-        alt="giff animation"
-        class="w-full h-full object-cover rounded-[25px]"
-      />
-      <img
-        src="/images/cup.svg"
-        alt="card icon"
-        class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
-      />
+  <div class="cursor-pointer max-w-[300px] w-full mx-auto">
+    <a rel="ar" :href="link" class="border border-[#448AF7] rounded-[22.5px] flex items-center gap-6 px-4 py-2">
+      <AnimationCardSVG/>
+      <p class="text-[#448AF7] font-semibold text-xl leading-6 tracking-[0.38px]">View in your space</p>
     </a>
   </div>
 </template>

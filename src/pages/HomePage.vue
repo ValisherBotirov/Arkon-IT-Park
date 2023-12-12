@@ -1,46 +1,34 @@
 <template>
-  <div class="min-h-[100vh] flex flex-col justify-between">
     <div>
-      <div
-        class="relative h-[500px] before:content-[''] before:w-full before:h-[500px] before:bg-[#333333] before:absolute before:z-[1] before:opacity-[0.2] bg-no-repeat bg-cover"
-        v-bind:style="{ 'background-image': 'url(' + brandData?.image + ')' }"
-      >
-        <SHeader is-black />
-        <div class="container relative z-20">
-          <h2
-            class="text-[32px] leading-[37.82px] font-semibold text-white max-w-[370px] pt-[233px]"
-          >
-            {{ brandData?.name }}
-          </h2>
-        </div>
+      <div class="relative">
+        <BackSVG mood="#fff" class="absolute left-8 top-[47px]" @click="router.push('/')"/>
+        <img :src="brandData?.logo" alt="" class="w-full h-[200px] object-cover rounded-0">
       </div>
-      <div class="container">
-        <!--        <RouterCard-->
-        <!--            class="translate-y-[-40px] relative z-20"-->
-        <!--            :data="stoneList.slice(0, 3)"-->
-        <!--            link="/home"-->
-        <!--        />-->
+
+      <div class="container ">
         <div
-          class="dark:bg-[#1A1A1A] bg-[#FAFAFA] p-5 dark:text-white text-black rounded-[25px] mt-4"
+          class="bg-[#FAFAFA] p-5  text-black rounded-[25px] "
         >
           <p
             class="leading-[18.91px] htmlText"
             v-html="brandData?.description"
           ></p>
         </div>
-        <div class="flex flex-col gap-[30px] mt-5">
-          <CategoryCard
-            v-for="item in brandData?.categories"
-            :key="item"
-            :link="`/product?id=${item.id}`"
-            :text="item.name"
-            :img="item.image"
-          />
+        <div class="mt-3 !pb-16">
+          <p class="text-[#4B4B4C] font-bold leading-[22px] ">COLLECTIONS LAMINAM</p>
+          <div class="flex flex-col gap-5 pt-[10px]">
+            <CategoryCard
+                v-for="item in brandData?.categories"
+                :key="item"
+                :link="`/product?id=${item.id}`"
+                :text="item.name"
+                :img="item.image"
+            />
+          </div>
         </div>
+
       </div>
     </div>
-    <Footer class="mt-5 mb-16" />
-  </div>
 </template>
 <script setup lang="ts">
 import SHeader from "@/components/header/SHeader.vue";
@@ -48,10 +36,12 @@ import RouterCard from "@/components/card/RouterCard.vue";
 import CategoryCard from "@/components/card/CategoryCard.vue";
 import axios from "@/plugins/axios.ts";
 import { onMounted, ref, watch } from "vue";
-import { useRoute } from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 import Footer from "@/components/SFooter.vue";
+import BackSVG from "@/assets/svg/BackSVG.vue";
 const image = `src/assets/static/homebanner.png`;
 const route = useRoute();
+const router = useRouter();
 
 const stoneList = ref([]);
 const brandData = ref([]);

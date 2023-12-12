@@ -1,16 +1,15 @@
 <template>
-  <div class="min-h-[100vh] flex flex-col justify-between">
-    <div>
-      <div class="">
-        <SHeader is-black />
-      </div>
+  <div class="mt-6">
       <div class="container">
-        <!--      <pre class="text-white">{{ data }}</pre>-->
-        <p class="text-2xl text-dark dark:text-white mb-[18px] mt-3">BRANDS</p>
-        <div class="flex flex-col gap-[17px]">
+        <div class="flex justify-between items-center">
+          <BackSVG @click="router.push('/')"/>
+          <p class="text-black leading-[30px] text-2xl text-center uppercase  font-[Staatliches]">B R A N D S</p>
+          <div></div>
+        </div>
+        <div class="flex flex-col gap-[18px] mt-[18px]">
           <div v-for="item in data" :key="item">
             <img
-              :src="item?.image_thumbnail"
+              :src="item?.logo_thumbnail"
               @click="getRoute(item)"
               alt="images"
               class="w-full object-cover h-[112px] rounded-[16px]"
@@ -19,8 +18,6 @@
         </div>
       </div>
     </div>
-    <Footer class="mt-5 mb-16" />
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -29,6 +26,7 @@ import { useRoute, useRouter } from "vue-router";
 import axios from "@/plugins/axios";
 import { onMounted, ref } from "vue";
 import Footer from "@/components/SFooter.vue";
+import BackSVG from "@/assets/svg/BackSVG.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -55,7 +53,7 @@ function getRoute(item: itemType) {
   } else if (item.type === "houses") {
     router.push(`/union?id=${item.id}`);
   } else if (item.type === "stones") {
-    router.push(`/product?id=${item.id}`);
+    router.push(`/home?id=${item.id}`);
   }
 }
 

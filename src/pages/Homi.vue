@@ -1,25 +1,16 @@
 <template>
-  <div class="min-h-[100vh] flex flex-col justify-between">
-    <div>
-      <div class="">
-        <SHeader is-black />
-      </div>
+  <div class="mt-6">
       <div class="container">
-        <div class="">
-          <!--         <pre class="text-white">{{categoryList}}</pre>-->
-          <div class="flex flex-col gap-[30px] mt-5">
+          <p class="text-black leading-[30px] text-2xl text-center uppercase  font-[Staatliches]">C a t e g o r I E S</p>
+          <div class="flex flex-col gap-[30px] mt-[18px] mb-20">
             <BrandCard
               v-if="categoryList.length"
               id="Гранитные"
               :data="categoryList"
               title="Декор"
-              link="/home"
             />
           </div>
         </div>
-      </div>
-    </div>
-    <Footer class="mt-5 mb-16" />
   </div>
 </template>
 <script setup lang="ts">
