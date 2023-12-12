@@ -1,23 +1,27 @@
 <template>
   <div class="mt-6">
-      <div class="container">
-        <div class="flex justify-between items-center">
-          <BackSVG @click="router.push('/')"/>
-          <p class="text-black leading-[30px] text-2xl text-center uppercase  font-[Staatliches]">B R A N D S</p>
-          <div></div>
-        </div>
-        <div class="flex flex-col gap-[18px] mt-[18px]">
-          <div v-for="item in data" :key="item">
-            <img
-              :src="item?.logo_thumbnail"
-              @click="getRoute(item)"
-              alt="images"
-              class="w-full object-cover h-[112px] rounded-[16px]"
-            />
-          </div>
+    <div class="container">
+      <div class="flex justify-between items-center">
+        <BackSVG @click="router.push('/')" />
+        <p
+          class="text-black leading-[30px] text-2xl text-center uppercase font-[Staatliches]"
+        >
+          B R A N D S
+        </p>
+        <div></div>
+      </div>
+      <div class="flex flex-col gap-[18px] mt-[18px]">
+        <div v-for="item in data" :key="item">
+          <img
+            :src="item?.logo_thumbnail"
+            @click="getRoute(item)"
+            alt="images"
+            class="w-full object-cover h-[112px] rounded-[16px]"
+          />
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">

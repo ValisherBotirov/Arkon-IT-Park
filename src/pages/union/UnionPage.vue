@@ -16,21 +16,20 @@
             v-html="brandData?.name"
           ></p>
         </div>
-        <div class="flex flex-col gap-[30px] ">
-<!--          <div-->
-<!--            class="bg-[#FAFAFA] dark:bg-[#1A1A1A] p-5 text-black dark:text-white rounded-[25px] text-center"-->
-<!--          >-->
-<!--            <p class="leading-[18.91px] text-xs">-->
-<!--              {{ brandData?.name }}-->
-<!--            </p>-->
-<!--          </div>-->
+        <div class="flex flex-col gap-[30px]">
+          <!--          <div-->
+          <!--            class="bg-[#FAFAFA] dark:bg-[#1A1A1A] p-5 text-black dark:text-white rounded-[25px] text-center"-->
+          <!--          >-->
+          <!--            <p class="leading-[18.91px] text-xs">-->
+          <!--              {{ brandData?.name }}-->
+          <!--            </p>-->
+          <!--          </div>-->
           <div class="">
             <AnimationCard :link="brandData.arkon_url" class="h-[80px]" />
           </div>
         </div>
         <div class="flex flex-col gap-[30px] mt-6">
-          <p
-            class="text-white htmlTest" v-html="brandData.content"></p>
+          <p class="text-white htmlTest" v-html="brandData.content"></p>
           <div class="text-center pb-10">
             <p class="text-white text-3xl font-semibold">
               {{ brandData?.phone }}

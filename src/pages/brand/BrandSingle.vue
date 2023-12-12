@@ -20,7 +20,7 @@
             :link="brandData.arkon_url"
             class="translate-y-[-40px] h-[254px]"
           />
-<!--          <pre class="text-white">{{ brandData }}</pre>-->
+          <!--          <pre class="text-white">{{ brandData }}</pre>-->
           <div class="translate-y-[-10px] grid grid-cols-2 gap-5">
             <img
               v-for="(item, index) in brandData?.shots"

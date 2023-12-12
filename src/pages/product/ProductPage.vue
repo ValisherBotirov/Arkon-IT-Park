@@ -1,29 +1,45 @@
 <template>
-    <div>
-      <div class="relative">
-        <BackSVG mood="#fff" class="absolute z-[30] left-8 top-[47px]" @click="router.push('/')"/>
-        <img :src="image" alt="" class="w-full h-[200px] object-cover rounded-0">
-        <div class="w-full h-full top-0 z-20 text-white absolute flex justify-center items-center">
-          <p class="font-bold text-lg leading-6 tracking-[2px] uppercase">{{data?.name}}</p>
-        </div>
-      </div>
-      <div class="container">
-        <p class="text-[#4B4B4C] font-bold leaading-[22px] tracking-[-0.408px] mt-[18px]">TEXT </p>
-        <div class="flex flex-col gap-5  relative z-20 mt-2 pb-16">
-          <CategoryCard
-            v-for="item in data?.products"
-            :key="item"
-            :link="`/product/${item.id}`"
-            :text="item.name"
-            :img="item.image"
-          />
-        </div>
+  <div>
+    <div class="relative">
+      <BackSVG
+        mood="#fff"
+        class="absolute z-[30] left-8 top-[47px]"
+        @click="router.push('/')"
+      />
+      <img
+        :src="image"
+        alt=""
+        class="w-full h-[200px] object-cover rounded-0"
+      />
+      <div
+        class="w-full h-full top-0 z-20 text-white absolute flex justify-center items-center"
+      >
+        <p class="font-bold text-lg leading-6 tracking-[2px] uppercase">
+          {{ data?.name }}
+        </p>
       </div>
     </div>
+    <div class="container">
+      <p
+        class="text-[#4B4B4C] font-bold leaading-[22px] tracking-[-0.408px] mt-[18px]"
+      >
+        TEXT
+      </p>
+      <div class="flex flex-col gap-5 relative z-20 mt-2 pb-16">
+        <CategoryCard
+          v-for="item in data?.products"
+          :key="item"
+          :link="`/product/${item.id}`"
+          :text="item.name"
+          :img="item.image"
+        />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import {useRoute, useRouter} from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import SHeader from "@/components/header/SHeader.vue";
 import CategoryCard from "@/components/card/CategoryCard.vue";
 import axios from "@/plugins/axios";
@@ -32,7 +48,7 @@ import Footer from "@/components/SFooter.vue";
 import BackSVG from "@/assets/svg/BackSVG.vue";
 
 const route = useRoute();
-const router = useRouter()
+const router = useRouter();
 
 const data = ref([]);
 const image = computed(() => data.value?.image);

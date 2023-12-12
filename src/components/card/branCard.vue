@@ -12,11 +12,11 @@ defineProps<Props>();
 </script>
 <template>
   <div>
-    <div class="grid grid-cols-2 gap-4 ">
+    <div class="grid grid-cols-2 gap-4">
       <div
         v-for="item in data"
         :key="item"
-        class="h-[112px] w-full rounded-[16px] flex items-center justify-center gap-[13px] xs:gap-[0px]  "
+        class="h-[112px] w-full rounded-[16px] flex items-center justify-center gap-[13px] xs:gap-[0px]"
       >
         <router-link
           :to="item?.type ? `/category?type=${item?.type}&id=${item?.id}` : '#'"
@@ -41,14 +41,17 @@ defineProps<Props>();
 <style>
 .text-shadow {
   //box-shadow: 0px 4px 4px 0px #00000040;
-
 }
-.card:before{
+.card:before {
   content: "";
   position: absolute;
   width: 100%;
   height: 112px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.27) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.27) 100%
+  );
   border-radius: 16px;
 }
 </style>
