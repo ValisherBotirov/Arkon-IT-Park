@@ -50,7 +50,7 @@ onMounted(() => {
 
   setTimeout(() => {
     isLoading.value = false;
-  }, 1500);
+  }, 3500);
 });
 
 onUnmounted(() => window.removeEventListener("resize", onWidthChange));

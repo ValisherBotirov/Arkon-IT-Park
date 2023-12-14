@@ -14,11 +14,6 @@
         </div>
       </div>
       <div class="container">
-        <!--      <RouterCard-->
-        <!--        class="translate-y-[-40px] relative z-20"-->
-        <!--        :data="mabelList.slice(0, 3)"-->
-        <!--        link="/brand"-->
-        <!--      />-->
         <MebelCard
           v-for="item in brandData?.products"
           :key="item"

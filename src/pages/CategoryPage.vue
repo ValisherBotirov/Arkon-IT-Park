@@ -52,18 +52,12 @@ interface itemType {
 }
 
 function getRoute(item: itemType) {
-  if (item.type === "mebels") {
-    router.push(`/brand?id=${item.id}`);
-  } else if (item.type === "houses") {
-    router.push(`/union?id=${item.id}`);
-  } else if (item.type === "stones") {
-    router.push(`/home?id=${item.id}`);
-  }
+  router.push(`/home?id=${item.id}`);
 }
 
 function fetchData() {
   axios
-    .get(`${route.query.type}/brand-list/?category_id=${route.query.id}`)
+    .get(`stones/brand-list/?category_id=${route.query.id}`)
     .then((res) => {
       console.log(res);
       data.value = res.data;

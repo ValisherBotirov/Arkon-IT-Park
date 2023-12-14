@@ -19,7 +19,7 @@ defineProps<Props>();
         class="h-[112px] w-full rounded-[16px] flex items-center justify-center gap-[13px] xs:gap-[0px]"
       >
         <router-link
-          :to="item?.type ? `/category?type=${item?.type}&id=${item?.id}` : '#'"
+          :to="`/category?id=${item?.id}`"
           class="flex-shrink-0 h-full w-full relative card"
         >
           <img
