@@ -42,7 +42,7 @@
         <div class="flex flex-col gap-3">
           <div v-for="item in brandData?.filtered_products" :key="item">
             <router-link :to="`/product/${item.id}`" class="inline-block">
-              <img :src="item?.image" alt="image" class="w-full object-cover">
+              <img :src="item?.image" alt="image" class="w-full object-cover" />
             </router-link>
           </div>
         </div>

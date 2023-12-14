@@ -78,9 +78,9 @@ function fetchHouseList() {
     });
 }
 
-function renderHtmlText(text: string) {
-  return text.replace(/<[^>]*>/g, "").replace(/<[^>]*>/g, "");
-}
+// function renderHtmlText(text: string) {
+//   return text.replace(/<[^>]*>/g, "").replace(/<[^>]*>/g, "");
+// }
 
 watch(
   () => route.query.id,
