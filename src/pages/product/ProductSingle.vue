@@ -23,6 +23,11 @@
       <div class="mt-8">
         <AnimationCard :link="data?.arkon_url" />
       </div>
+      <div class="my-4 mt-16 flex flex-col gap-4" v-if="data?.shots?.length">
+        <div v-for="item in data.shots" :key="item">
+          <img :src="item.image" alt="images" class="w-full object-cover">
+        </div>
+      </div>
       <div class="mt-16">
         <STable :is-head="true" :body-item="data?.characteristics?.main" />
         <STable
