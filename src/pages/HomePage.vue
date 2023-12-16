@@ -11,6 +11,11 @@
         alt=""
         class="w-full h-[200px] object-cover rounded-0"
       />
+      <div class="absolute left-4 bottom-2">
+        <p class="text-white leading-[22px] tracking-[-0.41px] max-w-[250px]">
+          {{ brandData?.slogan }}
+        </p>
+      </div>
     </div>
 
     <div class="container">

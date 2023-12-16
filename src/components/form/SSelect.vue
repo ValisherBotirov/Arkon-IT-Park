@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="relative z-[20000]">
     <label
       v-if="label"
       for=""
-      class="mb-1 sm:mb-2 font-medium text-white text-sm sm:text-base flex justify-start"
+      class="mb-1 sm:mb-2 font-medium text-sm sm:text-base flex justify-start"
       :class="error ? 'text-[red]' : ''"
       >{{ label }}</label
     >
@@ -33,7 +33,7 @@ interface Props {
   data?: {
     value: string;
     label: string;
-  };
+  }[];
   modelValue: string;
   label: string;
   placeholder: string;
@@ -49,9 +49,11 @@ const value = ref(props.modelValue);
 
 const emit = defineEmits<{
   (e: "update:modelValue", value: any): void;
+  (e:"changeSelect",value:any):void
 }>();
 
 function handleSelect(e) {
   emit("update:modelValue", e);
+  emit("changeSelect",true)
 }
 </script>
