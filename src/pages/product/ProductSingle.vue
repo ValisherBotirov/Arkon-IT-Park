@@ -21,7 +21,7 @@
     </div>
     <div class="container">
       <div class="mt-8">
-        <AnimationCard :link="data?.arkon_url" />
+        <AnimationCard v-if="data?.arkon_file" :link="data?.arkon_file" />
       </div>
       <div class="my-4 mt-16 flex flex-col gap-4" v-if="data?.shots?.length">
         <div v-for="item in data.shots" :key="item">
