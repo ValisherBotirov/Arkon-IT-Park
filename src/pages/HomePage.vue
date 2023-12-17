@@ -7,7 +7,7 @@
         @click="router.push('/')"
       />
       <img
-        :src="brandData?.logo"
+        :src="brandData?.image"
         alt=""
         class="w-full h-[200px] object-cover rounded-0"
       />

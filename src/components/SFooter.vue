@@ -8,13 +8,14 @@
     <div class="mt-3 py-5 border-t border-[#ABB0BC]">
       <div class="flex items-center gap-[60px] pl-2">
         <a href="#">
-          <img src="@/assets/icon/instagram.png" alt="icon socila" />
+          <img src="@/assets/icon/instagram.svg" alt="icon socila" class="w-9 h-9"/>
         </a>
         <a href="#">
-          <img src="@/assets/icon/facebook.png" alt="icon socila" />
+          <img src="@/assets/icon/facebook.svg" alt="icon socila" class="w-9 h-9"/>
+
         </a>
         <a href="#">
-          <img src="@/assets/icon/telegram.png" alt="icon socila" />
+          <img src="@/assets/icon/telegram.svg" alt="icon socila" class="w-9 h-9" />
         </a>
       </div>
     </div>

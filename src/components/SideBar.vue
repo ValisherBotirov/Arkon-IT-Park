@@ -57,7 +57,7 @@
 
         <div class="mt-8 flex flex-col gap-[10px]" >
           <router-link class="flex items-center gap-[10px] cursor-pointer" v-for="item in allResults" :key="item" :to="`/product/${item.id}`" @click="emit('closeSidebar', false)">
-            <img :src="item?.logo_thumbnail" alt="images" class="w-9 h-9 rounded-[50%] object-cover">
+            <img :src="item?.logo" alt="images" class="w-9 h-9 rounded-[50%] object-cover">
             <div>
               <p class="text-black leading-[19px]">{{ item?.name }}</p>
               <p class="text-[#979797] text-xs leading-[14.32px]">{{ item?.slogan}}</p>
