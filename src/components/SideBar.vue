@@ -133,7 +133,10 @@ function changeCountryData() {
 }
 
 function changeCategory(){
-  showResults()
+  if(inputValue.value){
+    showResults()
+  }
+  else allResults.value = []
 }
 
 // Categories

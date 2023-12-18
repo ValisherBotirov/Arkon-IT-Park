@@ -3,7 +3,7 @@
     <div class="relative">
       <BackSVG
         mood="#fff"
-        class="absolute z-[30] left-8 top-[47px]"
+        class="absolute z-[30] left-4 top-[31px]"
         @click="router.push('/')"
       />
       <img

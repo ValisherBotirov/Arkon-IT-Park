@@ -2,7 +2,7 @@
   <div class="mt-6">
     <div class="container">
       <div class="flex justify-between items-center">
-        <BackSVG @click="router.push('/')" />
+        <BackSVG @click="router.push('/')" class="-ml-4 " />
         <p
           class="text-black leading-[30px] text-2xl text-center uppercase font-[Staatliches]"
         >

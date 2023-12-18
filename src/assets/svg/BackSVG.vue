@@ -9,7 +9,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class="cursor-pointer">
+  <div class="cursor-pointer p-4">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="8"

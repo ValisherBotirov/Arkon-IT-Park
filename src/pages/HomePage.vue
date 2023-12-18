@@ -3,7 +3,7 @@
     <div class="relative">
       <BackSVG
         mood="#fff"
-        class="absolute left-8 top-[47px]"
+        class="absolute left-4 top-[31px]"
         @click="router.push('/')"
       />
       <img
@@ -22,7 +22,7 @@
       <div class="mt-7" v-if="brandData?.arkon_file">
         <AnimationCard :link="brandData.arkon_file" />
       </div>
-      <div class="bg-[#FAFAFA] p-5 text-black rounded-[25px]">
+      <div class="bg-white p-5 text-black rounded-[25px]">
         <!--        <pre class="text-black">{{brandData}}</pre>-->
         <p
           class="leading-[18.91px] htmlText"

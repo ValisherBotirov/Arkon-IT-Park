@@ -13,7 +13,7 @@
       size="large"
       :placeholder="placeholder"
       @change="handleSelect"
-      class="w-full border border-gray-500 rounded-[4px]"
+      class="w-full border border-gray-500 rounded-[4px] relative z-[9999]"
       :class="error ? 'border border-[red] rounded-[4px]' : ''"
     >
       <el-option
@@ -34,10 +34,10 @@ interface Props {
     value: string;
     label: string;
   }[];
-  modelValue: string;
-  label: string;
-  placeholder: string;
-  error: boolean;
+  modelValue: string | number;
+  label?: string;
+  placeholder?: string;
+  error?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -52,7 +52,7 @@ const emit = defineEmits<{
   (e:"changeSelect",value:any):void
 }>();
 
-function handleSelect(e) {
+function handleSelect(e:any) {
   emit("update:modelValue", e);
   emit("changeSelect",true)
 }
