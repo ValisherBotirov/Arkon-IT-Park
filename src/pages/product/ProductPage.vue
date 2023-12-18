@@ -4,7 +4,7 @@
       <BackSVG
         mood="#fff"
         class="absolute z-[30] left-4 top-[31px]"
-        @click="router.push('/')"
+        @click="router.push(`/home?id=${$route.query.id}`)"
       />
       <img
         :src="image"
@@ -29,7 +29,7 @@
         <CategoryCard
           v-for="item in data?.filtered_products"
           :key="item"
-          :link="`/product/${item.id}`"
+          :link="`/product/${item.id}?back=${$route.query.id}`"
           :text="item.name"
           :img="item.image"
         />

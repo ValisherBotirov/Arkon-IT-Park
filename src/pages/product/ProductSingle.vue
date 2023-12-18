@@ -4,7 +4,7 @@
       <BackSVG
         mood="#fff"
         class="absolute z-[30] left-4 top-[31px]"
-        @click="router.push('/')"
+        @click="router.push(`/product?id=${$route.query.back}`)"
       />
       <img
         :src="data?.image"
