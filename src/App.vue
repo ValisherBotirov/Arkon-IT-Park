@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-if="width < 500"
+      v-if="width < 600"
       class="bg-white h-full overflow-hidden min-h-[100vh] flex flex-col justify-between"
     >
       <div>
@@ -46,12 +46,12 @@ const width = ref(window.innerWidth);
 const onWidthChange = () => (width.value = window.innerWidth);
 
 onMounted(() => {
-  window.addEventListener("resize", onWidthChange);
+  // window.addEventListener("resize", onWidthChange);
 
   setTimeout(() => {
     isLoading.value = false;
   }, 3500);
 });
 
-onUnmounted(() => window.removeEventListener("resize", onWidthChange));
+// onUnmounted(() => window.removeEventListener("resize", onWidthChange));
 </script>
