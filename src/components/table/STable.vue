@@ -2,15 +2,15 @@
   <div>
     <p class="text-[#4B4B4C] text-sm font-bold leading-[22px] mb-1">TEXT</p>
     <div class="relative overflow-x-auto ">
-      <table class="w-full text-sm text-left text-black border-[0.25px] border-[#5B5B5B]">
+      <table class="w-full text-sm text-left text-black !border-[0.25px] !border-[#5B5B5B]">
         <thead class="text-xs text-black uppercase bg-#fff" v-if="!isHead">
-          <tr class="border-b-[0.25px] border-[#5B5B5B]" v-if="!oneHead">
-            <th class="px-5 py-5 w-1/2  border-r-[0.25px] border-[#5B5B5B]">
+          <tr class="!border-b-[0.25px] !border-[#5B5B5B]" v-if="!oneHead">
+            <th class="px-5 py-5 w-1/2  !border-r-[0.25px] !border-[#5B5B5B]">
               {{ headItem?.name }}
             </th>
             <th class="px-5 py-5">{{ headItem?.value }}</th>
           </tr>
-          <tr class="border-b-[0.25px] border-[#5B5B5B]" v-else>
+          <tr class="!border-b-[0.25px] !border-[#5B5B5B]" v-else>
             <th scope="col" class="px-5 py-5 w-full text-right">
               Норма - Метод
             </th>
