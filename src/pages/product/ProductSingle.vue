@@ -32,12 +32,12 @@
         <STable :is-head="true" :body-item="data?.characteristics?.main" />
         <STable
           class="mt-[26px]"
-          :one-head="true"
+          :is-head="true"
           :body-item="data?.characteristics?.standart"
         />
         <STable
           class="mt-7 mb-[30px]"
-          is-head
+          :is-head="true"
           :body-item="data?.characteristics?.test"
         />
       </div>
