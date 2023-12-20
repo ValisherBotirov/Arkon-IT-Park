@@ -5,7 +5,7 @@
       class="bg-white h-full overflow-hidden min-h-[100vh] flex flex-col justify-between"
     >
       <div>
-        <NavBar class="fixed z-50 mx-auto" />
+        <NavBar class="fixed !z-[60] mx-auto" />
         <router-view />
       </div>
 

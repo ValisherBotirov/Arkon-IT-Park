@@ -32,20 +32,10 @@ const routes = [
     component:()=> import("@/pages/MapPage.vue")
   },
   {
-    path: "/brand",
-    name: "brand",
-    component: () => import("@/pages/brand/BrandPage.vue"),
-  },
-  {
-    path: "/brand/:id",
-    name: "brand-single",
-    component: () => import("@/pages/brand/BrandSingle.vue"),
-  },
-  {
-    path: "/union",
-    name: "union",
-    component: () => import("@/pages/union/UnionPage.vue"),
-  },
+    path: '/search',
+    name: 'search',
+    component:()=> import("@/pages/SearchPage.vue")
+  }
 ];
 
 const router = createRouter({

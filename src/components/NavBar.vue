@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import SideBar from "@/components/SideBar.vue";
-import { ref } from "vue";
+
 import { useRoute, useRouter } from "vue-router";
 import SearchSVG from "@/assets/svg/SearchSVG.vue";
 import CategorySVG from "@/assets/svg/CategorySVG.vue";
@@ -10,7 +9,6 @@ const route = useRoute();
 function routerPush(arg: string) {
   router.push(`/#${arg}`);
 }
-const openSidebar = ref(false);
 </script>
 
 <template>
@@ -21,15 +19,14 @@ const openSidebar = ref(false);
         @click="router.push('/')"
       />
       <SearchSVG
-        :mood="openSidebar ? '#448AF7' : '#000'"
-        @click="openSidebar = true"
+        :mood="route.path == '/search' ? '#448AF7' : '#000'"
+        @click="router.push('/search')"
       />
       <LocationSVG
         :mood="route.path == '/map' ? '#448AF7' : '#000'"
         @click="router.push('/map')"
       />
     </div>
-    <SideBar :is-open="openSidebar" @closeSidebar="(e) => (openSidebar = e)" />
   </div>
 </template>
 
