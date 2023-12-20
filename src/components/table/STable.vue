@@ -11,7 +11,7 @@
             <th class="px-5 py-5">{{ headItem?.value }}</th>
           </tr>
           <tr class="border-s-b" v-else>
-            <th scope="col" class="px-5 py-5 w-full text-right">
+            <th scope="col" class="px-5 py-5 w-full text-right border-s-r">
               Норма - Метод
             </th>
             <!--          <th></th>-->
