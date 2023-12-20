@@ -57,15 +57,15 @@ withDefaults(defineProps<Props>(), {
 
 <style scoped>
 .border-s{
-  border: 0.25px solid #5B5B5B;
+  border: 1px solid #5B5B5B;
 }
 .border-s-b{
-  border-bottom: 0.25px solid #5B5B5B;
+  border-bottom: 1px solid #5B5B5B;
 }
 .border-s-r{
-  border-right: 0.25px solid #5B5B5B;
+  border-right: 1px solid #5B5B5B;
 }
 .border-s-l{
-  border-left: 0.25px solid #5B5B5B;
+  border-left: 1px solid #5B5B5B;
 }
 </style>
