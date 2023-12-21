@@ -4,7 +4,7 @@
       <BackSVG
         mood="#fff"
         class="absolute left-4 top-[31px]"
-        @click="router.push(`/category?id=${$route.query.id}`)"
+        @click="router.go(-1)"
       />
       <img
         :src="brandData?.image"
@@ -23,7 +23,6 @@
         <AnimationCard :link="brandData.arkon_file" />
       </div>
       <div class="bg-white p-5 text-black rounded-[25px]">
-        <!--        <pre class="text-black">{{brandData}}</pre>-->
         <p
           class="leading-[18.91px] htmlText"
           v-html="brandData?.description"
@@ -34,7 +33,7 @@
           COLLECTIONS LAMINAM
         </p>
         <div class="flex flex-col gap-5 pt-[10px]">
-          <CategoryCard
+          <CategoryCard class="!h-full"
             v-for="item in brandData?.filtered_categories"
             :key="item"
             :link="`/product?id=${item.id}`"
@@ -44,9 +43,12 @@
         </div>
       </div>
       <div class="mt-3 !pb-16" v-if="brandData?.filtered_products?.length">
+        <p class="text-[#4B4B4C] font-bold leading-[22px] pb-[10px]">
+          PRODUCTS LAMINAM
+        </p>
         <div class="flex flex-col gap-3">
           <div v-for="item in brandData?.filtered_products" :key="item">
-            <router-link :to="`/product/${item.id}?back=${$route.query.id}`" class="inline-block">
+            <router-link :to="`/product/${item.id}`" class="inline-block w-full">
               <img :src="item?.image" alt="image" class="w-full object-cover" />
             </router-link>
           </div>
@@ -80,12 +82,12 @@ function fetchTest() {
     });
 }
 
-watch(
-  () => route.query.id,
-  () => {
-    fetchTest();
-  }
-);
+// watch(
+//   () => route.query.id,
+//   () => {
+//     fetchTest();
+//   }
+// );
 
 onMounted(() => {
   fetchTest();

@@ -57,15 +57,23 @@ withDefaults(defineProps<Props>(), {
 
 <style scoped>
 .border-s{
-  border: 0.05em solid #5B5B5B;
+  border: 0.02em solid #5B5B5B;
 }
 .border-s-b{
-  border-bottom: 0.05em solid #5B5B5B;
+  border-bottom: 0.02em solid #5B5B5B;
 }
 .border-s-r{
-  border-right: 0.05em solid #5B5B5B;
+  border-right: 0.02em solid #5B5B5B;
 }
 .border-s-l{
-  border-left: 0.05em solid #5B5B5B;
+  border-left: 0.02em solid #5B5B5B;
 }
+
+/* Стили для устройств с высоким разрешением (Retina и др.) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  th, td {
+    border: 1px solid #5B5B5B; /* Используйте 1px для устройств с высоким разрешением */
+  }
+}
+
 </style>

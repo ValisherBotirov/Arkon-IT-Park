@@ -10,7 +10,7 @@
         </p>
         <div></div>
       </div>
-      <div class="flex flex-col gap-[18px] mt-[18px]">
+      <div class="flex flex-col gap-[18px] mt-[18px] !mb-[70px]" v-if="data.length">
         <div v-for="item in data" :key="item">
           <img
             :src="item?.logo_thumbnail"
@@ -19,6 +19,9 @@
             class="w-full object-cover h-[112px] rounded-[16px]"
           />
         </div>
+      </div>
+      <div v-else>
+        <p class="text-center mt-8 font-medium text-xl">Malumotlar topilmadi</p>
       </div>
     </div>
   </div>

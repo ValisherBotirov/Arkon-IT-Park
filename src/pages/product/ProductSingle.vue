@@ -4,7 +4,7 @@
       <BackSVG
         mood="#fff"
         class="absolute z-[30] left-4 top-[31px]"
-        @click="router.push(`/product?id=${$route.query.back}`)"
+        @click="router.go(-1)"
       />
       <img
         :src="data?.image"
@@ -29,21 +29,23 @@
         </div>
       </div>
       <div class="mt-16">
-        <STable :is-head="true" :body-item="data?.characteristics?.main" />
+        <STable v-if="data?.characteristics?.main.length" :is-head="true" :body-item="data?.characteristics?.main" />
         <STable
+            v-if="data?.characteristics?.standart.length"
           class="mt-[26px]"
           :is-head="true"
           :body-item="data?.characteristics?.standart"
         />
         <STable
-          class="mt-7 mb-[30px]"
+            v-if="data?.characteristics?.test.length"
+            class="mt-7 mb-[30px]"
           :is-head="true"
           :body-item="data?.characteristics?.test"
         />
       </div>
     </div>
   </div>
-  <Footer class="mt-5 mb-16" v-bind="data?.brand_data" />
+  <Footer class="mt-5  mb-16" v-bind="data?.brand_data" :socials="data?.socials" />
 </template>
 
 <script setup lang="ts">
