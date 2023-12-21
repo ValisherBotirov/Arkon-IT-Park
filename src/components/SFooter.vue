@@ -8,7 +8,7 @@
     <div class="mt-3 py-5 border-t border-[#ABB0BC]">
       <div class="flex items-center gap-[40px] pl-2">
         <div v-for="item in socials" :key="item">
-        <a href="#">
+        <a :href="item.link" target="_blank">
           <img :src="socialImage(item.type)" alt="icon socila" class="w-9 h-9"/>
         </a>
         </div>
