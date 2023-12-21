@@ -63,11 +63,11 @@
           class="flex items-center gap-[10px] cursor-pointer"
           v-for="item in allResults"
           :key="item"
-          :to="`/product/${item.id}`"
+          :to="`home?id=${item.id}`"
           @click="emit('closeSidebar', false)"
         >
           <img
-            :src="item?.logo"
+            :src="item?.icon"
             alt="images"
             class="w-9 h-9 rounded-[50%] object-cover"
           />
