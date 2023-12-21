@@ -39,7 +39,13 @@ const location = ref<ILocation[]>([
 ])
 function fetchMarkerLocation(){
   axios.get<ILocation[]>(`all-locations/`).then((res)=>{
-    location.value = res.data
+    res.data.forEach((el)=>{
+      const obj:ILocation = {
+        lat:+el.lat,
+        long:+el.long
+      }
+      location.value.push(obj)
+    })
   })
 }
 
@@ -53,12 +59,12 @@ onMounted(()=>{
 
   fetchMarkerLocation()
 
-  // setTimeout(()=>{
+  setTimeout(()=>{
+    console.log(location.value)
     location.value.forEach((el)=>{
-      console.log(el)
       L.marker([el.lat, el.long]).addTo(map.value);
     })
-  // },100)
+  },200)
 
 
 })

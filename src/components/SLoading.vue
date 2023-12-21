@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <div class="load-wrapp">
-      <img src="@/assets/loading.gif" alt="" class="!w-full !h-full" />
+      <img src="@/assets/load.gif" alt="" class="!w-full !h-full object-cover" />
     </div>
   </Teleport>
 </template>
