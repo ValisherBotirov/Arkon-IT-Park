@@ -11,6 +11,7 @@ import L from "leaflet"
 import axios from "@/plugins/axios";
 
 const mapContainer = ref("")
+
 const map = ref()
 
 const myIcon = L.icon({
@@ -66,7 +67,15 @@ onMounted(()=>{
     })
   },200)
 
+  const text = document.querySelector('.leaflet-control-attribution.leaflet-control')
+  text.style.opacity = 0
+
 
 })
 </script>
 
+<style scoped>
+.leaflet-bottom.leaflet-right{
+  display: none !important;
+}
+</style>
