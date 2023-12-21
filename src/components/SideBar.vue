@@ -38,33 +38,60 @@
               @focus="isActiveInput = true"
               @input="changeSearchQuery"
             />
-<!--            <i-->
-<!--              :class="inputValue !== '' ? 'opacity-1' : 'opacity-0'"-->
-<!--              class="fa-sharp fa-solid fa-xmark text-xl text-[#3C3C4399] transition duration-300 cursor-pointer hover:text-black"-->
-<!--              @click="clearInput"-->
-<!--            ></i>-->
+            <!--            <i-->
+            <!--              :class="inputValue !== '' ? 'opacity-1' : 'opacity-0'"-->
+            <!--              class="fa-sharp fa-solid fa-xmark text-xl text-[#3C3C4399] transition duration-300 cursor-pointer hover:text-black"-->
+            <!--              @click="clearInput"-->
+            <!--            ></i>-->
           </label>
         </div>
 
         <Transition name="fade">
           <div v-show="isFilter" class="mt-5 flex flex-col gap-5">
-            <SSelect v-model="countrySelect" :data="countrySelectData" placeholder="" @changeSelect="changeCategory" />
-            <SSelect v-model="categorySelect" :data="categorySelectData" placeholder="Categories" @changeSelect="changeCategory" />
+            <SSelect
+              v-model="countrySelect"
+              :data="countrySelectData"
+              placeholder=""
+              @changeSelect="changeCategory"
+            />
+            <SSelect
+              v-model="categorySelect"
+              :data="categorySelectData"
+              placeholder="Categories"
+              @changeSelect="changeCategory"
+            />
           </div>
         </Transition>
 
-<!--        <pre class="text-black">{{allResults}}</pre>-->
+        <!--        <pre class="text-black">{{allResults}}</pre>-->
 
-        <div class="mt-8 flex flex-col gap-[10px]" >
-          <router-link class="flex items-center gap-[10px] cursor-pointer" v-for="item in allResults" :key="item" :to="`/product/${item.id}`" @click="emit('closeSidebar', false)">
-            <img :src="item?.logo" alt="images" class="w-9 h-9 rounded-[50%] object-cover">
+        <div class="mt-8 flex flex-col gap-[10px]">
+          <router-link
+            class="flex items-center gap-[10px] cursor-pointer"
+            v-for="item in allResults"
+            :key="item"
+            :to="`/product/${item.id}`"
+            @click="emit('closeSidebar', false)"
+          >
+            <img
+              :src="item?.logo"
+              alt="images"
+              class="w-9 h-9 rounded-[50%] object-cover"
+            />
             <div>
               <p class="text-black leading-[19px]">{{ item?.name }}</p>
-              <p class="text-[#979797] text-xs leading-[14.32px]">{{ item?.slogan}}</p>
+              <p class="text-[#979797] text-xs leading-[14.32px]">
+                {{ item?.slogan }}
+              </p>
             </div>
           </router-link>
         </div>
-        <p v-if="allResults.length == 0 && inputValue !== ''" class="mt-6 text-black font-medium text-center">No data</p>
+        <p
+          v-if="allResults.length == 0 && inputValue !== ''"
+          class="mt-6 text-black font-medium text-center"
+        >
+          No data
+        </p>
       </div>
     </div>
   </Teleport>
@@ -103,16 +130,14 @@ function openFilter() {
   isFilter.value = !isFilter.value;
 }
 
-function changeSearchQuery(){
-  if(inputValue.value){
-  showResults()
-  }
-  else allResults.value = []
+function changeSearchQuery() {
+  if (inputValue.value) {
+    showResults();
+  } else allResults.value = [];
 }
 
-
 // countries
-const countrySelect = ref("UZ")
+const countrySelect = ref("UZ");
 const countryData = ref([]);
 const countrySelectData = ref([]);
 
@@ -132,26 +157,25 @@ function changeCountryData() {
   });
 }
 
-function changeCategory(){
-  if(inputValue.value){
-    showResults()
-  }
-  else allResults.value = []
+function changeCategory() {
+  if (inputValue.value) {
+    showResults();
+  } else allResults.value = [];
 }
 
 // Categories
-const categorySelect = ref('')
-const categoryData = ref([])
-const categorySelectData = ref([])
+const categorySelect = ref("");
+const categoryData = ref([]);
+const categorySelectData = ref([]);
 
-function fetchCategory(){
-  axios.get('/categories').then((res)=>{
-    categoryData.value = res.data
-    changeCategoryData()
-  })
+function fetchCategory() {
+  axios.get("/categories").then((res) => {
+    categoryData.value = res.data;
+    changeCategoryData();
+  });
 }
 
-function changeCategoryData(){
+function changeCategoryData() {
   categorySelectData.value = categoryData?.value.map((el) => {
     return {
       label: el.name,
@@ -161,18 +185,23 @@ function changeCategoryData(){
 }
 
 // show result
-const allResults = ref([])
-function showResults(){
-  axios.get(`/stones/brand-list/?category_id=${categorySelect.value}&country=${countrySelect.value}&name__icontains=${inputValue.value}`).then((res)=>{
-    allResults.value = res.data
-  }).catch((err)=>{
-    console.log(err)
-  })
+const allResults = ref([]);
+function showResults() {
+  axios
+    .get(
+      `/stones/brand-list/?category_id=${categorySelect.value}&country=${countrySelect.value}&name__icontains=${inputValue.value}`
+    )
+    .then((res) => {
+      allResults.value = res.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 onMounted(() => {
   fetchCountry();
-  fetchCategory()
+  fetchCategory();
 });
 </script>
 

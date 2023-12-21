@@ -33,7 +33,8 @@
           COLLECTIONS LAMINAM
         </p>
         <div class="flex flex-col gap-5 pt-[10px]">
-          <CategoryCard class="!h-full"
+          <CategoryCard
+            class="!h-full"
             v-for="item in brandData?.filtered_categories"
             :key="item"
             :link="`/product?id=${item.id}`"
@@ -48,7 +49,10 @@
         </p>
         <div class="flex flex-col gap-3">
           <div v-for="item in brandData?.filtered_products" :key="item">
-            <router-link :to="`/product/${item.id}`" class="inline-block w-full">
+            <router-link
+              :to="`/product/${item.id}`"
+              class="inline-block w-full"
+            >
               <img :src="item?.image" alt="image" class="w-full object-cover" />
             </router-link>
           </div>

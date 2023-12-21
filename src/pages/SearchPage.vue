@@ -1,21 +1,17 @@
-
-
 <template>
   <div
-      class="fixed w-full h-[100vh] overflow-y-scroll inset-y-0 duration-300 right-0 bg-white z-5"
+    class="fixed w-full h-[100vh] overflow-y-scroll inset-y-0 duration-300 right-0 bg-white z-5"
   >
-    <div class="flex justify-end px-10 pt-10">
-
-    </div>
+    <div class="flex justify-end px-10 pt-10"></div>
     <div class="px-10 py-4">
       <div
-          class="flex items-center gap-3 justify-center cursor-pointer"
-          @click="openFilter"
+        class="flex items-center gap-3 justify-center cursor-pointer"
+        @click="openFilter"
       >
         <FilterSVG :mood="isFilter ? '#448AF7' : '#000'" />
         <p
-            class="text-black"
-            :class="isFilter ? 'text-[#448AF7]' : 'text-black'"
+          class="text-black"
+          :class="isFilter ? 'text-[#448AF7]' : 'text-black'"
         >
           FILTER
         </p>
@@ -23,17 +19,17 @@
 
       <div class="mt-5">
         <label
-            for=""
-            class="flex gap-3 border border-[#5B5B5B] rounded-[22.5px] bg-white py-3 px-4"
+          for=""
+          class="flex gap-3 border border-[#5B5B5B] rounded-[22.5px] bg-white py-3 px-4"
         >
           <SearchSVG mood="#C6C6C8" />
           <input
-              type="text"
-              class="text-xl h-full w-full min-h-[18px]"
-              placeholder="Поиск"
-              v-model="inputValue"
-              @focus="isActiveInput = true"
-              @input="changeSearchQuery"
+            type="text"
+            class="text-xl h-full w-full min-h-[18px]"
+            placeholder="Поиск"
+            v-model="inputValue"
+            @focus="isActiveInput = true"
+            @input="changeSearchQuery"
           />
           <!--            <i-->
           <!--              :class="inputValue !== '' ? 'opacity-1' : 'opacity-0'"-->
@@ -45,23 +41,50 @@
 
       <Transition name="fade">
         <div v-show="isFilter" class="mt-5 flex flex-col gap-5">
-          <SSelect v-model="countrySelect" :data="countrySelectData" placeholder="" @changeSelect="changeCategory" />
-          <SSelect v-model="categorySelect" :data="categorySelectData" placeholder="Categories" @changeSelect="changeCategory" />
+          <SSelect
+            v-model="countrySelect"
+            :data="countrySelectData"
+            placeholder=""
+            @changeSelect="changeCategory"
+          />
+          <SSelect
+            v-model="categorySelect"
+            :data="categorySelectData"
+            placeholder="Categories"
+            @changeSelect="changeCategory"
+          />
         </div>
       </Transition>
 
       <!--        <pre class="text-black">{{allResults}}</pre>-->
 
-      <div class="mt-8 flex flex-col gap-[10px]" >
-        <router-link class="flex items-center gap-[10px] cursor-pointer" v-for="item in allResults" :key="item" :to="`/product/${item.id}`" @click="emit('closeSidebar', false)">
-          <img :src="item?.logo" alt="images" class="w-9 h-9 rounded-[50%] object-cover">
+      <div class="mt-8 flex flex-col gap-[10px]">
+        <router-link
+          class="flex items-center gap-[10px] cursor-pointer"
+          v-for="item in allResults"
+          :key="item"
+          :to="`/product/${item.id}`"
+          @click="emit('closeSidebar', false)"
+        >
+          <img
+            :src="item?.logo"
+            alt="images"
+            class="w-9 h-9 rounded-[50%] object-cover"
+          />
           <div>
             <p class="text-black leading-[19px]">{{ item?.name }}</p>
-            <p class="text-[#979797] text-xs leading-[14.32px]">{{ item?.slogan}}</p>
+            <p class="text-[#979797] text-xs leading-[14.32px]">
+              {{ item?.slogan }}
+            </p>
           </div>
         </router-link>
       </div>
-      <p v-if="allResults.length == 0 && inputValue !== ''" class="mt-6 text-black font-medium text-center">No data</p>
+      <p
+        v-if="allResults.length == 0 && inputValue !== ''"
+        class="mt-6 text-black font-medium text-center"
+      >
+        No data
+      </p>
     </div>
   </div>
 </template>
@@ -99,16 +122,14 @@ function openFilter() {
   isFilter.value = !isFilter.value;
 }
 
-function changeSearchQuery(){
-  if(inputValue.value){
-    showResults()
-  }
-  else allResults.value = []
+function changeSearchQuery() {
+  if (inputValue.value) {
+    showResults();
+  } else allResults.value = [];
 }
 
-
 // countries
-const countrySelect = ref("UZ")
+const countrySelect = ref("UZ");
 const countryData = ref([]);
 const countrySelectData = ref([]);
 
@@ -128,26 +149,25 @@ function changeCountryData() {
   });
 }
 
-function changeCategory(){
-  if(inputValue.value){
-    showResults()
-  }
-  else allResults.value = []
+function changeCategory() {
+  if (inputValue.value) {
+    showResults();
+  } else allResults.value = [];
 }
 
 // Categories
-const categorySelect = ref('')
-const categoryData = ref([])
-const categorySelectData = ref([])
+const categorySelect = ref("");
+const categoryData = ref([]);
+const categorySelectData = ref([]);
 
-function fetchCategory(){
-  axios.get('/categories').then((res)=>{
-    categoryData.value = res.data
-    changeCategoryData()
-  })
+function fetchCategory() {
+  axios.get("/categories").then((res) => {
+    categoryData.value = res.data;
+    changeCategoryData();
+  });
 }
 
-function changeCategoryData(){
+function changeCategoryData() {
   categorySelectData.value = categoryData?.value.map((el) => {
     return {
       label: el.name,
@@ -157,18 +177,23 @@ function changeCategoryData(){
 }
 
 // show result
-const allResults = ref([])
-function showResults(){
-  axios.get(`/stones/brand-list/?category_id=${categorySelect.value}&country=${countrySelect.value}&name__icontains=${inputValue.value}`).then((res)=>{
-    allResults.value = res.data
-  }).catch((err)=>{
-    console.log(err)
-  })
+const allResults = ref([]);
+function showResults() {
+  axios
+    .get(
+      `/stones/brand-list/?category_id=${categorySelect.value}&country=${countrySelect.value}&name__icontains=${inputValue.value}`
+    )
+    .then((res) => {
+      allResults.value = res.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 onMounted(() => {
   fetchCountry();
-  fetchCategory()
+  fetchCategory();
 });
 </script>
 

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { useRoute, useRouter } from "vue-router";
 import SearchSVG from "@/assets/svg/SearchSVG.vue";
 import CategorySVG from "@/assets/svg/CategorySVG.vue";

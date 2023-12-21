@@ -11,10 +11,15 @@
         alt=""
         class="w-full h-[200px] object-cover rounded-0"
       />
-      <div
-        class="w-full h-full top-0 z-20 text-white absolute flex justify-center items-center"
-      >
-        <p class="font-bold text-lg leading-6 tracking-[2px] uppercase">
+<!--      <div-->
+<!--        class="w-full h-full top-0 z-20 text-white absolute "-->
+<!--      >-->
+<!--        <p class="font-bold text-lg leading-6 tracking-[2px] uppercase">-->
+<!--          {{ data?.name }}-->
+<!--        </p>-->
+<!--      </div>-->
+      <div class="absolute left-4 bottom-2 z-20">
+        <p class="text-white leading-[22px] tracking-[-0.41px] max-w-[250px]">
           {{ data?.name }}
         </p>
       </div>
@@ -25,27 +30,35 @@
       </div>
       <div class="my-4 mt-16 flex flex-col gap-4" v-if="data?.shots?.length">
         <div v-for="item in data.shots" :key="item">
-          <img :src="item.image" alt="images" class="w-full object-cover">
+          <img :src="item.image" alt="images" class="w-full object-cover" />
         </div>
       </div>
       <div class="mt-16">
-        <STable v-if="data?.characteristics?.main.length" :is-head="true" :body-item="data?.characteristics?.main" />
         <STable
-            v-if="data?.characteristics?.standart.length"
+          v-if="data?.characteristics?.main.length"
+          :is-head="true"
+          :body-item="data?.characteristics?.main"
+        />
+        <STable
+          v-if="data?.characteristics?.standart.length"
           class="mt-[26px]"
           :is-head="true"
           :body-item="data?.characteristics?.standart"
         />
         <STable
-            v-if="data?.characteristics?.test.length"
-            class="mt-7 mb-[30px]"
+          v-if="data?.characteristics?.test.length"
+          class="mt-7 mb-[30px]"
           :is-head="true"
           :body-item="data?.characteristics?.test"
         />
       </div>
     </div>
   </div>
-  <Footer class="mt-5  mb-16" v-bind="data?.brand_data" :socials="data?.socials" />
+  <Footer
+    class="mt-5 mb-16"
+    v-bind="data?.brand_data"
+    :socials="data?.socials"
+  />
 </template>
 
 <script setup lang="ts">

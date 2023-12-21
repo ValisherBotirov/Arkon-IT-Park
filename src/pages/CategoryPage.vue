@@ -2,7 +2,7 @@
   <div class="mt-6">
     <div class="container">
       <div class="flex justify-between items-center">
-        <BackSVG @click="router.push('/')" class="-ml-4 " />
+        <BackSVG @click="router.push('/')" class="-ml-4" />
         <p
           class="text-black leading-[30px] text-2xl text-center uppercase font-[Staatliches]"
         >
@@ -10,7 +10,10 @@
         </p>
         <div></div>
       </div>
-      <div class="flex flex-col gap-[18px] mt-[18px] !mb-[70px]" v-if="data.length">
+      <div
+        class="flex flex-col gap-[18px] mt-[18px] !mb-[70px]"
+        v-if="data.length"
+      >
         <div v-for="item in data" :key="item">
           <img
             :src="item?.logo_thumbnail"

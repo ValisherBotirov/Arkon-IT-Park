@@ -8,20 +8,14 @@
     <div class="mt-3 py-5 border-t border-[#ABB0BC]">
       <div class="flex items-center gap-[40px] pl-2">
         <div v-for="item in socials" :key="item">
-        <a :href="item.link" target="_blank">
-          <img :src="socialImage(item.type)" alt="icon socila" class="w-9 h-9"/>
-        </a>
+          <a :href="item.link" target="_blank">
+            <img
+              :src="socialImage(item.type)"
+              alt="icon socila"
+              class="w-9 h-9"
+            />
+          </a>
         </div>
-<!--        <a href="#">-->
-<!--          <img src="@/assets/icon/facebook.svg" alt="icon socila" class="w-9 h-9"/>-->
-
-<!--        </a>-->
-<!--        <a href="#">-->
-<!--          <img src="@/assets/icon/telegram.svg" alt="icon socila" class="w-9 h-9" />-->
-<!--        </a>-->
-<!--        <a href="#">-->
-<!--          <img src="@/assets/icon/whatsapp.svg" alt="icon socila" class="" />-->
-<!--        </a>-->
       </div>
     </div>
     <div class="py-[10px] text-[#4B4B4C] border-t border-[#ABB0BC]">
@@ -57,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-type ISocial = 'fb' | 'tg' | 'ig' | 'wa' | 'tw' | 'yt'
+type ISocial = "fb" | "tg" | "ig" | "wa" | "tw" | "yt";
 
 interface Props {
   phone?: string;
@@ -65,10 +59,10 @@ interface Props {
   email_support?: string;
   address?: string;
   location_url?: string;
-  socials?:{
-    link:string,
-    type:ISocial
-  }[]
+  socials?: {
+    link: string;
+    type: ISocial;
+  }[];
 }
 
 withDefaults(defineProps<Props>(), {
@@ -80,19 +74,24 @@ withDefaults(defineProps<Props>(), {
     "https://yandex.uz/maps/10335/tashkent/house/YkAYdAFlT0MHQFprfX9zc3xnbA==/?ll=69.265660%2C41.322048&z=16",
 });
 
-function socialImage(type:ISocial){
-  switch (type){
-    case 'fb' : return getImageUrl('facebook');
-    case 'ig' : return getImageUrl('instagram');
-    case 'tw' : return getImageUrl('twitter');
-    case 'tg' : return getImageUrl('telegram');
-    case 'yt' : return getImageUrl('youtube-96');
-    case 'wa' : return getImageUrl('whatsapp');
+function socialImage(type: ISocial) {
+  switch (type) {
+    case "fb":
+      return getImageUrl("facebook");
+    case "ig":
+      return getImageUrl("instagram");
+    case "tw":
+      return getImageUrl("twitter");
+    case "tg":
+      return getImageUrl("telegram");
+    case "yt":
+      return getImageUrl("youtube-96");
+    case "wa":
+      return getImageUrl("whatsapp");
   }
 }
 
 function getImageUrl(name: string) {
   return new URL(`../assets/icon/${name}.svg`, import.meta.url).href;
 }
-
 </script>
