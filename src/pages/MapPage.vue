@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="relative z-10">
     <div class="w-screen h-[90vh]" ref="mapContainer" ></div>
   </div>
 
