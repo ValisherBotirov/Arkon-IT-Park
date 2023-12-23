@@ -57,41 +57,6 @@
             :isOpen="isCategoryShow"
             @toggle="toggleDropdown('category')"
           />
-          <!--         <div class="countries_select pl-1 pr-1">-->
-          <!--           <div class="countries_heading flex justify-between" @click="openDropDown">-->
-          <!--           <div class="country_name" :class="selectedCountry ? 'selected_country_name' : null">Countries</div>-->
-          <!--            <div class="flex justify-center is-align-center">-->
-          <!--              <img v-if="!selectedCountry" src="/images/down.svg" alt="" class="pr-2">-->
-          <!--              <img v-else src="/images/right.svg" alt="" class="mr-2 mt-1">-->
-          <!--              <div class="selected_country">{{selectedCountry}}</div>-->
-          <!--            </div>-->
-
-          <!--           </div>-->
-          <!--           <div class="countries_body" :class="isCountryShow  ? 'opened_countries_body' : null "  >-->
-          <!--             <div class="countries_list"  v-for="country in countrySelectData" :key="country">-->
-          <!--           <div @click="selectCountry(country.label)">{{country.label}}</div>-->
-
-          <!--             </div>-->
-          <!--           </div>-->
-          <!--         </div>-->
-
-          <!--          <div class="countries_select pl-1 pr-1">-->
-          <!--           <div class="countries_heading flex justify-between" @click="openCategories">-->
-          <!--           <div class="country_name"  :class="selectedCategory ? 'selected_country_name' : null">Categories</div>-->
-          <!--            <div class="flex justify-center is-align-center">-->
-          <!--              <img v-if="!selectedCategory" src="/images/down.svg" alt="" class="pr-2">-->
-          <!--              <img v-else src="/images/right.svg" alt="" class="mr-2 mt-1">-->
-          <!--              <div class="selected_country">{{selectedCategory}}</div>-->
-          <!--            </div>-->
-
-          <!--           </div>-->
-          <!--           <div class="countries_body" :class="isCategoryShow  ? 'opened_countries_body' : null "  >-->
-          <!--             <div class="countries_list"  v-for="category in categorySelectData" :key="category">-->
-          <!--           <div @click="selectCategory(category.label)">{{category.label}}</div>-->
-
-          <!--             </div>-->
-          <!--           </div>-->
-          <!--         </div>-->
 
           <!--          <SSelect-->
           <!--            v-model="countrySelect"-->
