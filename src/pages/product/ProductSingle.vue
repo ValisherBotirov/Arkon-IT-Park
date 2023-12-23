@@ -11,7 +11,9 @@
         alt=""
         class="w-full h-[200px] object-cover rounded-0"
       />
-      <div class="absolute  z-20  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
+      <div
+        class="absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
         <p class="text-white leading-[22px] tracking-[-0.41px] max-w-[250px]">
           {{ data?.name }}
         </p>

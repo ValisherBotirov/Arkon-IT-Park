@@ -57,23 +57,27 @@
               class="inline-block w-full relative"
             >
               <img :src="item?.image" alt="image" class="w-full object-cover" />
-              <p class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-medium text-xl leading-[23.64px]">{{item?.name}}</p>
+              <p
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-medium text-xl leading-[23.64px]"
+              >
+                {{ item?.name }}
+              </p>
             </router-link>
           </div>
         </div>
       </div>
     </div>
     <Footer
-        class="mt-5 mb-16"
-        v-bind="footerData"
-        :socials="brandData?.socials"
+      class="mt-5 mb-16"
+      v-bind="footerData"
+      :socials="brandData?.socials"
     />
   </div>
 </template>
 <script setup lang="ts">
 import CategoryCard from "@/components/card/CategoryCard.vue";
 import axios from "@/plugins/axios.ts";
-import {computed, onMounted, ref, watch} from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import BackSVG from "@/assets/svg/BackSVG.vue";
 import AnimationCard from "@/components/card/AnimationCard.vue";
@@ -83,15 +87,15 @@ const route = useRoute();
 const router = useRouter();
 
 const brandData = ref([]);
-const footerData = computed(()=>{
-  return{
+const footerData = computed(() => {
+  return {
     phone: brandData.value?.phone,
     email: brandData.value?.email,
     email_support: brandData.value?.email_support,
     address: brandData.value?.address,
     location_url: brandData.value?.location_url,
-  }
-})
+  };
+});
 
 function fetchTest() {
   axios

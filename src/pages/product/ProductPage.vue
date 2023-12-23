@@ -36,9 +36,9 @@
       </div>
     </div>
     <Footer
-        class="mt-5 mb-16"
-        v-bind="data?.brand_data"
-        :socials="data?.socials"
+      class="mt-5 mb-16"
+      v-bind="data?.brand_data"
+      :socials="data?.socials"
     />
   </div>
 </template>

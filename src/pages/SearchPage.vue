@@ -13,7 +13,7 @@
           class="text-black"
           :class="isFilter ? 'text-[#448AF7]' : 'text-black'"
         >
-          {{isFilter ? 'RESET' : 'FILTER'}}
+          {{ isFilter ? "RESET" : "FILTER" }}
         </p>
       </div>
 
@@ -55,7 +55,6 @@
           />
         </div>
       </Transition>
-
 
       <!--        <pre class="text-black">{{allResults}}</pre>-->
 
@@ -120,11 +119,11 @@ function clearInput() {
 const isFilter = ref(false);
 
 function openFilter() {
-  categorySelect.value = ''
-  countrySelect.value = 'UZ'
+  categorySelect.value = "";
+  countrySelect.value = "UZ";
   isFilter.value = !isFilter.value;
-  if(!isFilter.value && inputValue.value){
-    showResults()
+  if (!isFilter.value && inputValue.value) {
+    showResults();
   }
 }
 
