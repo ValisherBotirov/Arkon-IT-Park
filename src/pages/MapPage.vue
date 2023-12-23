@@ -53,7 +53,7 @@ function addMarkersToMap(){
     console.log(location.value);
     location.value.forEach((el) => {
       console.log(el)
-      L.marker([el.long, el.lat]).addTo(map.value).bindPopup('<a href="/home?id='+el.brand+'"> <img src="'+el.icon+'" class="w-[50px] h-[50px] object-cover rounded-[50%]"> <p class="font-medium min-w-[130px] text-black"> ' + el.name + '</p>  <a href="/home?id='+el.brand+'" class="inline-block !text-sm">Ko`rish</a></a>')
+      L.marker([el.long, el.lat]).addTo(map.value).bindPopup('<a href="/home?id='+el.brand+'"> <img src="'+el.icon+'" class="w-[50px] h-[50px] object-cover rounded-[50%]"> <p class="font-medium min-w-[130px] text-black"> ' + el.name + '</p>  <a href="/home?id='+el.brand+'" class="inline-block !text-sm">Se the website</a></a>')
     });
 
 
