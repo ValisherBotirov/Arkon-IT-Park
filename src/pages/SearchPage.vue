@@ -25,7 +25,7 @@
           <SearchSVG mood="#C6C6C8" />
           <input
             type="text"
-            class="text-xl h-full w-full min-h-[18px] "
+            class="text-xl h-full w-full min-h-[18px]"
             placeholder="Search"
             v-model="inputValue"
             @focus="isActiveInput = true"
@@ -41,54 +41,70 @@
 
       <Transition name="fade">
         <div v-show="isFilter" class="mt-5 flex flex-col gap-2">
-         <div class="countries_select pl-1 pr-1">
-           <div class="countries_heading flex justify-between" @click="openDropDown">
-           <div class="country_name" :class="selectedCountry ? 'selected_country_name' : null">Countries</div>
-            <div class="flex justify-center is-align-center">
-              <img v-if="!selectedCountry" src="@/assets/icon/down.svg" alt="" class="pr-2">
-              <img v-else src="@/assets/icon/right.svg" alt="" class="mr-2 mt-1">
-              <div class="selected_country">{{selectedCountry}}</div>
-            </div>
+          <FilterDropDown
+            title="Countries"
+            :isSelected="selectedCountry !== ''"
+            :items="countrySelectData"
+            @select="selectItem('country', $event)"
+            :isOpen="isCountryShow"
+            @toggle="toggleDropdown('country')"
+          />
+          <FilterDropDown
+            title="Categories"
+            :isSelected="selectedCategory !== ''"
+            :items="categorySelectData"
+            @select="selectItem('category', $event)"
+            :isOpen="isCategoryShow"
+            @toggle="toggleDropdown('category')"
+          />
+          <!--         <div class="countries_select pl-1 pr-1">-->
+          <!--           <div class="countries_heading flex justify-between" @click="openDropDown">-->
+          <!--           <div class="country_name" :class="selectedCountry ? 'selected_country_name' : null">Countries</div>-->
+          <!--            <div class="flex justify-center is-align-center">-->
+          <!--              <img v-if="!selectedCountry" src="/images/down.svg" alt="" class="pr-2">-->
+          <!--              <img v-else src="/images/right.svg" alt="" class="mr-2 mt-1">-->
+          <!--              <div class="selected_country">{{selectedCountry}}</div>-->
+          <!--            </div>-->
 
-           </div>
-           <div class="countries_body" :class="isCountryShow  ? 'opened_countries_body' : null "  >
-             <div class="countries_list"  v-for="country in countrySelectData" :key="country">
-           <div @click="selectCountry(country.label)">{{country.label}}</div>
+          <!--           </div>-->
+          <!--           <div class="countries_body" :class="isCountryShow  ? 'opened_countries_body' : null "  >-->
+          <!--             <div class="countries_list"  v-for="country in countrySelectData" :key="country">-->
+          <!--           <div @click="selectCountry(country.label)">{{country.label}}</div>-->
 
-             </div>
-           </div>
-         </div>
+          <!--             </div>-->
+          <!--           </div>-->
+          <!--         </div>-->
 
-          <div class="countries_select pl-1 pr-1">
-           <div class="countries_heading flex justify-between" @click="openCategories">
-           <div class="country_name"  :class="selectedCategory ? 'selected_country_name' : null">Categories</div>
-            <div class="flex justify-center is-align-center">
-              <img v-if="!selectedCategory" src="@/assets/icon/down.svg" alt="" class="pr-2">
-              <img v-else src="@/assets/icon/right.svg" alt="" class="mr-2 mt-1">
-              <div class="selected_country">{{selectedCategory}}</div>
-            </div>
+          <!--          <div class="countries_select pl-1 pr-1">-->
+          <!--           <div class="countries_heading flex justify-between" @click="openCategories">-->
+          <!--           <div class="country_name"  :class="selectedCategory ? 'selected_country_name' : null">Categories</div>-->
+          <!--            <div class="flex justify-center is-align-center">-->
+          <!--              <img v-if="!selectedCategory" src="/images/down.svg" alt="" class="pr-2">-->
+          <!--              <img v-else src="/images/right.svg" alt="" class="mr-2 mt-1">-->
+          <!--              <div class="selected_country">{{selectedCategory}}</div>-->
+          <!--            </div>-->
 
-           </div>
-           <div class="countries_body" :class="isCategoryShow  ? 'opened_countries_body' : null "  >
-             <div class="countries_list"  v-for="category in categorySelectData" :key="category">
-           <div @click="selectCategory(category.label)">{{category.label}}</div>
+          <!--           </div>-->
+          <!--           <div class="countries_body" :class="isCategoryShow  ? 'opened_countries_body' : null "  >-->
+          <!--             <div class="countries_list"  v-for="category in categorySelectData" :key="category">-->
+          <!--           <div @click="selectCategory(category.label)">{{category.label}}</div>-->
 
-             </div>
-           </div>
-         </div>
-<!--          <SSelect-->
-<!--            v-model="countrySelect"-->
-<!--            :data="countrySelectData"-->
-<!--            placeholder=""-->
-<!--            @changeSelect="changeCategory"-->
-<!--          />-->
-<!--          <SSelect-->
-<!--            v-model="categorySelect"-->
-<!--            :data="categorySelectData"-->
-<!--            placeholder="Categories"-->
-<!--            @changeSelect="changeCategory"-->
-<!--          />-->
+          <!--             </div>-->
+          <!--           </div>-->
+          <!--         </div>-->
 
+          <!--          <SSelect-->
+          <!--            v-model="countrySelect"-->
+          <!--            :data="countrySelectData"-->
+          <!--            placeholder=""-->
+          <!--            @changeSelect="changeCategory"-->
+          <!--          />-->
+          <!--          <SSelect-->
+          <!--            v-model="categorySelect"-->
+          <!--            :data="categorySelectData"-->
+          <!--            placeholder="Categories"-->
+          <!--            @changeSelect="changeCategory"-->
+          <!--          />-->
         </div>
       </Transition>
 
@@ -131,6 +147,7 @@ import FilterSVG from "@/assets/svg/FilterSVG.vue";
 import SearchSVG from "@/assets/svg/SearchSVG.vue";
 import SSelect from "@/components/form/SSelect.vue";
 import axios from "@/plugins/axios";
+import FilterDropDown from "@/components/form/FilterDropDown.vue";
 
 const isActiveInput = ref(false);
 
@@ -148,9 +165,8 @@ const inputValue = ref("");
 //  ******* new *****
 const isCountryShow = ref(false);
 const isCategoryShow = ref(false);
-const selectedCountry = ref('');
-const selectedCategory = ref('');
-
+const selectedCountry = ref("");
+const selectedCategory = ref("");
 
 function clearInput() {
   isActiveInput.value = false;
@@ -169,7 +185,7 @@ function openFilter() {
     showResults();
   }
   if (isFilter.value) {
-    clearSelectedData()
+    clearSelectedData();
   }
 }
 
@@ -241,49 +257,51 @@ function showResults() {
       console.log(err);
     });
 }
-//  *****************************  filter ************************** 
+//  *****************************  filter **************************
 
-const openDropDown = () => {
-  isCountryShow.value = !isCountryShow.value
-  if (isCountryShow.value) {
-    isCategoryShow.value = false
+const toggleDropdown = (dropdown: "country" | "category") => {
+  if (dropdown === "country") {
+    isCountryShow.value = !isCountryShow.value;
+    if (isCountryShow.value) {
+      isCategoryShow.value = false;
+    }
+  } else {
+    isCategoryShow.value = !isCategoryShow.value;
+    if (isCategoryShow.value) {
+      isCountryShow.value = false;
+    }
   }
-}
-const openCategories = () => {
-  isCategoryShow.value = !isCategoryShow.value
-  if (isCategoryShow.value) {
-    isCountryShow.value = false
-  }
-}
-const selectCountry = (name: string) => {
-  selectedCountry.value = name
-  isCountryShow.value = false
-}
-const selectCategory = (name: string) => {
-  selectedCategory.value = name
-  isCategoryShow.value = false
-}
-const clearSelectedData = () => {
-  selectedCountry.value = ''
-  selectedCategory.value = ''
-  isCategoryShow.value = false
-  isCountryShow.value = false
+};
 
+const selectItem = (type: "country" | "category", name: string) => {
+  if (type === "country") {
+    selectedCountry.value = name;
+    isCountryShow.value = false;
+  } else {
+    selectedCategory.value = name;
+    isCategoryShow.value = false;
+  }
+};
+
+function clearSelectedData() {
+  selectedCountry.value = "";
+  selectedCategory.value = "";
+  isCategoryShow.value = false;
+  isCountryShow.value = false;
 }
 
 onMounted(() => {
   fetchCountry();
   fetchCategory();
 });
-
 </script>
 
-<style scoped>
-.countries_select , .custom_border {
-  font-family: "Tharlon" , sans-serif !important;
+<style>
+.countries_select,
+.custom_border {
+  font-family: "Tharlon", sans-serif !important;
   font-style: normal;
   font-weight: 400;
-
 }
 .countries_list {
 }
@@ -294,7 +312,7 @@ onMounted(() => {
   border-radius: 32px !important;
 }
 .countries_heading {
-  border-bottom: 1px solid #ABB0BC;
+  border-bottom: 1px solid #abb0bc;
   padding-bottom: 8px;
 }
 
@@ -302,22 +320,23 @@ onMounted(() => {
   opacity: 0;
   height: 0;
   overflow: hidden;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
   transform: translateY(-10px);
-   position: absolute;
-}.opened_countries_body {
-   transform: translateY(0);
+  position: absolute;
+}
+.opened_countries_body {
+  transform: translateY(0);
 
-   padding-bottom: 40px;
-   width: 100%;
-   background: var(--el-color-white);
+  padding-bottom: 40px;
+  width: 100%;
+  background: var(--el-color-white);
   opacity: 1;
   height: auto;
   overflow: visible;
 }
- .selected_country {
-   transition: all .1s linear;
- }
+.selected_country {
+  transition: all 0.1s linear;
+}
 
 .fade-enter-from {
   transition: all 0.3s;
