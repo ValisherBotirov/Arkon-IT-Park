@@ -200,6 +200,7 @@ onMounted(() => {
   fetchCountry();
   fetchCategory();
 });
+
 </script>
 
 <style scoped>
