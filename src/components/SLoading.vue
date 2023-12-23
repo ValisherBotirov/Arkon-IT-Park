@@ -11,13 +11,26 @@
 </template>
 
 <script setup lang="ts">
-const app = document.querySelector('#app div')
-console.log(app,"app")
+import {onMounted, watch} from "vue";
 
-// app?.style.overflow = 'hiddin'
+interface Props{
+  loading:boolean
+}
+const props = defineProps<Props>()
+
+const innerDiv = document.querySelector('body')
+
+onMounted(()=>{
+  innerDiv?.classList.add('no-scroll')
+  setTimeout(()=>{
+          innerDiv?.classList.remove('no-scroll')
+  },3500)
+})
+
+
 </script>
 
-<style scoped>
+<style >
 .load-wrapp {
   position: absolute;
   top: 0;
@@ -26,10 +39,14 @@ console.log(app,"app")
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   text-align: center;
   overflow: hidden;
 }
 
+.no-scroll{
+  height: 100vh;
+  overflow: hidden;
+}
 </style>

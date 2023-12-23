@@ -9,7 +9,7 @@
         <router-view />
       </div>
 
-      <SLoading v-if="isLoading" />
+      <SLoading v-if="isLoading" :loading="isLoading" />
     </div>
     <div v-else class="w-screen h-screen flex justify-center items-center">
       <div class="px-[100px] mt-[100px] text-center">
