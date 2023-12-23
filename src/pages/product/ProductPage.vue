@@ -25,7 +25,7 @@
       >
         TEXT
       </p>
-      <div class="flex flex-col gap-5 relative z-20 mt-2 pb-16">
+      <div class="flex flex-col gap-5 relative z-20 mt-2 pb-5">
         <CategoryCard
           v-for="item in data?.filtered_products"
           :key="item"
@@ -35,6 +35,11 @@
         />
       </div>
     </div>
+    <Footer
+        class="mt-5 mb-16"
+        v-bind="data?.brand_data"
+        :socials="data?.socials"
+    />
   </div>
 </template>
 

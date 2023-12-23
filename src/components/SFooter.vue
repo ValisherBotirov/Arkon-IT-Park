@@ -18,9 +18,20 @@
         </div>
       </div>
     </div>
-    <div class="py-[10px] text-[#4B4B4C] border-t border-[#ABB0BC]">
-      <p class="leading-[22px] tracking-[-0.41px]">{{ email }}</p>
-      <p class="leading-[22px] tracking-[-0.41px]">{{ email_support }}</p>
+    <div
+      class="py-[10px] text-[#4B4B4C] border-t border-[#ABB0BC] flex flex-col gap-1"
+    >
+      <a
+        :href="email_support"
+        target="_blank"
+        class="leading-[22px] inline-block tracking-[-0.41px]"
+        >{{ email_support }}</a
+      >
+      <a
+        :href="`mailto:${email}`"
+        class="leading-[22px] inline-block tracking-[-0.41px]"
+        >{{ email }}</a
+      >
     </div>
     <div
       class="!pb-[50px] pt-4 border-t border-[#ABB0BC] gap-5 bg-#fff flex justify-between items-center"
@@ -29,7 +40,7 @@
         <p class="leading-[22px] text-[#4B4B4C]">{{ address }}</p>
         <a
           :href="`tel:${phone}`"
-          class="mt-4 text-[#448AF7] font-bold text-lg inline-block"
+          class="mt-4 text-[#448AF7] font-bold text-base ms:text-lg inline-block"
           >{{ phone }}</a
         >
       </div>

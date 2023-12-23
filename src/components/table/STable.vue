@@ -74,8 +74,7 @@ withDefaults(defineProps<Props>(), {
   .border-s,
   .border-s-b,
   .border-s-r,
-  .border-s-l
-  {
+  .border-s-l {
     border: 1px solid #5b5b5b; /* Используйте 1px для устройств с высоким разрешением */
   }
 }

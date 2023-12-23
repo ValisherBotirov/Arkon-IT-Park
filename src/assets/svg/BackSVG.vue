@@ -9,7 +9,9 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class="cursor-pointer p-4  drop-shadow-md backdrop-saturate-50 bg-white/30 ">
+  <div
+    class="cursor-pointer p-4 drop-shadow-md backdrop-saturate-50 bg-white/30"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="8"

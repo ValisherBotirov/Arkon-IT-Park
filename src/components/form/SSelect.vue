@@ -9,10 +9,11 @@
     >
     <el-select
       v-model="value"
-      clearable
       size="large"
       :placeholder="placeholder"
       @change="handleSelect"
+      clearable
+      @clear="clearSelect"
       class="w-full border border-gray-500 rounded-[4px] relative z-[9999]"
       :class="error ? 'border border-[red] rounded-[4px]' : ''"
     >
@@ -55,5 +56,9 @@ const emit = defineEmits<{
 function handleSelect(e: any) {
   emit("update:modelValue", e);
   emit("changeSelect", true);
+}
+
+function clearSelect() {
+  console.log("run");
 }
 </script>

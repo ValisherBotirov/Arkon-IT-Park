@@ -13,14 +13,14 @@
           class="text-black"
           :class="isFilter ? 'text-[#448AF7]' : 'text-black'"
         >
-          FILTER
+          {{isFilter ? 'RESET' : 'FILTER'}}
         </p>
       </div>
 
       <div class="mt-5">
         <label
           for=""
-          class="flex gap-3 border border-[#5B5B5B] rounded-[22.5px] bg-white py-3 px-4"
+          class="flex gap-3 border border-[#5B5B5B] rounded-[32.5px] bg-white py-3 px-4"
         >
           <SearchSVG mood="#C6C6C8" />
           <input
@@ -55,6 +55,7 @@
           />
         </div>
       </Transition>
+
 
       <!--        <pre class="text-black">{{allResults}}</pre>-->
 
@@ -119,7 +120,12 @@ function clearInput() {
 const isFilter = ref(false);
 
 function openFilter() {
+  categorySelect.value = ''
+  countrySelect.value = 'UZ'
   isFilter.value = !isFilter.value;
+  if(!isFilter.value && inputValue.value){
+    showResults()
+  }
 }
 
 function changeSearchQuery() {

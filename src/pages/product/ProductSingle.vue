@@ -11,14 +11,7 @@
         alt=""
         class="w-full h-[200px] object-cover rounded-0"
       />
-<!--      <div-->
-<!--        class="w-full h-full top-0 z-20 text-white absolute "-->
-<!--      >-->
-<!--        <p class="font-bold text-lg leading-6 tracking-[2px] uppercase">-->
-<!--          {{ data?.name }}-->
-<!--        </p>-->
-<!--      </div>-->
-      <div class="absolute left-4 bottom-2 z-20">
+      <div class="absolute  z-20  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
         <p class="text-white leading-[22px] tracking-[-0.41px] max-w-[250px]">
           {{ data?.name }}
         </p>
