@@ -32,7 +32,7 @@
       </div>
       <div class="mt-3 !pb-8" v-if="brandData?.filtered_categories?.length">
         <p class="text-[#4B4B4C] font-bold leading-[22px]">
-          COLLECTIONS LAMINAM
+          COLLECTIONS
         </p>
         <div class="flex flex-col gap-5 pt-[10px]">
           <CategoryCard
@@ -47,7 +47,7 @@
       </div>
       <div class="mt-3 !pb-8" v-if="brandData?.filtered_products?.length">
         <p class="text-[#4B4B4C] font-bold leading-[22px] pb-[10px]">
-          PRODUCTS LAMINAM
+          PRODUCTS
         </p>
 
         <div class="flex flex-col gap-3">

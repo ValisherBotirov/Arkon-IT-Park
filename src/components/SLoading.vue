@@ -11,7 +11,10 @@
 </template>
 
 <script setup lang="ts">
-// document.getElementsByTagName("html")[0].style.overflow = "hidden";
+const app = document.querySelector('#app div')
+console.log(app,"app")
+
+// app?.style.overflow = 'hiddin'
 </script>
 
 <style scoped>
@@ -28,4 +31,5 @@
   text-align: center;
   overflow: hidden;
 }
+
 </style>
