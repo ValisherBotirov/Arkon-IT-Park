@@ -1,9 +1,13 @@
 @import url("tailwind.css");
-
+@font-face {
+  font-family: "Tharlong";
+  src: url("../fonts/Tharlon-Regular.ttf");
+}
 @font-face {
   font-family: "Mazzard";
   src: url("../fonts/MazzardM-Light.ttf");
 }
+
 
 @font-face {
   font-family: "Staatliches";

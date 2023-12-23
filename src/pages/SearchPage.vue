@@ -20,12 +20,12 @@
       <div class="mt-5">
         <label
           for=""
-          class="flex gap-3 border border-[#5B5B5B] rounded-[32.5px] bg-white py-3 px-4"
+          class="flex gap-3 border border-[#5B5B5B] rounded-[32.5px] bg-white py-3 px-4 custom_border"
         >
           <SearchSVG mood="#C6C6C8" />
           <input
             type="text"
-            class="text-xl h-full w-full min-h-[18px]"
+            class="text-xl h-full w-full min-h-[18px] "
             placeholder="Search"
             v-model="inputValue"
             @focus="isActiveInput = true"
@@ -43,9 +43,9 @@
         <div v-show="isFilter" class="mt-5 flex flex-col gap-2">
          <div class="countries_select pl-1 pr-1">
            <div class="countries_heading flex justify-between" @click="openDropDown">
-           <div class="county_name">Countries</div>
+           <div class="country_name" :class="selectedCountry ? 'selected_country_name' : null">Countries</div>
             <div class="flex justify-center is-align-center">
-              <img v-if="!selectedCountry" src="@/assets/icon/down.svg" alt="">
+              <img v-if="!selectedCountry" src="@/assets/icon/down.svg" alt="" class="pr-2">
               <img v-else src="@/assets/icon/right.svg" alt="" class="mr-2 mt-1">
               <div class="selected_country">{{selectedCountry}}</div>
             </div>
@@ -61,9 +61,9 @@
 
           <div class="countries_select pl-1 pr-1">
            <div class="countries_heading flex justify-between" @click="openCategories">
-           <div class="county_name">Categories</div>
+           <div class="country_name"  :class="selectedCategory ? 'selected_country_name' : null">Categories</div>
             <div class="flex justify-center is-align-center">
-              <img v-if="!selectedCategory" src="@/assets/icon/down.svg" alt="">
+              <img v-if="!selectedCategory" src="@/assets/icon/down.svg" alt="" class="pr-2">
               <img v-else src="@/assets/icon/right.svg" alt="" class="mr-2 mt-1">
               <div class="selected_country">{{selectedCategory}}</div>
             </div>
@@ -266,6 +266,9 @@ const selectCategory = (name: string) => {
 const clearSelectedData = () => {
   selectedCountry.value = ''
   selectedCategory.value = ''
+  isCategoryShow.value = false
+  isCountryShow.value = false
+
 }
 
 onMounted(() => {
@@ -276,6 +279,20 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.countries_select , .custom_border {
+  font-family: "Tharlon" , sans-serif !important;
+  font-style: normal;
+  font-weight: 400;
+
+}
+.countries_list {
+}
+.selected_country_name {
+  color: #979797;
+}
+.custom_border {
+  border-radius: 32px !important;
+}
 .countries_heading {
   border-bottom: 1px solid #ABB0BC;
   padding-bottom: 8px;
@@ -290,6 +307,7 @@ onMounted(() => {
    position: absolute;
 }.opened_countries_body {
    transform: translateY(0);
+
    padding-bottom: 40px;
    width: 100%;
    background: var(--el-color-white);
@@ -298,7 +316,7 @@ onMounted(() => {
   overflow: visible;
 }
  .selected_country {
-   transition: all .3s linear;
+   transition: all .1s linear;
  }
 
 .fade-enter-from {
