@@ -5,7 +5,7 @@
     >
       INFORMATION OF COMPANY
     </p>
-    <div class="mt-3 py-5 border-t border-[#ABB0BC]">
+    <div class="mt-3 py-5 border-t border-[#ABB0BC]" v-if="socials?.length">
       <div class="flex items-center gap-[40px] pl-2">
         <div v-for="item in socials" :key="item">
           <a :href="item.link" target="_blank">
@@ -21,12 +21,12 @@
     <div
       class="py-[10px] text-[#4B4B4C] border-t border-[#ABB0BC] flex flex-col gap-1"
     >
-      <a
-        :href="email_support"
-        target="_blank"
-        class="leading-[22px] inline-block tracking-[-0.41px]"
-        >{{ email_support }}</a
-      >
+
+      <a :href="giveSiteUrl(email_support)"
+         target="_blank"
+         class="leading-[22px] inline-block tracking-[-0.41p">
+        {{ email_support }}
+      </a>
       <a
         :href="`mailto:${email}`"
         class="leading-[22px] inline-block tracking-[-0.41px]"
@@ -39,9 +39,9 @@
       <div class="w-full">
         <p class="leading-[22px] text-[#4B4B4C]">{{ address }}</p>
         <a
-          :href="`tel:${phone}`"
+          :href="`tel:+998${phone}`"
           class="mt-4 text-[#448AF7] font-bold text-base ms:text-lg inline-block"
-          >{{ phone }}</a
+          >{{ FormatPhone(phone) }}</a
         >
       </div>
       <div>
@@ -62,6 +62,7 @@
 </template>
 
 <script setup lang="ts">
+import FormatPhone from "@/helpers/FormatPhone"
 type ISocial = "fb" | "tg" | "ig" | "wa" | "tw" | "yt";
 
 interface Props {
@@ -104,5 +105,17 @@ function socialImage(type: ISocial) {
 
 function getImageUrl(name: string) {
   return new URL(`../assets/icon/${name}.svg`, import.meta.url).href;
+}
+
+function giveSiteUrl(email:string){
+  if(email.startsWith('https://') ){
+    return email
+  }
+  else if(email.startsWith('http://')){
+    return `http://${email}`
+  }
+  else{
+    return `https://${email}`
+  }
 }
 </script>
