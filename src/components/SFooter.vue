@@ -21,10 +21,11 @@
     <div
       class="py-[10px] text-[#4B4B4C] border-t border-[#ABB0BC] flex flex-col gap-1"
     >
-
-      <a :href="giveSiteUrl(email_support)"
-         target="_blank"
-         class="leading-[22px] inline-block tracking-[-0.41p">
+      <a
+        :href="giveSiteUrl(email_support)"
+        target="_blank"
+        class="leading-[22px] inline-block tracking-[-0.41p"
+      >
         {{ email_support }}
       </a>
       <a
@@ -62,7 +63,7 @@
 </template>
 
 <script setup lang="ts">
-import FormatPhone from "@/helpers/FormatPhone"
+import FormatPhone from "@/helpers/FormatPhone";
 type ISocial = "fb" | "tg" | "ig" | "wa" | "tw" | "yt";
 
 interface Props {
@@ -107,15 +108,13 @@ function getImageUrl(name: string) {
   return new URL(`../assets/icon/${name}.svg`, import.meta.url).href;
 }
 
-function giveSiteUrl(email:string){
-  if(email.startsWith('https://') ){
-    return email
-  }
-  else if(email.startsWith('http://')){
-    return `http://${email}`
-  }
-  else{
-    return `https://${email}`
+function giveSiteUrl(email: string) {
+  if (email.startsWith("https://")) {
+    return email;
+  } else if (email.startsWith("http://")) {
+    return `http://${email}`;
+  } else {
+    return `https://${email}`;
   }
 }
 </script>

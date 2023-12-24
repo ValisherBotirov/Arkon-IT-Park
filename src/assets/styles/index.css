@@ -112,7 +112,4 @@ html {
   overflow: initial !important;
 }
 
-/*plugns*/
-.el-input__wrapper {
-  @import "!my-2 ms:!my-3";
-}
+

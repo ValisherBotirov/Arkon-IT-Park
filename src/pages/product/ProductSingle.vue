@@ -20,8 +20,22 @@
       </div>
     </div>
     <div class="container">
-      <div class="mt-8">
-        <AnimationCard v-if="data?.arkon_file" :link="data?.arkon_file" />
+<!--      <div class="mt-8">-->
+<!--        <AnimationCard v-if="data?.arkon_file" :link="data?.arkon_file" />-->
+<!--      </div>-->
+      <div>
+        <div
+            class="mt-8"
+            v-if="usePersonDevice == 'iPhone' && data?.arkon_file"
+        >
+          <AnimationCard :link="data.arkon_file" />
+        </div>
+        <div
+            class="mt-8"
+            v-if="usePersonDevice == 'android' && data?.arkon_file_android"
+        >
+          <AnimationCardAndroid :link="data?.arkon_file_android" />
+        </div>
       </div>
       <div class="my-4 mt-16 flex flex-col gap-4" v-if="data?.shots?.length">
         <div v-for="item in data.shots" :key="item">
@@ -57,7 +71,6 @@
 </template>
 
 <script setup lang="ts">
-import SHeader from "@/components/header/SHeader.vue";
 import { useRoute, useRouter } from "vue-router";
 import AnimationCard from "@/components/card/AnimationCard.vue";
 import STable from "@/components/table/STable.vue";
@@ -65,6 +78,8 @@ import { onMounted, ref } from "vue";
 import axios from "@/plugins/axios";
 import Footer from "@/components/SFooter.vue";
 import BackSVG from "@/assets/svg/BackSVG.vue";
+import usePersonDevice from "@/helpers/usePersonDevice";
+import AnimationCardAndroid from "@/components/card/AnimationCardAndroid.vue";
 const route = useRoute();
 const router = useRouter();
 
@@ -79,8 +94,6 @@ function fetchProductSingle() {
       console.log(err);
     });
 }
-
-const tableThere = [{}];
 
 onMounted(() => {
   fetchProductSingle();

@@ -21,8 +21,19 @@
     </div>
 
     <div class="container">
-      <div class="mt-7" v-if="brandData?.arkon_file">
-        <AnimationCard :link="brandData.arkon_file" />
+      <div>
+        <div
+          class="mt-7"
+          v-if="usePersonDevice == 'iPhone' && brandData?.arkon_file"
+        >
+          <AnimationCard :link="brandData.arkon_file" />
+        </div>
+        <div
+          class="mt-7"
+          v-if="usePersonDevice == 'android' && brandData?.arkon_file_android"
+        >
+          <AnimationCardAndroid :link="brandData?.arkon_file_android" />
+        </div>
       </div>
       <div class="bg-white py-5 text-black rounded-[25px]">
         <p
@@ -31,9 +42,7 @@
         ></p>
       </div>
       <div class="mt-3 !pb-8" v-if="brandData?.filtered_categories?.length">
-        <p class="text-[#4B4B4C] font-bold leading-[22px]">
-          COLLECTIONS
-        </p>
+        <p class="text-[#4B4B4C] font-bold leading-[22px]">COLLECTIONS</p>
         <div class="flex flex-col gap-5 pt-[10px]">
           <CategoryCard
             class="!h-full"
@@ -82,7 +91,8 @@ import { useRoute, useRouter } from "vue-router";
 import BackSVG from "@/assets/svg/BackSVG.vue";
 import AnimationCard from "@/components/card/AnimationCard.vue";
 import Footer from "@/components/SFooter.vue";
-const image = `src/assets/static/homebanner.png`;
+import AnimationCardAndroid from "@/components/card/AnimationCardAndroid.vue";
+import usePersonDevice from "@/helpers/usePersonDevice";
 const route = useRoute();
 const router = useRouter();
 

@@ -30,15 +30,13 @@ interface ILocation {
 const location = ref<ILocation[]>([]);
 async function fetchMarkerLocation() {
   try {
-    const response = await axios.get<ILocation[]>(`all-locations/`)
-    clearMarkers()
-    location.value = response.data
-    addMarkersToMap()
+    const response = await axios.get<ILocation[]>(`all-locations/`);
+    clearMarkers();
+    location.value = response.data;
+    addMarkersToMap();
+  } catch (err) {
+    console.log(err);
   }
-  catch (err){
-    console.log(err)
-  }
-
 }
 
 function clearMarkers() {
@@ -49,12 +47,22 @@ function clearMarkers() {
   });
 }
 
-function addMarkersToMap(){
-    location.value.forEach((el) => {
-      L.marker([el.long, el.lat]).addTo(map.value).bindPopup('<a href="/home?id='+el.brand+'"> <img src="'+el.icon+'" class="w-[50px] h-[50px] object-cover rounded-[50%]"> <p class="font-medium min-w-[130px] text-black"> ' + el.name + '</p>  <a href="/home?id='+el.brand+'" class="inline-block !text-sm">Se the website</a></a>')
-    });
-
-
+function addMarkersToMap() {
+  location.value.forEach((el) => {
+    L.marker([el.long, el.lat])
+      .addTo(map.value)
+      .bindPopup(
+        '<a href="/home?id=' +
+          el.brand +
+          '"> <img src="' +
+          el.icon +
+          '" class="w-[50px] h-[50px] object-cover rounded-[50%]"> <p class="font-medium min-w-[130px] text-black"> ' +
+          el.name +
+          '</p>  <a href="/home?id=' +
+          el.brand +
+          '" class="inline-block !text-sm">Se the website</a></a>'
+      );
+  });
 }
 
 onMounted(async () => {

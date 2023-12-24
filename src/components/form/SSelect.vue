@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref, watch} from "vue";
+import { ref, watch } from "vue";
 
 interface Props {
   data?: {
@@ -47,11 +47,12 @@ const props = withDefaults(defineProps<Props>(), {
 });
 const value = ref(props.modelValue);
 
-watch(()=>props.modelValue,
-    ()=>{
-        value.value = props.modelValue
-    }
-)
+watch(
+  () => props.modelValue,
+  () => {
+    value.value = props.modelValue;
+  }
+);
 
 const emit = defineEmits<{
   (e: "update:modelValue", value: any): void;

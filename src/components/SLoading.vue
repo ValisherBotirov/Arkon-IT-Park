@@ -11,26 +11,24 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted, watch} from "vue";
+import { onMounted, watch } from "vue";
 
-interface Props{
-  loading:boolean
+interface Props {
+  loading: boolean;
 }
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
-const innerDiv = document.querySelector('body')
+const innerDiv = document.querySelector("body");
 
-onMounted(()=>{
-  innerDiv?.classList.add('no-scroll')
-  setTimeout(()=>{
-          innerDiv?.classList.remove('no-scroll')
-  },3500)
-})
-
-
+onMounted(() => {
+  innerDiv?.classList.add("no-scroll");
+  setTimeout(() => {
+    innerDiv?.classList.remove("no-scroll");
+  }, 3500);
+});
 </script>
 
-<style >
+<style>
 .load-wrapp {
   position: absolute;
   top: 0;
@@ -45,7 +43,7 @@ onMounted(()=>{
   overflow: hidden;
 }
 
-.no-scroll{
+.no-scroll {
   height: 100vh;
   overflow: hidden;
 }

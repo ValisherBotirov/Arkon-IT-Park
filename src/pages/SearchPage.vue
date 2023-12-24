@@ -67,7 +67,7 @@
                 v-for="country in countryData"
                 :key="country"
               >
-                <div @click="selectCountry(country.name,country.code)">
+                <div @click="selectCountry(country.name, country.code)">
                   {{ country.name }}
                 </div>
               </div>
@@ -104,7 +104,7 @@
                 v-for="category in categoryData"
                 :key="category"
               >
-                <div @click="selectCategory(category.name,category.id)">
+                <div @click="selectCategory(category.name, category.id)">
                   {{ category.name }}
                 </div>
               </div>
@@ -112,7 +112,6 @@
           </div>
         </div>
       </Transition>
-
 
       <div class="mt-8 flex flex-col gap-[10px]">
         <router-link
@@ -169,10 +168,9 @@ const inputValue = ref("");
 const isCountryShow = ref(false);
 const isCategoryShow = ref(false);
 const selectedCountry = ref("");
-const selectedCountryValue = ref("")
+const selectedCountryValue = ref("");
 const selectedCategory = ref("");
-const selectedCategoryValue = ref<string|number>('')
-
+const selectedCategoryValue = ref<string | number>("");
 
 // for filter
 
@@ -218,7 +216,6 @@ function fetchCategory() {
   });
 }
 
-
 // show result
 const allResults = ref([]);
 function showResults() {
@@ -247,23 +244,23 @@ const openCategories = () => {
     isCountryShow.value = false;
   }
 };
-const selectCountry = (name: string,value:string) => {
+const selectCountry = (name: string, value: string) => {
   selectedCountry.value = name;
-  selectedCountryValue.value = value
+  selectedCountryValue.value = value;
   isCountryShow.value = false;
-  changeCategory()
+  changeCategory();
 };
-const selectCategory = (name: string,value:number) => {
+const selectCategory = (name: string, value: number) => {
   selectedCategory.value = name;
-  selectedCategoryValue.value = value
+  selectedCategoryValue.value = value;
   isCategoryShow.value = false;
-  changeCategory()
+  changeCategory();
 };
 const clearSelectedData = () => {
   selectedCountry.value = "";
-  selectedCountryValue.value = ""
+  selectedCountryValue.value = "";
   selectedCategory.value = "";
-  selectedCategoryValue.value = ""
+  selectedCategoryValue.value = "";
   isCategoryShow.value = false;
   isCountryShow.value = false;
 };
