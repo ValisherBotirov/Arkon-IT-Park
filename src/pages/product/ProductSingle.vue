@@ -14,7 +14,7 @@
       <div
         class="absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
-        <p class="text-white leading-[22px] tracking-[-0.41px] max-w-[250px]">
+        <p class="text-white leading-[22px] tracking-[-0.41px] max-w-[250px]" :class="`text-[${data?.name_color}]`">
           {{ data?.name }}
         </p>
       </div>
