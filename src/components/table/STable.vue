@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="text-[#4B4B4C] text-sm font-bold leading-[22px] mb-1">TEXT</p>
+    <p class="text-[#4B4B4C] text-sm font-bold leading-[22px] mb-1 uppercase">Information</p>
     <div class="relative overflow-x-auto">
       <table class="w-full text-sm text-left text-black border-s">
         <thead class="text-xs text-black uppercase bg-#fff" v-if="!isHead">

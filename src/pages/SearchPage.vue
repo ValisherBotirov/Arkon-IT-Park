@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed w-full h-[100vh] overflow-y-scroll inset-y-0 duration-300 right-0 bg-white z-5"
+    class="w-full bg-white "
   >
     <div class="flex justify-end px-10 pt-10"></div>
     <div class="px-10 py-4">
@@ -178,11 +178,12 @@ const isFilter = ref(false);
 
 function openFilter() {
   isFilter.value = !isFilter.value;
-  if (!isFilter.value && inputValue.value) {
-    showResults();
+  if (!isFilter.value) {
+    // showResults();
+    allResults.value = []
   }
   if (isFilter.value) {
-    clearSelectedData("country");
+    clearSelectedData();
   }
 }
 
