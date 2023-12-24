@@ -17,6 +17,9 @@ defineProps<Props>();
 <!--        auto-rotate-->
 <!--        camera-controls-->
 <!--    ></model-viewer>-->
-    <model-viewer :src="link" alt="A 3D model of an astronaut" ar="" autoplay="" camera-controls=""></model-viewer>
+    <model-viewer :src="link" alt="A 3D model of an astronaut" ar autoplay camera-controls ar-status="not-presenting"></model-viewer>
+
   </div>
 </template>
+
+
