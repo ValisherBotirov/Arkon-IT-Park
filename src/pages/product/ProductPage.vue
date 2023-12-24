@@ -14,16 +14,16 @@
       <div
         class="w-full h-full top-0 z-20 text-white absolute flex justify-center items-center"
       >
-        <p class="font-bold text-lg leading-6 tracking-[2px] uppercase">
+        <p class="font-bold text-lg leading-6 tracking-[2px] uppercase" :class="`text-[${data?.name_color}]`">
           {{ data?.name }}
         </p>
       </div>
     </div>
     <div class="container">
       <p
-        class="text-[#4B4B4C] font-bold leaading-[22px] tracking-[-0.408px] mt-[18px]"
+        class="text-[#4B4B4C] font-bold leaading-[22px] tracking-[-0.408px] mt-[18px] uppercase"
       >
-        TYPES
+        {{ data?.product_label }}
       </p>
       <div class="flex flex-col gap-5 relative z-20 mt-2 pb-5">
         <CategoryCard
@@ -32,7 +32,7 @@
           :link="`/product/${item.id}`"
           :text="item.name"
           :img="item.image"
-        />
+          :color="item?.color_name"/>
       </div>
     </div>
     <Footer
