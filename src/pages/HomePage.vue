@@ -77,7 +77,7 @@
             >
               <img :src="item?.image" alt="image" class="w-full object-cover" />
               <p
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-medium text-xl leading-[23.64px]"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  font-medium text-xl leading-[23.64px]"
                 :class="`text-[${item?.name_color}]`"
               >
                 {{ item?.name }}

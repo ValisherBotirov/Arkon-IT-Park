@@ -14,15 +14,12 @@
       <div
         class="absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
-        <p class="text-white leading-[22px] tracking-[-0.41px] max-w-[250px]" :class="`text-[${data?.name_color}]`">
+        <p class="leading-[22px] tracking-[-0.41px] max-w-[250px]" :class="`text-[${data?.name_color}]`">
           {{ data?.name }}
         </p>
       </div>
     </div>
     <div class="container">
-      <!--      <div class="mt-8">-->
-      <!--        <AnimationCard v-if="data?.arkon_file" :link="data?.arkon_file" />-->
-      <!--      </div>-->
       <div>
         <div
           class="mt-8"
