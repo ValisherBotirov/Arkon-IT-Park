@@ -31,34 +31,11 @@
             @focus="isActiveInput = true"
             @input="changeSearchQuery"
           />
-          <!--            <i-->
-          <!--              :class="inputValue !== '' ? 'opacity-1' : 'opacity-0'"-->
-          <!--              class="fa-sharp fa-solid fa-xmark text-xl text-[#3C3C4399] transition duration-300 cursor-pointer hover:text-black"-->
-          <!--              @click="clearInput"-->
-          <!--            ></i>-->
         </label>
       </div>
 
       <Transition name="fade">
         <div v-show="isFilter" class="mt-5 flex flex-col gap-2">
-          <!--          <FilterDropDown-->
-          <!--            title="Countries"-->
-          <!--            :isSelected="selectedCountry !== ''"-->
-          <!--            :items="countrySelectData"-->
-          <!--            @select="selectItem('country', $event)"-->
-          <!--            :isOpen="isCountryShow"-->
-          <!--            @toggle="toggleDropdown('country')"-->
-          <!--            @resetSelected="clearSelectedData('country')"-->
-          <!--          />-->
-          <!--          <FilterDropDown-->
-          <!--            title="Categories"-->
-          <!--            :isSelected="selectedCategory !== ''"-->
-          <!--            :items="categorySelectData"-->
-          <!--            @select="selectItem('category', $event)"-->
-          <!--            :isOpen="isCategoryShow"-->
-          <!--            @toggle="toggleDropdown('category')"-->
-          <!--            @resetSelected="clearSelectedData('category')"-->
-          <!--          />-->
           <div class="countries_select pl-1 pr-1">
             <div
               class="countries_heading flex justify-between"
@@ -87,16 +64,15 @@
             >
               <div
                 class="countries_list"
-                v-for="country in countrySelectData"
+                v-for="country in countryData"
                 :key="country"
               >
-                <div @click="selectCountry(country.label)">
-                  {{ country.label }}
+                <div @click="selectCountry(country.name,country.code)">
+                  {{ country.name }}
                 </div>
               </div>
             </div>
           </div>
-
           <div class="countries_select pl-1 pr-1">
             <div
               class="countries_heading flex justify-between"
@@ -125,32 +101,18 @@
             >
               <div
                 class="countries_list"
-                v-for="category in categorySelectData"
+                v-for="category in categoryData"
                 :key="category"
               >
-                <div @click="selectCategory(category.label)">
-                  {{ category.label }}
+                <div @click="selectCategory(category.name,category.id)">
+                  {{ category.name }}
                 </div>
               </div>
             </div>
           </div>
-
-          <!--          <SSelect-->
-          <!--            v-model="countrySelect"-->
-          <!--            :data="countrySelectData"-->
-          <!--            placeholder=""-->
-          <!--            @changeSelect="changeCategory"-->
-          <!--          />-->
-          <!--          <SSelect-->
-          <!--            v-model="categorySelect"-->
-          <!--            :data="categorySelectData"-->
-          <!--            placeholder="Categories"-->
-          <!--            @changeSelect="changeCategory"-->
-          <!--          />-->
         </div>
       </Transition>
 
-      <!--        <pre class="text-black">{{allResults}}</pre>-->
 
       <div class="mt-8 flex flex-col gap-[10px]">
         <router-link
@@ -207,20 +169,16 @@ const inputValue = ref("");
 const isCountryShow = ref(false);
 const isCategoryShow = ref(false);
 const selectedCountry = ref("");
+const selectedCountryValue = ref("")
 const selectedCategory = ref("");
+const selectedCategoryValue = ref<string|number>('')
 
-function clearInput() {
-  isActiveInput.value = false;
-  inputValue.value = "";
-}
 
 // for filter
 
 const isFilter = ref(false);
 
 function openFilter() {
-  categorySelect.value = "";
-  countrySelect.value = "UZ";
   isFilter.value = !isFilter.value;
   if (!isFilter.value && inputValue.value) {
     showResults();
@@ -237,23 +195,11 @@ function changeSearchQuery() {
 }
 
 // countries
-const countrySelect = ref("UZ");
 const countryData = ref([]);
-const countrySelectData = ref([]);
 
 function fetchCountry() {
   axios.get("/countries").then((res) => {
     countryData.value = res.data;
-    changeCountryData();
-  });
-}
-
-function changeCountryData() {
-  countrySelectData.value = countryData?.value.map((el) => {
-    return {
-      label: el.name,
-      value: el.code,
-    };
   });
 }
 
@@ -264,32 +210,21 @@ function changeCategory() {
 }
 
 // Categories
-const categorySelect = ref("");
 const categoryData = ref([]);
-const categorySelectData = ref([]);
 
 function fetchCategory() {
   axios.get("/categories").then((res) => {
     categoryData.value = res.data;
-    changeCategoryData();
   });
 }
 
-function changeCategoryData() {
-  categorySelectData.value = categoryData?.value.map((el) => {
-    return {
-      label: el.name,
-      value: el.id,
-    };
-  });
-}
 
 // show result
 const allResults = ref([]);
 function showResults() {
   axios
     .get(
-      `/stones/brand-list/?category_id=${categorySelect.value}&country=${countrySelect.value}&name__icontains=${inputValue.value}`
+      `/stones/brand-list/?category_id=${selectedCategoryValue.value}&country=${selectedCountryValue.value}&name__icontains=${inputValue.value}`
     )
     .then((res) => {
       allResults.value = res.data;
@@ -299,30 +234,6 @@ function showResults() {
     });
 }
 //  *****************************  filter **************************
-
-const toggleDropdown = (dropdown: "country" | "category") => {
-  if (dropdown === "country") {
-    isCountryShow.value = !isCountryShow.value;
-    if (isCountryShow.value) {
-      isCategoryShow.value = false;
-    }
-  } else {
-    isCategoryShow.value = !isCategoryShow.value;
-    if (isCategoryShow.value) {
-      isCountryShow.value = false;
-    }
-  }
-};
-
-const selectItem = (type: "country" | "category", name: string) => {
-  if (type === "country") {
-    selectedCountry.value = name;
-    isCountryShow.value = false;
-  } else {
-    selectedCategory.value = name;
-    isCategoryShow.value = false;
-  }
-};
 
 const openDropDown = () => {
   isCountryShow.value = !isCountryShow.value;
@@ -336,17 +247,23 @@ const openCategories = () => {
     isCountryShow.value = false;
   }
 };
-const selectCountry = (name: string) => {
+const selectCountry = (name: string,value:string) => {
   selectedCountry.value = name;
+  selectedCountryValue.value = value
   isCountryShow.value = false;
+  changeCategory()
 };
-const selectCategory = (name: string) => {
+const selectCategory = (name: string,value:number) => {
   selectedCategory.value = name;
+  selectedCategoryValue.value = value
   isCategoryShow.value = false;
+  changeCategory()
 };
 const clearSelectedData = () => {
   selectedCountry.value = "";
+  selectedCountryValue.value = ""
   selectedCategory.value = "";
+  selectedCategoryValue.value = ""
   isCategoryShow.value = false;
   isCountryShow.value = false;
 };
