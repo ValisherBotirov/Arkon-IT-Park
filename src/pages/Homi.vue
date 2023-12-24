@@ -31,7 +31,6 @@ function fetchAllCategory() {
     .get("categories")
     .then((res) => {
       categoryList.value = res.data;
-      console.log(res);
     })
     .catch((err) => {
       console.log(err);

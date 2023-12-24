@@ -47,7 +47,6 @@ const onWidthChange = () => (width.value = window.innerWidth);
 
 onMounted(() => {
   // window.addEventListener("resize", onWidthChange);
-
   setTimeout(() => {
     isLoading.value = false;
   }, 3500);

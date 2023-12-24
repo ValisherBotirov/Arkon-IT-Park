@@ -101,7 +101,6 @@ function fetchTest() {
   axios
     .get(`stones/brand/${route.query.id}/`)
     .then((res: any) => {
-      console.log(res);
       brandData.value = res.data;
     })
     .catch((err: any) => {

@@ -61,7 +61,6 @@ function fetchProduct() {
   axios
     .get(`stones/category/${route.query.id}/`)
     .then((res) => {
-      console.log(res);
       data.value = res.data;
     })
     .catch((err) => {

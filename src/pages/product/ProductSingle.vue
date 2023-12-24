@@ -73,8 +73,6 @@ function fetchProductSingle() {
   axios
     .get(`stones/product/${route.params.id}/`)
     .then((res) => {
-      console.log(res.data);
-
       data.value = res.data;
     })
     .catch((err) => {
@@ -86,6 +84,5 @@ const tableThere = [{}];
 
 onMounted(() => {
   fetchProductSingle();
-  console.log(import.meta.url);
 });
 </script>
