@@ -20,7 +20,7 @@
     </div>
     <div
       class="py-[10px] text-[#4B4B4C] border-t border-[#ABB0BC] flex flex-col gap-1"
-      v-if="email && email_support"
+      v-if="email || email_support"
     >
       <a
         :href="giveSiteUrl(email_support)"
