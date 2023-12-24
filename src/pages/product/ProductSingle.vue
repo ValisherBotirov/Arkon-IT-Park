@@ -37,12 +37,12 @@
           <AnimationCardAndroid :link="data?.arkon_file_android" />
         </div>
       </div>
-      <div class="my-4 mt-16 flex flex-col gap-4" v-if="data?.shots?.length">
+      <div class="my-4 mt-8 flex flex-col gap-4" v-if="data?.shots?.length">
         <div v-for="item in data?.shots" :key="item">
           <img :src="item.image" alt="images" class="w-full object-cover" />
         </div>
       </div>
-      <div class="mt-16 mb-4">
+      <div class="mt-8 mb-4">
         <div v-for="item in data?.characteristics" :key="item" >
           <STable :data="item" class="mt-6"/>
         </div>
