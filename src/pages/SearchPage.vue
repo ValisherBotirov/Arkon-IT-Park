@@ -36,7 +36,7 @@
 
       <Transition name="fade">
         <div v-show="isFilter" class="mt-5 flex flex-col gap-2">
-          <div class="countries_select pl-1 pr-1">
+          <div class="countries_select pr-1">
             <div
               class="countries_heading flex justify-between"
               @click="openDropDown"
@@ -54,7 +54,7 @@
                   alt=""
                   class="pr-2"
                 />
-                <img v-else src="/images/right.svg" alt="" class="mr-2 mt-1" />
+                <img v-else src="/images/right.svg" alt="" class="mr-2" />
                 <div class="selected_country">{{ selectedCountry }}</div>
               </div>
             </div>
@@ -73,7 +73,7 @@
               </div>
             </div>
           </div>
-          <div class="countries_select pl-1 pr-1">
+          <div class="countries_select pr-1">
             <div
               class="countries_heading flex justify-between"
               @click="openCategories"
@@ -91,7 +91,7 @@
                   alt=""
                   class="pr-2"
                 />
-                <img v-else src="/images/right.svg" alt="" class="mr-2 mt-1" />
+                <img v-else src="/images/right.svg" alt="" class="mr-2" />
                 <div class="selected_country">{{ selectedCategory }}</div>
               </div>
             </div>
