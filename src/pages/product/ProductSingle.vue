@@ -20,46 +20,32 @@
       </div>
     </div>
     <div class="container">
-<!--      <div class="mt-8">-->
-<!--        <AnimationCard v-if="data?.arkon_file" :link="data?.arkon_file" />-->
-<!--      </div>-->
+      <!--      <div class="mt-8">-->
+      <!--        <AnimationCard v-if="data?.arkon_file" :link="data?.arkon_file" />-->
+      <!--      </div>-->
       <div>
         <div
-            class="mt-8"
-            v-if="usePersonDevice == 'iPhone' && data?.arkon_file"
+          class="mt-8"
+          v-if="usePersonDevice == 'iPhone' && data?.arkon_file"
         >
           <AnimationCard :link="data.arkon_file" />
         </div>
         <div
-            class="mt-8"
-            v-if="usePersonDevice == 'android' && data?.arkon_file_android"
+          class="mt-8"
+          v-if="usePersonDevice == 'android' && data?.arkon_file_android"
         >
           <AnimationCardAndroid :link="data?.arkon_file_android" />
         </div>
       </div>
       <div class="my-4 mt-16 flex flex-col gap-4" v-if="data?.shots?.length">
-        <div v-for="item in data.shots" :key="item">
+        <div v-for="item in data?.shots" :key="item">
           <img :src="item.image" alt="images" class="w-full object-cover" />
         </div>
       </div>
-      <div class="mt-16">
-        <STable
-          v-if="data?.characteristics?.main.length"
-          :is-head="true"
-          :body-item="data?.characteristics?.main"
-        />
-        <STable
-          v-if="data?.characteristics?.standart.length"
-          class="mt-[26px]"
-          :is-head="true"
-          :body-item="data?.characteristics?.standart"
-        />
-        <STable
-          v-if="data?.characteristics?.test.length"
-          class="mt-7 mb-[30px]"
-          :is-head="true"
-          :body-item="data?.characteristics?.test"
-        />
+      <div class="mt-16 mb-4">
+        <div v-for="item in data?.characteristics" :key="item" >
+          <STable :data="item" class="mt-6"/>
+        </div>
       </div>
     </div>
   </div>

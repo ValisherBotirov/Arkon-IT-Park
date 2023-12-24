@@ -3,6 +3,7 @@ interface Props {
   img: string;
   text: string;
   link: string;
+  color: string;
 }
 
 defineProps<Props>();
@@ -13,6 +14,7 @@ defineProps<Props>();
     <img :src="img" alt="images" class="w-full h-full object-cover" />
     <p
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-white font-medium text-xl leading-[23.64px]"
+      :class="`text-[${color}]`"
     >
       {{ text }}
     </p>

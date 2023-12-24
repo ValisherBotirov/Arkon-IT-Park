@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="w-full bg-white "
-  >
+  <div class="w-full bg-white">
     <div class="flex justify-end px-10 pt-10"></div>
     <div class="px-10 py-4">
       <div
@@ -180,7 +178,7 @@ function openFilter() {
   isFilter.value = !isFilter.value;
   if (!isFilter.value) {
     // showResults();
-    allResults.value = []
+    allResults.value = [];
   }
   if (isFilter.value) {
     clearSelectedData();
@@ -204,7 +202,7 @@ function fetchCountry() {
 
 function changeCategory() {
   // if (inputValue.value) {
-    showResults();
+  showResults();
   // } else allResults.value = [];
 }
 

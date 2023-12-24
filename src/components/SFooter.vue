@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <p
-      class="text-center text-[#4B4B4C] font-bold leading-[22px] tracking-[-0.408px] text-sm pt-[10px]"
+      class="text-center text-[#4B4B4C] font-bold leading-[22px] tracking-[-0.408px] text-sm pt-[10px] uppercase"
     >
-      INFORMATION OF COMPANY
+      {{ information_label }}
     </p>
     <div class="mt-3 py-5 border-t border-[#ABB0BC]" v-if="socials?.length">
       <div class="flex items-center gap-[40px] pl-2">
@@ -20,17 +20,20 @@
     </div>
     <div
       class="py-[10px] text-[#4B4B4C] border-t border-[#ABB0BC] flex flex-col gap-1"
+      v-if="email && email_support"
     >
       <a
         :href="giveSiteUrl(email_support)"
         target="_blank"
         class="leading-[22px] inline-block tracking-[-0.41p"
+        v-if="email_support"
       >
         {{ email_support }}
       </a>
       <a
         :href="`mailto:${email}`"
         class="leading-[22px] inline-block tracking-[-0.41px]"
+        v-if="email"
         >{{ email }}</a
       >
     </div>
@@ -45,7 +48,7 @@
           >{{ FormatPhone(phone) }}</a
         >
       </div>
-      <div>
+      <div v-if="location_url">
         <a
           :href="location_url"
           target="_blank"
@@ -72,6 +75,7 @@ interface Props {
   email_support?: string;
   address?: string;
   location_url?: string;
+  information_label?: string;
   socials?: {
     link: string;
     type: ISocial;

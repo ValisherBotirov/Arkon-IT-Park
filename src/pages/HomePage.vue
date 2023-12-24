@@ -14,6 +14,7 @@
       <div class="absolute left-4 bottom-2">
         <p
           class="text-white font-semibold leading-[22px] tracking-[1px] max-w-[250px]"
+          :class="`text-[${brandData?.slogan_color}]`"
         >
           {{ brandData?.slogan }}
         </p>
@@ -42,7 +43,12 @@
         ></p>
       </div>
       <div class="mt-3 !pb-8" v-if="brandData?.filtered_categories?.length">
-        <p class="text-[#4B4B4C] font-bold leading-[22px]">COLLECTIONS</p>
+        <p
+          class="text-[#4B4B4C] font-bold leading-[22px] uppercase"
+          v-if="brandData?.category_label"
+        >
+          {{ brandData?.category_label }}
+        </p>
         <div class="flex flex-col gap-5 pt-[10px]">
           <CategoryCard
             class="!h-full"
@@ -51,12 +57,16 @@
             :link="`/product?id=${item.id}`"
             :text="item.name"
             :img="item.image_thumbnail"
+            :color="item.name_color"
           />
         </div>
       </div>
       <div class="mt-3 !pb-8" v-if="brandData?.filtered_products?.length">
-        <p class="text-[#4B4B4C] font-bold leading-[22px] pb-[10px]">
-          PRODUCTS
+        <p
+          class="text-[#4B4B4C] font-bold leading-[22px] pb-[10px] uppercase"
+          v-if="brandData?.product_label"
+        >
+          {{ brandData?.product_label }}
         </p>
 
         <div class="flex flex-col gap-3">
@@ -68,6 +78,7 @@
               <img :src="item?.image" alt="image" class="w-full object-cover" />
               <p
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-medium text-xl leading-[23.64px]"
+                :class="`text-[${item?.name_color}]`"
               >
                 {{ item?.name }}
               </p>
@@ -104,6 +115,7 @@ const footerData = computed(() => {
     email_support: brandData.value?.email_support,
     address: brandData.value?.address,
     location_url: brandData.value?.location_url,
+    information_label: brandData.value?.information_label,
   };
 });
 
