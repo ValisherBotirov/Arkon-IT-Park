@@ -12,10 +12,11 @@ defineProps<Props>();
 
 <template>
   <div class="h-[350px] w-full bg-white">
-    <model-viewer
-        :src="link"
-        auto-rotate
-        camera-controls
-    ></model-viewer>
+<!--    <model-viewer-->
+<!--        :src="link"-->
+<!--        auto-rotate-->
+<!--        camera-controls-->
+<!--    ></model-viewer>-->
+    <model-viewer :src="link" alt="A 3D model of an astronaut" ar="" autoplay="" camera-controls=""></model-viewer>
   </div>
 </template>

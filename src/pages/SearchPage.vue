@@ -202,9 +202,9 @@ function fetchCountry() {
 }
 
 function changeCategory() {
-  if (inputValue.value) {
+  // if (inputValue.value) {
     showResults();
-  } else allResults.value = [];
+  // } else allResults.value = [];
 }
 
 // Categories
