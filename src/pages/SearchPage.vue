@@ -26,7 +26,7 @@
           <input
             type="text"
             class="text-xl h-full w-full min-h-[18px]"
-            placeholder="Поиск"
+            placeholder="Search"
             v-model="inputValue"
             @focus="isActiveInput = true"
             @input="changeSearchQuery"
@@ -40,19 +40,55 @@
       </div>
 
       <Transition name="fade">
-        <div v-show="isFilter" class="mt-5 flex flex-col gap-5">
-          <SSelect
-            v-model="countrySelect"
-            :data="countrySelectData"
-            placeholder=""
-            @changeSelect="changeCategory"
-          />
-          <SSelect
-            v-model="categorySelect"
-            :data="categorySelectData"
-            placeholder="Categories"
-            @changeSelect="changeCategory"
-          />
+        <div v-show="isFilter" class="mt-5 flex flex-col gap-2">
+         <div class="countries_select pl-1 pr-1">
+           <div class="countries_heading flex justify-between" @click="openDropDown">
+           <div class="county_name">Countries</div>
+            <div class="flex justify-center is-align-center">
+              <img v-if="!selectedCountry" src="@/assets/icon/down.svg" alt="">
+              <img v-else src="@/assets/icon/right.svg" alt="" class="mr-2 mt-1">
+              <div class="selected_country">{{selectedCountry}}</div>
+            </div>
+
+           </div>
+           <div class="countries_body" :class="isCountryShow  ? 'opened_countries_body' : null "  >
+             <div class="countries_list"  v-for="country in countrySelectData" :key="country">
+           <div @click="selectCountry(country.label)">{{country.label}}</div>
+
+             </div>
+           </div>
+         </div>
+
+          <div class="countries_select pl-1 pr-1">
+           <div class="countries_heading flex justify-between" @click="openCategories">
+           <div class="county_name">Categories</div>
+            <div class="flex justify-center is-align-center">
+              <img v-if="!selectedCategory" src="@/assets/icon/down.svg" alt="">
+              <img v-else src="@/assets/icon/right.svg" alt="" class="mr-2 mt-1">
+              <div class="selected_country">{{selectedCategory}}</div>
+            </div>
+
+           </div>
+           <div class="countries_body" :class="isCategoryShow  ? 'opened_countries_body' : null "  >
+             <div class="countries_list"  v-for="category in categorySelectData" :key="category">
+           <div @click="selectCategory(category.label)">{{category.label}}</div>
+
+             </div>
+           </div>
+         </div>
+<!--          <SSelect-->
+<!--            v-model="countrySelect"-->
+<!--            :data="countrySelectData"-->
+<!--            placeholder=""-->
+<!--            @changeSelect="changeCategory"-->
+<!--          />-->
+<!--          <SSelect-->
+<!--            v-model="categorySelect"-->
+<!--            :data="categorySelectData"-->
+<!--            placeholder="Categories"-->
+<!--            @changeSelect="changeCategory"-->
+<!--          />-->
+
         </div>
       </Transition>
 
@@ -109,6 +145,13 @@ const emit = defineEmits(["closeSidebar"]);
 
 const inputValue = ref("");
 
+//  ******* new *****
+const isCountryShow = ref(false);
+const isCategoryShow = ref(false);
+const selectedCountry = ref('');
+const selectedCategory = ref('');
+
+
 function clearInput() {
   isActiveInput.value = false;
   inputValue.value = "";
@@ -124,6 +167,9 @@ function openFilter() {
   isFilter.value = !isFilter.value;
   if (!isFilter.value && inputValue.value) {
     showResults();
+  }
+  if (isFilter.value) {
+    clearSelectedData()
   }
 }
 
@@ -195,6 +241,32 @@ function showResults() {
       console.log(err);
     });
 }
+//  *****************************  filter ************************** 
+
+const openDropDown = () => {
+  isCountryShow.value = !isCountryShow.value
+  if (isCountryShow.value) {
+    isCategoryShow.value = false
+  }
+}
+const openCategories = () => {
+  isCategoryShow.value = !isCategoryShow.value
+  if (isCategoryShow.value) {
+    isCountryShow.value = false
+  }
+}
+const selectCountry = (name: string) => {
+  selectedCountry.value = name
+  isCountryShow.value = false
+}
+const selectCategory = (name: string) => {
+  selectedCategory.value = name
+  isCategoryShow.value = false
+}
+const clearSelectedData = () => {
+  selectedCountry.value = ''
+  selectedCategory.value = ''
+}
 
 onMounted(() => {
   fetchCountry();
@@ -204,6 +276,31 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.countries_heading {
+  border-bottom: 1px solid #ABB0BC;
+  padding-bottom: 8px;
+}
+
+.countries_body {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all .2s linear;
+  transform: translateY(-10px);
+   position: absolute;
+}.opened_countries_body {
+   transform: translateY(0);
+   padding-bottom: 40px;
+   width: 100%;
+   background: var(--el-color-white);
+  opacity: 1;
+  height: auto;
+  overflow: visible;
+}
+ .selected_country {
+   transition: all .3s linear;
+ }
+
 .fade-enter-from {
   transition: all 0.3s;
   opacity: 0;
