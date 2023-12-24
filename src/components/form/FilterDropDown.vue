@@ -24,7 +24,14 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref, defineEmits, watch } from "vue";
+import {
+  defineProps,
+  ref,
+  defineEmits,
+  watch,
+  onBeforeUnmount,
+  onMounted,
+} from "vue";
 
 const props = defineProps({
   title: String,
@@ -34,10 +41,9 @@ const props = defineProps({
   selectedValue: String,
 });
 
-const emit = defineEmits(["select", "toggle"]);
+const emit = defineEmits(["select", "toggle", "resetSelected"]);
 
-const selected = ref(props.selectedValue);
-
+const selected = ref(props?.selectedValue);
 const downIcon = "/images/down.svg";
 const rightIcon = "/images/right.svg";
 
@@ -50,9 +56,18 @@ const handleSelection = (label: string) => {
 watch(
   () => props.selectedValue,
   (newValue) => {
-    selected.value = newValue;
+    emit("resetSelected", newValue);
   }
 );
+onMounted(() => {
+  if (props.isSelected) {
+    selected.value = "";
+  }
+});
+
+onBeforeUnmount(() => {
+  selected.value = "";
+});
 </script>
 
 <style></style>
