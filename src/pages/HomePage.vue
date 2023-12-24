@@ -14,7 +14,7 @@
       <div class="absolute left-4 bottom-2">
         <p
           class="text-white font-semibold leading-[22px] tracking-[1px] max-w-[250px]"
-          :class="`text-[${brandData?.slogan_color}]`"
+           :style="{color:brandData?.slogan_color}"
         >
           {{ brandData?.slogan }}
         </p>
@@ -78,7 +78,7 @@
               <img :src="item?.image" alt="image" class="w-full object-cover" />
               <p
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  font-medium text-xl leading-[23.64px]"
-                :class="`text-[${item?.name_color}]`"
+                :style="{color:item?.name_color}"
               >
                 {{ item?.name }}
               </p>

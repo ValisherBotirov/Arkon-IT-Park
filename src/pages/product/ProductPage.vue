@@ -14,7 +14,7 @@
       <div
         class="w-full h-full top-0 z-20 absolute flex justify-center items-center"
       >
-        <p class="font-bold text-lg leading-6 tracking-[2px] uppercase" :class="`!text-[${data?.name_color}]`">
+        <p class="font-bold text-lg leading-6 tracking-[2px] uppercase"  :style="{color:data?.name_color}">
           {{ data?.name }}
         </p>
       </div>
