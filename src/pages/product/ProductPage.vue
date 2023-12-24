@@ -23,7 +23,7 @@
       <p
         class="text-[#4B4B4C] font-bold leaading-[22px] tracking-[-0.408px] mt-[18px]"
       >
-        TEXT
+        TYPES
       </p>
       <div class="flex flex-col gap-5 relative z-20 mt-2 pb-5">
         <CategoryCard
