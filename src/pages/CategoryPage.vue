@@ -8,7 +8,7 @@
         >
           B R A N D S
         </p>
-        <div></div>
+        <BackSVG  class="-ml-4 opacity-0" />
       </div>
       <div
         class="flex flex-col gap-[18px] mt-[18px] !mb-[70px]"
