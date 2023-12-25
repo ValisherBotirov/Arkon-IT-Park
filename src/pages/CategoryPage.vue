@@ -24,7 +24,7 @@
         </div>
       </div>
       <div v-else>
-        <p class="text-center mt-8 font-medium text-xl">Malumotlar topilmadi</p>
+        
       </div>
     </div>
   </div>
