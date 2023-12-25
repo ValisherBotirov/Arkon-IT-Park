@@ -60,7 +60,7 @@ function addMarkersToMap() {
           el.name +
           '</p>  <a href="/home?id=' +
           el.brand +
-          '" class="inline-block !text-sm">Se the website</a></a>'
+          '" class="inline-block !text-sm">See the website</a></a>'
       );
   });
 }
