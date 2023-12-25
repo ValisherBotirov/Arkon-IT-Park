@@ -10,7 +10,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div
-    class="cursor-pointer p-4 drop-shadow-md backdrop-saturate-50 bg-white/30"
+    class="cursor-pointer p-4 drop-shadow-md backdrop-saturate-50"
   >
     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="26" viewBox="0 0 19 26" fill="none">
 <g filter="url(#filter0_d_288_21)">
