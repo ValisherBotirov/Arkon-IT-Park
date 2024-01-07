@@ -58,6 +58,7 @@
             :text="item.name"
             :img="item.image_thumbnail"
             :color="item.name_color"
+            :align="item.align"
           />
         </div>
       </div>
@@ -76,9 +77,15 @@
               class="inline-block w-full relative"
             >
               <img :src="item?.image" alt="image" class="w-full object-cover" />
-              <p
+              <p v-if="item.align == 'center'"
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  font-medium text-xl leading-[23.64px]"
                 :style="{color:item?.name_color}"
+              >
+                {{ item?.name }}
+              </p>
+              <p v-if="item.align == 'bottom'"
+                  class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2  font-medium text-xl leading-[23.64px]"
+                  :style="{color:item?.name_color}"
               >
                 {{ item?.name }}
               </p>
