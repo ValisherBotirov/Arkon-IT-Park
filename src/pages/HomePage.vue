@@ -2,7 +2,7 @@
   <div>
     <div class="relative">
       <BackSVG
-        mood="#fff"
+        mood="#000"
         class="absolute left-4 top-[31px]"
         @click="router.go(-1)"
       />
