@@ -56,9 +56,9 @@
             :key="item"
             :link="`/product?id=${item.id}`"
             :text="item.name"
+            :align="item.align"
             :img="item.image_thumbnail"
             :color="item.name_color"
-            :align="item.align"
           />
         </div>
       </div>

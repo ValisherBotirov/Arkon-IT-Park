@@ -32,7 +32,7 @@
           :link="`/product/${item.id}`"
           :text="item.name"
           :img="item.image"
-          :color="item.name_color"/>
+          :color="item.name_color" :align="item.align"/>
       </div>
     </div>
     <Footer
