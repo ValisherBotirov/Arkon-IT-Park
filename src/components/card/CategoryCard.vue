@@ -4,7 +4,7 @@ interface Props {
   text: string;
   link: string;
   color: string;
-  align:string
+  align?:string
 }
 
 defineProps<Props>();
@@ -20,8 +20,8 @@ defineProps<Props>();
       {{ text }}
     </p>
     <p v-if="align == 'bottom'"
-       class="absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 z-20 font-medium text-xl leading-[23.64px]"
-       :style="{color:color}"
+        class="absolute bottom-0 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 font-medium text-xl leading-[23.64px]"
+        :style="{color:color}"
     >
       {{ text }}
     </p>

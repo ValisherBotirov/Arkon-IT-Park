@@ -3,7 +3,7 @@
     <div class="relative">
       <BackSVG
         mood="#000"
-        class="absolute left-4 top-[31px]"
+        class="absolute left-4 top-[31px] z-[30]"
         @click="router.go(-1)"
       />
       <img
@@ -11,7 +11,14 @@
         alt=""
         class="w-full h-[200px] object-cover rounded-0"
       />
-      <div class="absolute left-4 bottom-2">
+      <div v-if="brandData?.align == 'center'"
+           class="w-full h-full top-0 z-20 absolute flex justify-center items-center"
+      >
+        <p class="font-bold text-lg leading-6 tracking-[2px] uppercase"  :style="{color:brandData?.slogan_color}">
+          {{ brandData?.slogan  }}
+        </p>
+      </div>
+      <div class="absolute left-4 bottom-2" v-if="brandData?.align == 'bottom'">
         <p
           class="text-white font-semibold leading-[22px] tracking-[1px] max-w-[250px]"
            :style="{color:brandData?.slogan_color}"
@@ -56,9 +63,9 @@
             :key="item"
             :link="`/product?id=${item.id}`"
             :text="item.name"
-            :align="item.align"
             :img="item.image_thumbnail"
             :color="item.name_color"
+            :align="item.align_list"
           />
         </div>
       </div>
@@ -77,13 +84,13 @@
               class="inline-block w-full relative"
             >
               <img :src="item?.image" alt="image" class="w-full object-cover" />
-              <p v-if="item.align == 'center'"
+              <p v-if="item?.align_list == 'center'"
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  font-medium text-xl leading-[23.64px]"
                 :style="{color:item?.name_color}"
               >
                 {{ item?.name }}
               </p>
-              <p v-if="item.align == 'bottom'"
+              <p v-if="item?.align_list == 'bottom'"
                   class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2  font-medium text-xl leading-[23.64px]"
                   :style="{color:item?.name_color}"
               >

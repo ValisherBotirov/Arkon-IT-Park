@@ -11,9 +11,14 @@
         alt=""
         class="w-full h-[200px] object-cover rounded-0"
       />
-      <div
+      <div v-if="data?.align == 'center'"
         class="w-full h-full top-0 z-20 absolute flex justify-center items-center"
       >
+        <p class="font-bold text-lg leading-6 tracking-[2px] uppercase"  :style="{color:data?.name_color}">
+          {{ data?.name }}
+        </p>
+      </div>
+      <div class="absolute z-20 left-4 bottom-2" v-if="data?.align == 'bottom'">
         <p class="font-bold text-lg leading-6 tracking-[2px] uppercase"  :style="{color:data?.name_color}">
           {{ data?.name }}
         </p>
@@ -32,7 +37,10 @@
           :link="`/product/${item.id}`"
           :text="item.name"
           :img="item.image"
-          :color="item.name_color" :align="item.align"/>
+          :color="item.name_color"
+          :align="item.align_list"
+        />
+
       </div>
     </div>
     <Footer
