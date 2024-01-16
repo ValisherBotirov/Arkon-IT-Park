@@ -12,11 +12,7 @@ defineProps<Props>();
 
 <template>
  <div>
-   <p v-if="align == 'bottom'"
-      class="font-bold text-sm text-black"
-   >
-     {{ text }}
-   </p>
+
    <router-link :to="`${link}`" class="relative w-full">
      <img :src="img" alt="images" class="w-full h-full object-cover" />
      <p v-if="align == 'center'"
@@ -27,5 +23,10 @@ defineProps<Props>();
      </p>
 
    </router-link>
+   <p v-if="align == 'bottom'"
+      class="font-bold text-sm text-black pt-1"
+   >
+     {{ text }}
+   </p>
  </div>
 </template>

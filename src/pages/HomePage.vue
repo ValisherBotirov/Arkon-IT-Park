@@ -79,11 +79,7 @@
 
         <div class="flex flex-col gap-3">
           <div v-for="item in brandData?.filtered_products" :key="item">
-            <p v-if="item?.align_list == 'bottom'"
-               class="font-bold text-base leading-[23.64px]"
-            >
-              {{ item?.name }}
-            </p>
+
             <router-link
               :to="`/product/${item.id}`"
               class="inline-block w-full relative"
@@ -102,6 +98,11 @@
 <!--                {{ item?.name }}-->
 <!--              </p>-->
             </router-link>
+            <p v-if="item?.align_list == 'bottom'"
+               class="font-bold text-base leading-[23.64px] pt-1"
+            >
+              {{ item?.name }}
+            </p>
           </div>
         </div>
       </div>
