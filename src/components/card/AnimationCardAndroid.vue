@@ -22,7 +22,6 @@ defineProps<Props>();
       autoplay
       camera-controls
       ar-status="not-presenting"
-      ar-placement="wall"
       touch-action="pan-y"
     ></model-viewer>
   </div>
