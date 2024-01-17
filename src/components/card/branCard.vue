@@ -25,7 +25,7 @@ defineProps<Props>();
           <img
             :src="item?.image"
             alt="logo"
-            class="flex-shrink-0 w-full h-full cursor-pointer flex"
+            class="flex-shrink-0 w-full h-full cursor-pointer flex rounded-[16px]"
           />
           <p
             class="font-[Staatliches] leading-[30px] text-2xl bottom-[8px] absolute text-white left-[21px] text-shadow"
