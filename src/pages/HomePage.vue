@@ -11,17 +11,21 @@
         alt=""
         class="w-full h-[200px] object-cover rounded-0"
       />
-      <div v-if="brandData?.align == 'center'"
-           class="w-full h-full top-0 z-20 absolute flex justify-center items-center"
+      <div
+        v-if="brandData?.align == 'center'"
+        class="w-full h-full top-0 z-20 absolute flex justify-center items-center"
       >
-        <p class="font-bold text-lg leading-6 tracking-[2px] uppercase"  :style="{color:brandData?.slogan_color}">
-          {{ brandData?.slogan  }}
+        <p
+          class="font-bold text-lg leading-6 tracking-[2px] uppercase"
+          :style="{ color: brandData?.slogan_color }"
+        >
+          {{ brandData?.slogan }}
         </p>
       </div>
       <div class="absolute left-4 bottom-2" v-if="brandData?.align == 'bottom'">
         <p
           class="text-white font-semibold leading-[22px] tracking-[1px] max-w-[250px]"
-           :style="{color:brandData?.slogan_color}"
+          :style="{ color: brandData?.slogan_color }"
         >
           {{ brandData?.slogan }}
         </p>
@@ -79,27 +83,28 @@
 
         <div class="flex flex-col gap-3">
           <div v-for="item in brandData?.filtered_products" :key="item">
-
             <router-link
               :to="`/product/${item.id}`"
               class="inline-block w-full relative"
             >
               <img :src="item?.image" alt="image" class="w-full object-cover" />
-              <p v-if="item?.align_list == 'center'"
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  font-medium text-xl leading-[23.64px]"
-                :style="{color:item?.name_color}"
+              <p
+                v-if="item?.align_list == 'center'"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-medium text-xl leading-[23.64px]"
+                :style="{ color: item?.name_color }"
               >
                 {{ item?.name }}
               </p>
-<!--              <p v-if="item?.align_list == 'bottom'"-->
-<!--                  class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2  font-medium text-xl leading-[23.64px]"-->
-<!--                  :style="{color:item?.name_color}"-->
-<!--              >-->
-<!--                {{ item?.name }}-->
-<!--              </p>-->
+              <!--              <p v-if="item?.align_list == 'bottom'"-->
+              <!--                  class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2  font-medium text-xl leading-[23.64px]"-->
+              <!--                  :style="{color:item?.name_color}"-->
+              <!--              >-->
+              <!--                {{ item?.name }}-->
+              <!--              </p>-->
             </router-link>
-            <p v-if="item?.align_list == 'bottom'"
-               class="font-bold text-base leading-[23.64px] pt-1"
+            <p
+              v-if="item?.align_list == 'bottom'"
+              class="font-bold text-base leading-[23.64px] pt-1"
             >
               {{ item?.name }}
             </p>

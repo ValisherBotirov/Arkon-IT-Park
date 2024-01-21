@@ -6,6 +6,7 @@
         class="absolute z-[30] left-4 top-[31px]"
         @click="router.go(-1)"
       />
+
       <img
         :src="data?.image"
         alt=""
@@ -14,7 +15,10 @@
       <div
         class="absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
-        <p class="leading-[22px] tracking-[-0.41px] max-w-[250px]"  :style="{color:data?.name_color}">
+        <p
+          class="leading-[22px] tracking-[-0.41px] max-w-[250px]"
+          :style="{ color: data?.name_color }"
+        >
           {{ data?.name }}
         </p>
       </div>
@@ -31,6 +35,7 @@
           class="mt-8"
           v-if="usePersonDevice == 'android' && data?.arkon_file_android"
         >
+
           <AnimationCardAndroid :link="data?.arkon_file_android" />
         </div>
       </div>
@@ -40,8 +45,8 @@
         </div>
       </div>
       <div class="mt-8 mb-4">
-        <div v-for="item in data?.characteristics" :key="item" >
-          <STable :data="item" class="mt-6"/>
+        <div v-for="item in data?.characteristics" :key="item">
+          <STable :data="item" class="mt-6" />
         </div>
       </div>
     </div>
