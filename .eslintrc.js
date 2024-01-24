@@ -19,4 +19,7 @@ module.exports = {
     "no-console": "warn",
     "@typescript-eslint/explicit-module-boundary-types": "off",
   },
+  globals: {
+    google: "readonly",
+  },
 };

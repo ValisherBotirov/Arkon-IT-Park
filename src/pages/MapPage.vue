@@ -1,23 +1,20 @@
 <template>
   <div class="relative z-10">
-    <div class="w-screen h-[90vh]" ref="mapContainer"></div>
+    <div class="w-screen h-[90vh]" id="map"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import L from "leaflet";
+import { onMounted } from "vue";
 import axios from "@/plugins/axios";
 
-const mapContainer = ref("");
+declare global {
+  interface Window {
+    initMap: () => void;
+  }
+}
 
-const map = ref();
-
-const myIcon = L.icon({
-  iconUrl: "location.png",
-  iconSize: [28, 45],
-  popupAnchor: [-3, -76],
-});
+const location = ref<ILocation[]>([]);
 
 interface ILocation {
   icon?: string;
@@ -27,11 +24,11 @@ interface ILocation {
   brand?: number;
 }
 
-const location = ref<ILocation[]>([]);
+let map: google.maps.Map;
+
 async function fetchMarkerLocation() {
   try {
     const response = await axios.get<ILocation[]>(`all-locations/`);
-    clearMarkers();
     location.value = response.data;
     addMarkersToMap();
   } catch (err) {
@@ -39,51 +36,45 @@ async function fetchMarkerLocation() {
   }
 }
 
-function clearMarkers() {
-  map.value.eachLayer((layer) => {
-    if (layer instanceof L.Marker) {
-      map.value.removeLayer(layer);
-    }
-  });
-}
-
 function addMarkersToMap() {
   location.value.forEach((el) => {
-    L.marker([el.long, el.lat])
-      .addTo(map.value)
-      .bindPopup(
-        '<a href="/home?id=' +
-          el.brand +
-          '"> <img src="' +
-          el.icon +
-          '" class="w-[50px] h-[50px] object-cover rounded-[50%]"> <p class="font-medium min-w-[130px] text-black"> ' +
-          el.name +
-          '</p>  <a href="/home?id=' +
-          el.brand +
-          '" class="inline-block !text-sm">See the website</a></a>'
-      );
+    const marker = new google.maps.Marker({
+      position: new google.maps.LatLng(el.lat, el.long),
+      map: map,
+      icon: el.icon,
+    });
+
+    const contentString = '<a href="/home?id=' + el.brand + '">...</a>'; // Adjust your popup content here
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString,
+    });
+
+    marker.addListener("click", () => {
+      infowindow.open(map, marker);
+    });
   });
 }
 
-onMounted(async () => {
-  map.value = L.map(mapContainer.value).setView([41.311081, 69.240562], 11);
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution:
-      '&copy; <a href="http://www.openstreetmap.org/copyright">Arkon</a>',
-  }).addTo(map.value);
+window.initMap = () => {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 41.311081, lng: 69.240562 },
+    zoom: 11,
+  });
+  fetchMarkerLocation();
+};
 
-  await fetchMarkerLocation();
-
-  const text = document.querySelector(
-    ".leaflet-control-attribution.leaflet-control"
-  );
-  text.style.opacity = 0;
+onMounted(() => {
+  const script = document.createElement("script");
+  script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`;
+  script.async = true;
+  document.head.appendChild(script);
 });
 </script>
 
 <style scoped>
-.leaflet-bottom.leaflet-right {
-  display: none !important;
+#map {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  /* Other styles as needed */
 }
 </style>
