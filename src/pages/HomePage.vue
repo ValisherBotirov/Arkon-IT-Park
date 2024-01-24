@@ -95,19 +95,7 @@
               >
                 {{ item?.name }}
               </p>
-              <!--              <p v-if="item?.align_list == 'bottom'"-->
-              <!--                  class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2  font-medium text-xl leading-[23.64px]"-->
-              <!--                  :style="{color:item?.name_color}"-->
-              <!--              >-->
-              <!--                {{ item?.name }}-->
-              <!--              </p>-->
             </router-link>
-            <p
-              v-if="item?.align_list == 'bottom'"
-              class="font-bold text-base leading-[23.64px] pt-1"
-            >
-              {{ item?.name }}
-            </p>
           </div>
         </div>
       </div>
